@@ -1,0 +1,86 @@
+* {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 160;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header
+{
+    background-image: url(images/Aurora-Background.jpg);
+    text-align: center;
+    padding: 5rem 0rem;
+    cursor: default;
+    color: white;
+
+    button
+    {
+        background-color: cornflowerblue;
+        transition-duration: 0.5s;
+        width: 30%;
+        height: 2rem;
+        border: 0;
+    }
+
+    button:hover
+    {
+        cursor: pointer;
+        background-color: blueviolet;
+    }
+}
+
+body
+{
+    display: grid;
+    grid-template-columns: 1fr 3fr 3fr 1fr;
+
+    header
+    {
+        grid-column: 1/-1;
+    }
+
+    nav
+    {
+        grid-column: 1/-1;
+        background-color: darkslategrey;
+        color: white;
+        text-align: center;
+        
+        ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+                
+                li {
+                    transition-duration: 0.5s;
+                    a {
+                        text-decoration: none;
+                        line-height: 2rem;
+                        color: white;
+                        size: smaller;
+                        width: 100%;
+                        height: 100%;
+                        display: block;
+                    }
+                }
+
+                li:hover {
+                    background-color: gray;
+                }
+            }
+    }
+
+    main
+    {
+        grid-column: 2/-2;
+    }
+}
+
+footer
+{
+    grid-column: 1/-1;
+}
