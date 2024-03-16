@@ -194,7 +194,7 @@ Pale Yellow: #FFFF99 */
         {
             border: 0;
             border-radius: 0.25rem;
-            padding: 1rem 1rem;
+            padding: 1rem 15%;
             margin-top: 2rem;
 
             display: flex;
@@ -271,16 +271,56 @@ footer
 
 @media (min-width: 800px)
 {
-    body nav {
-        ul {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            flex-wrap: nowrap;
+    body {
+            nav {
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                flex-wrap: nowrap;
 
-            padding: 0;
+                padding: 0;
 
-            li {width: 25%; height: 100%; margin: 0;}
+                li {width: 25%; height: 100%; margin: 0;}
+            }
+        }
+
+        .search
+        {
+            display: grid;
+            grid-template-rows: 4;
+            grid-template-columns: 3;
+
+            a {grid-area: heading-field; margin: 2rem;}
+            .year-field {grid-area: year-field;}
+            .car-type-field {grid-area: car-type-field;}
+            .make-field {grid-area: make-field;}
+            .model-field {grid-area: model-field;}
+            .min-price-field {grid-area: min-price-field;}
+            .max-price-field {grid-area: max-price-field;}
+            .submit {grid-area: submit-field;}
+
+            div
+            {
+                transition-duration: 1s;
+                padding: 1rem;
+                select {transition-duration: 1s;}
+                input {transition-duration: 1s;}
+            }
+
+            div:hover:not(.submit)
+            {
+                background-color: whitesmoke;
+                border-radius: 1rem;
+                select {background-color: white;}
+                input {background-color: white};
+            }
+
+            grid-template-areas:
+            "heading-field heading-field heading-field"
+            "year-field make-field model-field"
+            "car-type-field min-price-field max-price-field"
+            "submit-field submit-field submit-field";
         }
     }
 }
