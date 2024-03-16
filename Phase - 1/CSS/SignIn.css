@@ -14,6 +14,27 @@ body {
     margin-bottom: 2.5rem;
     background-image: linear-gradient(lightgray, darkslategray);
 
+    header
+    {
+        text-align: center;
+        margin: auto;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        width: 80vw;
+        border-radius: 0.5rem;
+
+        a
+        {
+            text-decoration: none;
+            color: darkslategray;
+
+            h1 {margin-bottom: 0; font-weight: 900;}
+            p {margin-top: 0; font-weight: 700;}
+        }
+
+        cursor: default;
+    }
+
     .Sign-In_Page {
 
         padding: 1rem;
@@ -43,20 +64,11 @@ body {
                 margin-left: auto;
                 margin-right: auto;
 
-                .Overlay-Title {
-                    position: absolute;
-                    text-align: center;
-                    left: 50%; top: 20%;
-                    transform: translate(-50%, -50%);
-                    color: white;
-                }
-
                 .Overlay-Text {
                     position: absolute;
                     text-align: center;
-                    bottom: 10%;
-                    left: 2%;
-                    right: 2%;
+                    left: 50%; top: 50%;
+                    transform: translate(-50%, -50%);
                     color: white;
                 }
             }
