@@ -255,6 +255,68 @@ Pale Yellow: #FFFF99 */
 
         .review-bracket:hover {box-shadow: 0rem 0.1rem 1rem gray;}
     }
+
+/* Styles for the cars section */
+.cars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Styles for individual car boxes */
+.cars {
+    margin-top: 2rem;
+    a { text-decoration: none; h1 {text-align: center; font-size: 3rem;} }
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .car-box {
+        width: calc(25% - 20px); 
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 20px;
+        box-sizing: border-box; 
+
+        &:nth-child(n + 5) {
+            margin-top: 20px; 
+        }
+
+        &:nth-child(odd) {
+            margin-right: 20px; 
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .car-info {
+            font-weight: bold;
+        }
+
+        .car-name {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .car-description {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        &:hover {
+            box-shadow: 0rem 0.1rem 1rem gray; 
+            cursor: pointer;
+        
+    }
+}
+
+
+
     
 }
 
