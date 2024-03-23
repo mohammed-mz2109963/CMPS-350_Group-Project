@@ -261,7 +261,9 @@ Pale Yellow: #FFFF99 */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    
 }
+
 
 /* Styles for individual car boxes */
 .cars {
@@ -308,11 +310,13 @@ Pale Yellow: #FFFF99 */
             margin-top: 5px;
             font-size: 14px;
         }
-        &:hover {
+         &:hover {
             box-shadow: 0rem 0.1rem 1rem gray; 
             cursor: pointer;
         
-    }
+        
+    }  
+    
 }
 
 
