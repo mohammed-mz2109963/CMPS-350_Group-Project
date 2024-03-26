@@ -92,80 +92,82 @@
         </section>
 
         <section class="search" id="search">
+            <form action = "" class = "search-car-form" id = "search-car-form">
 
-            <br><br><a href="#search">
-                <h1>Find Your Car</h1>
-            </a><br><br>
+                <br><br><a href="#search">
+                    <h1>Find Your Car</h1>
+                </a><br><br>
 
-            <div class="year-field" id="year-field">
-                <label for="year">Year:</label><br>
-                <select name="year" id="year">
+                <div class="year-field" id="year-field">
+                    <label for="year">Year:</label><br>
+                    <select name="year" id="year">
 
-                    <option value="Select Year">Select Year</option>
-                    <option value="2024">2024</option>
-                    <option value="2023">2023</option>
-                    <option value="2022">2022</option>
-                    <option value="2021">2021</option>
-                    <option value="2020">2020</option>
+                        <option value="Select Year">Select Year</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
 
-                </select>
-            </div>
+                    </select>
+                </div>
 
-            <div class="car-type-field" id="car-type-field">
-                <label for="car-type">Car Type:</label><br>
-                <select name="car-type" id="car-type">
+                <div class="car-type-field" id="car-type-field">
+                    <label for="car-type">Car Type:</label><br>
+                    <select name="car-type" id="car-type">
 
-                    <option value="Select Type">Select Type</option>
-                    <option value="Hatchback">Hatchback</option>
-                    <option value="Sedan">Sedan</option>
-                    <option value="SUV">SUV</option>
-                    <option value="MUV">MUV</option>
-                    <option value="Coupe">Coupe</option>
-                    <option value="Convertible">Convertible</option>
-                    <option value="Pickup">Pickup</option>
+                        <option value="Select Type">Select Type</option>
+                        <option value="Hatchback">Hatchback</option>
+                        <option value="Sedan">Sedan</option>
+                        <option value="SUV">SUV</option>
+                        <option value="MUV">MUV</option>
+                        <option value="Coupe">Coupe</option>
+                        <option value="Convertible">Convertible</option>
+                        <option value="Pickup">Pickup</option>
 
-                </select>
-            </div>
+                    </select>
+                </div>
 
-            <div class="make-field" id="make-field">
-                <label for="make">Make:</label><br>
-                <select name="make" id="make">
+                <div class="make-field" id="make-field">
+                    <label for="make">Make:</label><br>
+                    <select name="make" id="make">
 
-                    <option value="Select Make">Select Make</option>
-                    <option value="Toyota">Toyota</option>
-                    <option value="Ford">Ford</option>
-                    <option value="Aston Martin">Aston Martin</option>
-                    <option value="Volkswagon">Volkswagon</option>
-                    <option value="Porsche">Porsche</option>
+                        <option value="Select Make">Select Make</option>
+                        <option value="Toyota">Toyota</option>
+                        <option value="Ford">Ford</option>
+                        <option value="Aston Martin">Aston Martin</option>
+                        <option value="Volkswagon">Volkswagon</option>
+                        <option value="Porsche">Porsche</option>
 
-                </select>
-            </div>
+                    </select>
+                </div>
 
-            <div class="model-field" id="model-field">
-                <label for="model">Model:</label><br>
-                <select name="model" id="model">
+                <div class="model-field" id="model-field">
+                    <label for="model">Model:</label><br>
+                    <select name="model" id="model">
 
-                    <option value="Select Model">Select Model</option>
+                        <option value="Select Model">Select Model</option>
 
-                </select>
-            </div>
+                    </select>
+                </div>
 
-            <div class="min-price-field" id="min-price-field">
-                <label for="min-price">Minimum Price:</label><br>
-                <input type="text" name="min-price" id="min-price">
-            </div>
+                <div class="min-price-field" id="min-price-field">
+                    <label for="min-price">Minimum Price:</label><br>
+                    <input type="text" name="min-price" id="min-price">
+                </div>
 
-            <div class="max-price-field id = " max-price-field">
-                <label for="max-price">Maximum Price:</label><br>
-                <input type="text" name="max-price" id="max-price">
-            </div>
+                <div class="max-price-field id = " max-price-field">
+                    <label for="max-price">Maximum Price:</label><br>
+                    <input type="text" name="max-price" id="max-price">
+                </div>
 
-            <div class="submit" id="submit">
-                <form action="/this-will-redirect-to-the-page-with-the-car-that-the-user-will-search-for" method="GET">
+                <div class="submit" id="submit">
+                    <!-- <form action="/this-will-redirect-to-the-page-with-the-car-that-the-user-will-search-for" method="GET"> -->
                     <!-- <input type="search" class="search-button" id="search-button"> -->
-                    <button>Submit</button>
-                </form>
-            </div>
+                    <button type="submit" class = "submit-search-form" id = "submit-search-form">Submit</button>
+                    <!-- </form> -->
+                </div>
+            </form>
         </section>
 
         <section class="cars" id="cars">
