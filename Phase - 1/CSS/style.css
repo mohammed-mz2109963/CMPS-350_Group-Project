@@ -101,3 +101,55 @@ html ::-webkit-scrollbar-thumb{
     color: salmon;
     border-bottom: .1rem solid salmon;
 }
+
+/* utilities */
+
+.animate {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.animate--infinite{
+    animation-iteration-count: infinite;
+}
+
+.animate--delay-1s {
+    animation-delay: 1s;
+}
+
+.animate--fast{
+    animation-duration: 0.5s;
+}
+
+.animate--slow{
+    animation-duration: 3s;
+}
+
+/* Animations */
+
+@keyframes slideFromLeft{
+    from{
+        transform: translateX(-300px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+@keyframes slideFromRight{
+    from{
+        transform: translateX(300px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.slideFromLeft{
+    animation-name: slideFromLeft;
+    animation-timing-function: ease-in;
+}
+
+.slideFromRight{
+    animation-name: slideFromRight;
+    animation-timing-function: ease-in;
+}
