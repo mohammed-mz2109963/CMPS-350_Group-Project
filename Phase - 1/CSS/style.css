@@ -171,3 +171,13 @@ html ::-webkit-scrollbar-thumb{
 .bounce{
     animation-name: bounce;
 }
+
+
+.footer .socials .soc:hover {
+    transition: transform 0.3s ease;
+}
+
+.hb1:hover{
+    transition: transform 0.3s ease;
+}
+
