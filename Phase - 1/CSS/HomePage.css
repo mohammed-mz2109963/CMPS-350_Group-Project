@@ -16,67 +16,6 @@
 } */
 
 
-    
-
-.head {
-    display: flex;
-    
-    padding: 1.5rem 7%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    border-bottom: darkslategray; 
-    background-color: darkslategray;
-    /* background-image: url(images/Aurora-Background.jpg);
-    text-align: center;
-    padding: 5rem 0rem;
-    cursor: default;
-    color: white;
-
-    h1 {color: white; font-size: 3rem;}  */
-}
-.head ,.navigation  {
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    justify-content: space-evenly;
-
-}
-
-.head .menu-icons{
-    display: inline-flex
-}
-.head .logo img{
-    height: 5rem;
-}
-
-.head .navigation a{
-    margin: 2rem;
-    font-size: 1.6rem;
-    color: whitesmoke;
-
-}
-
-.head .navigation a:hover{
-    color: salmon;
-    border-bottom: .1rem solid salmon;
-}
-
-.head .menu-icons img{
-    color: whitesmoke;
-    cursor: pointer;
-    font-size: 2.5rem;
-    margin-left: 2rem;
-}
-
-
-.head .menu-icons img:hover{
-    color: salmon;
-    border-bottom: .1rem solid salmon;
-}
 
 .home {
     padding: 10rem;
@@ -94,7 +33,7 @@
 }
 
 .home .name h3{
-    font-size: 5rem;
+    font-size: 7rem;
     text-transform: capitalize;
     color: whitesmoke; 
 }
@@ -106,6 +45,48 @@
     padding: 1rem 0;
     
 }
+
+.hbc {
+    margin-top: 2rem ;
+    text-align: left;
+}
+
+.hb{
+    
+    border: 5px solid green;
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    padding: 18px;
+    
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.hb1 {
+    background-color: darkslategray;
+    color: #fff;
+}
+
+.hb1:hover{
+    color: #fff;
+}
+
+.hb::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: darkslategray;
+    
+    transition: 0.5s;
+    
+}
+
+
+
+
+
     /* button
     {
         background-color: cornflowerblue;
