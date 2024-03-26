@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "model": "Civic",
+    "type": "Sedan",
+    "make": "Honda",
+    "year": 2022,
+    "price": 25000,
+    "image_url": "https://w0.peakpx.com/wallpaper/403/285/HD-wallpaper-2022-honda-civic-sedan-touring.jpg"
+  },
+  {
+    "id": 2,
+    "model": "Corolla",
+    "type": "Sedan",
+    "make": "Toyota",
+    "year": 2023,
+    "price": 27000,
+    "image_url": "https://ymimg1.b8cdn.com/uploads/used_car/2023/5/15/1448785/pictures/10032195/Toyota_Corolla_2023_in_Dubai_1447885_7.JPG"
+  },
+  {
+    "id": 3,
+    "model": "Mustang",
+    "type": "Sports Car",
+    "make": "Ford",
+    "year": 2024,
+    "price": 45000,
+    "image_url": "https://www.motortrend.com/uploads/2022/09/2024-ford-mustang-gt-03.jpg"
+  },
+  {
+    "id": 4,
+    "model": "CR-V",
+    "type": "SUV",
+    "make": "Honda",
+    "year": 2021,
+    "price": 32000,
+    "image_url": "https://media.ed.edmunds-media.com/honda/cr-v/2020/oem/2020_honda_cr-v_4dr-suv_touring_fq_oem_1_1600.jpg"
+  },
+  {
+    "id": 5,
+    "model": "Camry",
+    "type": "Sedan",
+    "make": "Toyota",
+    "year": 2022,
+    "price": 29000,
+    "image_url": "https://gaadiwaadi.com/wp-content/uploads/2021/11/2022-Toyota-Camry.jpg"
+  }
+]

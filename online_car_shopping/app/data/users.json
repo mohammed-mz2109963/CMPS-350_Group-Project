@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "John",
+    "surname": "Doe",
+    "shipping_address": "123 Main Street",
+    "username": "johndoe",
+    "password": "password123",
+    "money_balance": 5000,
+    "usertype": "customer"
+  },
+  {
+    "id": 2,
+    "name": "Alice",
+    "surname": "Smith",
+    "shipping_address": "456 Elm Street",
+    "username": "alicesmith",
+    "password": "abc@123",
+    "money_balance": 7500,
+    "usertype": "customer"
+  },
+  {
+    "id": 3,
+    "company_name": "XYZ Electronics",
+    "username": "xyz_electronics",
+    "password": "sellerpass123",
+    "bank_account": "1234567890",
+    "usertype": "company"
+  },
+  {
+    "id": 4,
+    "company_name": "ABC Fashion",
+    "username": "abcfashion",
+    "password": "fashion123",
+    "bank_account": "0987654321",
+    "usertype": "company"
+  },
+  {
+    "id": 5,
+    "username": "admin",
+    "password": "adminpass",
+    "usertype": "admin"
+  }
+]

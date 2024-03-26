@@ -45,3 +45,4 @@ function addCarToHomePage(car) {
     const carsSection = document.getElementById('cars'); 
     carsSection.appendChild(carElement); 
 }
+
