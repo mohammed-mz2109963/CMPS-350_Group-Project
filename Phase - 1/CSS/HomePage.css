@@ -83,6 +83,12 @@
     
 }
 
+.cars .car-box .add{
+    background-color: darkslategray;
+    color: #fff;
+    margin-top: 10px;
+    border: 2px solid black;
+}
 
 
 
