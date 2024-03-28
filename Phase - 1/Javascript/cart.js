@@ -15,7 +15,7 @@ let cars = [
     },
     {
         name: "Porsche",
-        tag: "porsche",
+        id: "porsche",
         price: 60000,
         added: 0
     },
@@ -94,7 +94,43 @@ function invoice (car){
         localStorage.setItem("invoice", car.price);
     }
     
-} 
+}
+
+function displayCart() {
+    let carsAdded = localStorage.getItem("prodcutsInCart");
+    carsAdded = JSON.parse(carsAdded);
+    let carBox = document.querySelector(".cart-product");
+    let totCost = localStorage.getItem("invoice");
+
+    if (carsAdded && carBox){
+        carBox.innerHTML = "";
+        Object.values(carsAdded).map(v => {
+            carBox.innerHTML += `
+            <div class="product">
+            <img src="./CSS/images/socials/icons8-close-48 (1).png" width=30px>
+            <img src="./CSS/images/cars/${v.id}.jpg" width="200px" >
+            <span>${v.name}</span>
+            </div>
+            <div class="cart-price">$${v.price}</div>
+            <div class="quantity">
+            <img src="./CSS/images/socials/minus.png">
+            <span>${v.added}</span>
+            <img src="./CSS/images/socials/plus.png">
+            </div>
+            <div class="total">
+           $${v.added * v.price}
+            </div>
+            `;
+        });
+        carBox.innerHTML += `
+        <div class="totalInvoice">
+        <h2 class="totalTitle"> Total Invoice=  </h2>
+        <h2 class="actualTotal">
+             $${totCost}.00 </h2>
+        `;
+    }
+}
 
 
 loadCartDetails();
+displayCart();
