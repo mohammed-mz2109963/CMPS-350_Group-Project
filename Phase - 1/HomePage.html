@@ -7,12 +7,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="CSS/HomePage.css">
     <link rel="stylesheet" href="./CSS/style.css" />
+    <script src = "Javascript/Javascript.js"></script>
 </head>
 
 <body>
 
     <header class="head">
-        <a href="#" class="logo">
+
+        <a href="HomePage.html" class="logo">
             <img src="./CSS/images/cars/Starman-cuate.png" alt="car-logo">
         </a>
 
@@ -21,27 +23,28 @@
         <nav class="navigation">
 
 
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#search">Search</a>
-            <a href="#contact-us">Contact Us</a>
-            <a href="#reviews">Reviews</a>
-            <a href="#myAccount">My Account</a>
+            <a href="HomePage.html">Home</a>
+            <a href="HomePage.html#search">Search</a>
+            <a href="HomePage.html#contact-us">Contact Us</a>
+            <a href="HomePage.html#reviews">Reviews</a>
 
 
         </nav>
 
         <section class="menu-icons">
-            <img src="./CSS/images/cars/icons8-search-64.png" width=30px>
+            <a href="HomePage.html#search">
+                <img src="./CSS/images/cars/icons8-search-64.png" width=30px>
+            </a>
             <!-- <img src="./CSS/images/cars/icons8-cart-30.png" width=30px> -->
             <a class="cart-span" href="cart.html">
                 <img src="./CSS/images/cars/icons8-cart-30.png" width=30px><span style="color: red
                 ;">0</span>
             </a>
-            <img src="./CSS/images/cars/icons8-menu-bar-50.png" width=30px>
 
+            <a href="SignIn.html">
+                <img src="./CSS/images/cars/icons8-account-96.png" width=30px>
+            </a>
         </section>
-
 
     </header>
 
@@ -53,10 +56,10 @@
                 <h3 class="animate slideFromLeft">ScamBox Automobiles</h3>
                 <p class="animate slideFromRight">FIND YOUR DREAM CAR AT A REASONABLE PRICE </p>
                 <div class="hbc">
-                    <button class="hb hb1 animate bounce">Check our Products</button>
+                    <a href="#featured-cars">
+                        <button class="hb hb1 animate bounce">Check our Products</button>
+                    </a>
                 </div>
-
-
             </div>
         </section>
 
@@ -94,6 +97,68 @@
                 </article>
             </div>
         </section>
+
+
+        <section class = "seller-area" id = "seller-area">
+            <h1>Want to Sell a Car?</h1><br><br>
+            <button class = "sell-button" id = "sell-button">Make a Listing</button>
+        </section>
+
+
+        <div class = "featured-cars" id = "featured-cars">
+            <h1>Featured Cars</h1>
+            <section class="cars" id="cars">
+
+                <div class="car-box">
+                    <img src="./CSS/images/cars/ferrari.jpg">
+
+                    <p class="car-info">Model: Ferrari Year: 2024</p>
+                    <br>
+                    <h4 class="car-name">Ferrari </h4>
+
+                    <h4 class="car-price">$80000</h4>
+                    <P class="car-description">Ferrari is the fastest car on the planet.</P>
+                    <br>
+                    <a class="add item1" href="#">Add to Cart</a>
+                </div>
+                <div class="car-box">
+                    <img src="./CSS/images/cars/lambo.jpg">
+                    <p class="car-info">Model: Lamborghini Year: 2024</p>
+                    <br>
+                    <h4 class="car-name">Lamborghini </h4>
+
+                    <h4 class="car-price">$70000</h4>
+                    <P class="car-description">Lamborghini is the fastest car on the planet.</P>
+                    <br>
+                    <a class="add item2" href="#">Add to Cart</a>
+                </div>
+                <div class="car-box">
+                    <img src="./CSS/images/cars/porsche.jpg">
+                    <p class="car-info">Model: Porsche Year: 2024</p>
+                    <br>
+                    <h4 class="car-name">Porsche </h4>
+
+                    <h4 class="car-price">$60000</h4>
+                    <P class="car-description">Porsche is the fastest car on the planet.</P>
+                    <br>
+                    <a class="add item3" href="#">Add to Cart</a>
+                </div>
+                <div class="car-box">
+                    <img src="./CSS/images/cars/toyota.jpg">
+                    <p class="car-info">Model: Toyota Year: 2024</p>
+                    <br>
+                    <h4 class="car-name">Toyota </h4>
+
+                    <h4 class="car-price">$30000</h4>
+                    <P class="car-description">Toyota is the fastest car on the planet.</P>
+                    <br>
+                    <a class="add item4" href="#">Add to Cart</a>
+                </div>
+
+
+            </section>
+        </div>
+        
 
         <section class="search" id="search">
             <form action="" class="search-car-form" id="search-car-form">
@@ -174,57 +239,11 @@
             </form>
         </section>
 
-        <section class="cars" id="cars">
 
-
-            <div class="car-box">
-                <img src="./CSS/images/cars/ferrari.jpg">
-
-                <p class="car-info">Model: Ferrari Year: 2024</p>
-                <br>
-                <h4 class="car-name">Ferrari </h4>
-
-                <h4 class="car-price">$80000</h4>
-                <P class="car-description">Ferrari is the fastest car on the planet.</P>
-                <br>
-                <a class="add item1" href="#">Add to Cart</a>
-            </div>
-            <div class="car-box">
-                <img src="./CSS/images/cars/lambo.jpg">
-                <p class="car-info">Model: Lamborghini Year: 2024</p>
-                <br>
-                <h4 class="car-name">Lamborghini </h4>
-
-                <h4 class="car-price">$70000</h4>
-                <P class="car-description">Lamborghini is the fastest car on the planet.</P>
-                <br>
-                <a class="add item2" href="#">Add to Cart</a>
-            </div>
-            <div class="car-box">
-                <img src="./CSS/images/cars/porsche.jpg">
-                <p class="car-info">Model: Porsche Year: 2024</p>
-                <br>
-                <h4 class="car-name">Porsche </h4>
-
-                <h4 class="car-price">$60000</h4>
-                <P class="car-description">Porsche is the fastest car on the planet.</P>
-                <br>
-                <a class="add item3" href="#">Add to Cart</a>
-            </div>
-            <div class="car-box">
-                <img src="./CSS/images/cars/toyota.jpg">
-                <p class="car-info">Model: Toyota Year: 2024</p>
-                <br>
-                <h4 class="car-name">Toyota </h4>
-
-                <h4 class="car-price">$30000</h4>
-                <P class="car-description">Toyota is the fastest car on the planet.</P>
-                <br>
-                <a class="add item4" href="#">Add to Cart</a>
-            </div>
-
-
+        <section class = "search-cars" id = "search-cars">
+            
         </section>
+
 
         <section class="contact-us" id="contact-us">
             <br><br><a href="#contact-us">
