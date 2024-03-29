@@ -1,4 +1,5 @@
-function sellCar() {
+function sellCar()
+{
     const year = document.getElementById('car-year').value;
     const type = document.getElementById('car-type').value;
     const make = document.getElementById('car-make').value;

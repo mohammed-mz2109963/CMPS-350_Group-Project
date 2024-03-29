@@ -1,26 +1,27 @@
 {
-    "users": [
-      {
-        "type": "customer",
-        "name": "Hasin",
-        "surname": "Ishrak",
-        "shipping_address": "Wakra, Qatar",
-        "username": "hasin_ishrak",
-        "password": "password123",
-        "money_balance": 1000
-      },
-      {
-        "type": "seller",
-        "company_name": "QU sellers",
-        "username": "qu_sellers",
-        "password": "pass123456789",
-        "bank_account": "1122334455"
-      },
-      {
-        "type": "admin",
-        "username": "admin",
-        "password": "adminpass"
-      }
-    ]
-  }
-  
+  "users": [
+    {
+      "type": "buyer",
+      "username": "BUYER",
+      "password": "BUYER@Scambox",
+
+      "name": "buyer_name",
+      "surname": "buyer_surname",
+      "shipping_address": "buyer_shipping_address",
+      "money_balance": 1000
+    },
+    {
+      "type": "seller",
+      "username": "SELLER",
+      "password": "SELLER@Scambox",
+
+      "company_name": "seller_company_name",
+      "bank_account": "123456789"
+    },
+    {
+      "type": "admin",
+      "username": "ADMIN",
+      "password": "ADMIN@Scambox"
+    }
+  ]
+}
