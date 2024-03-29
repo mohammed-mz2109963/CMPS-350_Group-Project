@@ -7,15 +7,17 @@
     <title>Document</title>
     <link rel="stylesheet" href="CSS/HomePage.css">
     <link rel="stylesheet" href="./CSS/style.css" />
+
     <script src = "Javascript/Javascript.js"></script>
-    <script src = "Javascript/SignIn.js"></script>
+    <script src = "Javascript/HomeCars.js"></script>
+    <script src = "Javascript/FillForm.js"></script>
 </head>
 
 <body>
 
     <header class="head">
 
-        <a href="HomePage.html" class="logo">
+        <a href="BuyerHomePage.html" class="logo">
             <img src="./CSS/images/cars/Starman-cuate.png" alt="car-logo">
         </a>
 
@@ -24,16 +26,16 @@
         <nav class="navigation">
 
 
-            <a href="HomePage.html">Home</a>
-            <a href="HomePage.html#search">Search</a>
-            <a href="HomePage.html#contact-us">Contact Us</a>
-            <a href="HomePage.html#reviews">Reviews</a>
+            <a href="BuyerHomePage.html">Home</a>
+            <a href="BuyerHomePage.html#search">Search</a>
+            <a href="BuyerHomePage.html#contact-us">Contact Us</a>
+            <a href="BuyerHomePage.html#reviews">Reviews</a>
 
 
         </nav>
 
         <section class="menu-icons">
-            <a href="HomePage.html#search">
+            <a href="BuyerHomePage.html#search">
                 <img src="./CSS/images/cars/icons8-search-64.png" width=30px>
             </a>
             <!-- <img src="./CSS/images/cars/icons8-cart-30.png" width=30px> -->
@@ -42,8 +44,12 @@
                 ;">0</span>
             </a>
 
+            <a href="" class = "profile_img">
+                <img src="./CSS/images/cars/icons8-account-96.png" width = 30px>
+            </a>
+
             <a href="SignIn.html">
-                <img src="./CSS/images/cars/icons8-account-96.png" width=30px>
+                <img src="./CSS/images/cars/icons8-change-90.png" width=30px>
             </a>
         </section>
 
@@ -100,12 +106,10 @@
         </section>
 
 
-        <section class = "seller-area" id = "seller-area">
+        <!-- <section class = "seller-area" id = "seller-area">
             <h1>Want to Sell a Car?</h1><br><br>
-            <a href="SellForm.html">
-                <button class = "sell-button" id = "sell-button">Make a Listing</button>
-            </a>
-        </section>
+            <button class = "sell-button" id = "sell-button">Make a Listing</button>
+        </section> -->
 
 
         <div class = "featured-cars" id = "featured-cars">
@@ -179,7 +183,26 @@
                         <option value="2023">2023</option>
                         <option value="2022">2022</option>
                         <option value="2021">2021</option>
-                        <option value="2020">2020</option>
+                        <option value="2020">2019</option>
+                        <option value="2020">2018</option>
+                        <option value="2020">2017</option>
+                        <option value="2020">2016</option>
+                        <option value="2020">2015</option>
+                        <option value="2020">2014</option>
+                        <option value="2020">2013</option>
+                        <option value="2020">2012</option>
+                        <option value="2020">2011</option>
+                        <option value="2020">2010</option>
+                        <option value="2020">2009</option>
+                        <option value="2020">2008</option>
+                        <option value="2020">2007</option>
+                        <option value="2020">2006</option>
+                        <option value="2020">2005</option>
+                        <option value="2020">2004</option>
+                        <option value="2020">2003</option>
+                        <option value="2020">2002</option>
+                        <option value="2020">2001</option>
+                        <option value="2020">2000</option>
 
                     </select>
                 </div>
@@ -189,38 +212,40 @@
                     <select name="car-type" id="car-type">
 
                         <option value="Select Type">Select Type</option>
-                        <option value="Hatchback">Hatchback</option>
-                        <option value="Sedan">Sedan</option>
-                        <option value="SUV">SUV</option>
-                        <option value="MUV">MUV</option>
-                        <option value="Coupe">Coupe</option>
-                        <option value="Convertible">Convertible</option>
-                        <option value="Pickup">Pickup</option>
+                        <option value="hatchback">Hatchback</option>
+                        <option value="sedan">Sedan</option>
+                        <option value="suv">SUV</option>
+                        <option value="muv">MUV</option>
+                        <option value="coupe">Coupe</option>
+                        <option value="convertible">Convertible</option>
+                        <option value="pickup">Pickup</option>
+                        <option value="sports">Sports</option>
+                        <option value="hyper">Hyper</option>
 
                     </select>
                 </div>
 
                 <div class="make-field" id="make-field">
                     <label for="make">Make:</label><br>
-                    <select name="make" id="make">
+                    <select name="car-make" id="car-make">
 
-                        <option value="Select Make">Select Make</option>
+                        <!-- <option value="Select Make">Select Make</option>
                         <option value="Toyota">Toyota</option>
                         <option value="Ford">Ford</option>
                         <option value="Aston Martin">Aston Martin</option>
                         <option value="Volkswagon">Volkswagon</option>
-                        <option value="Porsche">Porsche</option>
+                        <option value="Porsche">Porsche</option> -->
 
                     </select>
                 </div>
 
                 <div class="model-field" id="model-field">
                     <label for="model">Model:</label><br>
-                    <select name="model" id="model">
+                    <input type = "text" name="model" id="model">
 
-                        <option value="Select Model">Select Model</option>
+                        <!-- <option value="Select Model">Select Model</option> -->
 
-                    </select>
+                    </input>
                 </div>
 
                 <div class="min-price-field" id="min-price-field">
@@ -237,6 +262,7 @@
                     <!-- <form action="/this-will-redirect-to-the-page-with-the-car-that-the-user-will-search-for" method="GET"> -->
                     <!-- <input type="search" class="search-button" id="search-button"> -->
                     <button type="submit" class="submit-search-form" id="submit-search-form">Submit</button>
+                    <button type="reset" class="reset-search-form" id="reset-search-form">Reset</button>
                     <!-- </form> -->
                 </div>
             </form>

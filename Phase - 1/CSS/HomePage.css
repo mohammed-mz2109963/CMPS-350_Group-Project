@@ -127,6 +127,11 @@ body
         flex-wrap: wrap;
         justify-content: center;
 
+        /* #img-id
+        {
+            height: auto;
+        } */
+
         .navigation
         {
             display: flex;
@@ -238,7 +243,7 @@ Pale Yellow: #FFFF99 */
         box-shadow: 0rem 0.1rem 1rem lightgray;
         border-radius: 0.5rem;
 
-        display: none;
+        display: flex;
         flex-direction: column;
         align-items: center;
 
@@ -281,8 +286,11 @@ Pale Yellow: #FFFF99 */
             label {font-weight: bold;}
             select {width: 100%; height: 2rem; background-color: whitesmoke; border: 0; margin-top: 1rem;}
             input {width: 100%; height: 2rem; background-color: whitesmoke; border: 0;  margin-top: 1rem;}
-            button {width: 100%; height: 2rem; background-color: cornflowerblue; border: 0; transition-duration: 0.5s;  margin-top: 1rem;}
+            button {width: 100%; height: 2rem; background-color: cornflowerblue; border: 0; transition-duration: 0.5s;  margin: 1rem 0.5rem 0rem 0rem;}
             button:hover {background-color: blueviolet; cursor: pointer;}
+
+            .reset-search-form{background-color: orangered; margin-left: 0.5rem; margin-right: 0rem;}
+            .reset-search-form:hover{background-color: red;}
         }
     }
     .search:hover {box-shadow: 0rem 0.1rem 1rem gray;}
@@ -318,6 +326,20 @@ Pale Yellow: #FFFF99 */
         }
         .cars:hover {box-shadow: 0rem 0.1rem 1rem gray;}
     }
+
+    .search-cars-guest
+    {
+        grid-column: 2/-2;
+        display: grid;
+        margin-top: 5rem;
+        border-radius: 0.5rem;
+        padding: 1rem;
+
+        box-shadow: 0rem 0.1rem 1rem lightgray;
+        transition-duration: 0.5s;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    .search-cars-guest:hover {box-shadow: 0rem 0.1rem 1rem gray;}
 
     .contact-us
     {
@@ -396,12 +418,15 @@ Pale Yellow: #FFFF99 */
     .search-cars
     {
         grid-column: 2/-2;
-        background-color: black;
+        display: grid;
+        margin-top: 5rem;
+        border-radius: 0.5rem;
+        padding: 1rem;
+
         box-shadow: 0rem 0.1rem 1rem lightgray;
         transition-duration: 0.5s;
-        margin: 0rem 5rem;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
-
     .search-cars:hover {box-shadow: 0rem 0.1rem 1rem gray;}
 
 
@@ -509,7 +534,13 @@ footer
                 .model-field {grid-area: model-field;}
                 .min-price-field {grid-area: min-price-field;}
                 .max-price-field {grid-area: max-price-field;}
-                .submit {grid-area: submit-field;}
+                .submit
+                {
+                    grid-area: submit-field;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                }
 
                 div
                 {

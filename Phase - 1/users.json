@@ -1,27 +1,27 @@
 {
-  "users": [
-    {
-      "type": "buyer",
-      "username": "BUYER",
-      "password": "BUYER@Scambox",
+    "users": [
+      {
+        "type": "buyer",
+        "username": "BUYER",
+        "password": "BUYER@Scambox",
 
-      "name": "buyer_name",
-      "surname": "buyer_surname",
-      "shipping_address": "buyer_shipping_address",
-      "money_balance": 1000
-    },
-    {
-      "type": "seller",
-      "username": "SELLER",
-      "password": "SELLER@Scambox",
+        "name": "buyer_name",
+        "surname": "buyer_surname",
+        "shipping_address": "buyer_address",
+        "money_balance": 1000
+      },
+      {
+        "type": "seller",
+        "username": "SELLER",
+        "password": "SELLER@Scambox",
 
-      "company_name": "seller_company_name",
-      "bank_account": "123456789"
-    },
-    {
-      "type": "admin",
-      "username": "ADMIN",
-      "password": "ADMIN@Scambox"
-    }
-  ]
-}
+        "company_name": "seller_company",
+        "bank_account": "123456789"
+      },
+      {
+        "type": "admin",
+        "username": "ADMIN",
+        "password": "ADMIN@Scambox"
+      }
+    ]
+  }
