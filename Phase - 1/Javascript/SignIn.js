@@ -1,8 +1,8 @@
-document.addEventListener('DOMContentLoaded', function() {
-    let isBuyer = false;
-    let isSeller = false;
-    let isAdmin = false;
+let isBuyer = false;
+let isSeller = false;
+let isAdmin = false;
 
+document.addEventListener('DOMContentLoaded', function() {
     // Fetch user data from users.json
     fetch('users.json')
         .then(response => response.json())
@@ -24,15 +24,24 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Set variables based on the type of user
                     if (user.type === 'buyer') {
                         isBuyer = true;
+                        isSeller = false;
+                        isAdmin = false;
                     } else if (user.type === 'seller') {
+                        isBuyer = false;
                         isSeller = true;
+                        isAdmin = false;
                     } else if (user.type === 'admin') {
+                        isBuyer = false;
+                        isSeller = false;
                         isAdmin = true;
                     }
 
                     // Redirect to appropriate page or perform other actions
                     // For example:
                     window.location.href = 'HomePage.html'; // Redirect to dashboard
+                    
+                    // After the login is successful, toggle the seller area
+                    toggleSellerArea(isSeller);
                 } else {
                     alert('Invalid username or password');
                 }
@@ -42,3 +51,14 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error("Error loading user data:", error);
         });
 });
+
+
+// Function to show or hide the seller area based on the user type
+// Function to show or hide the seller area based on the user type
+function toggleSellerArea(isSeller) {
+    if (isSeller) {
+        document.getElementById('seller-area').style.display = 'block';
+    } else {
+        document.getElementById('seller-area').style.display = 'none';
+    }
+}
