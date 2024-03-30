@@ -327,7 +327,7 @@ Pale Yellow: #FFFF99 */
         .cars:hover {box-shadow: 0rem 0.1rem 1rem gray;}
     }
 
-    .search-cars-guest
+    .search-cars-guest, .search-cars-div
     {
         grid-column: 2/-2;
         display: grid;

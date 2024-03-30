@@ -11,13 +11,14 @@
     <script src = "Javascript/Javascript.js"></script>
     <script src = "Javascript/HomeCars.js"></script>
     <script src = "Javascript/FillForm.js"></script>
+    <script src = "Javascript/AdminRemove.js"></script>
 </head>
 
 <body>
 
     <header class="head">
 
-        <a href="BuyerHomePage.html" class="logo">
+        <a href="AdminHomePage.html" class="logo">
             <img src="./CSS/images/cars/Starman-cuate.png" alt="car-logo">
         </a>
 
@@ -25,30 +26,26 @@
 
         <nav class="navigation">
 
-            <a href="BuyerHomePage.html">Home</a>
-            <a href="BuyerHomePage.html#search">Search</a>
-            <a href="BuyerHomePage.html#contact-us">Contact Us</a>
-            <a href="BuyerHomePage.html#reviews">Reviews</a>
+
+            <a href="AdminHomePage.html">Home</a>
+            <a href="AdminHomePage.html#search">Search</a>
+            <a href="AdminHomePage.html#contact-us">Contact Us</a>
+            <a href="AdminHomePage.html#reviews">Reviews</a>
 
 
         </nav>
 
         <section class="menu-icons">
-            <a href="BuyerHomePage.html#search">
+            <a href="AdminHomePage.html#search">
                 <img src="./CSS/images/cars/icons8-search-64.png" width=30px>
             </a>
             <!-- <img src="./CSS/images/cars/icons8-cart-30.png" width=30px> -->
-            <a class="cart-span" href="cart.html">
-                <img src="./CSS/images/cars/icons8-cart-30.png" width=30px><span style="color: red
-                ;">0</span>
-            </a>
-
-            <a href="" class = "profile_img">
-                <img src="./CSS/images/cars/icons8-account-96.png" width = 30px>
+            <a class="cart-span" href="SignIn.html">
+                <img src="./CSS/images/cars/icons8-cart-30.png" width=30px>
             </a>
 
             <a href="SignIn.html">
-                <img src="./CSS/images/cars/icons8-change-90.png" width=30px>
+                <img src="./CSS/images/cars/icons8-account-96.png" width=30px>
             </a>
         </section>
 
@@ -105,12 +102,10 @@
         </section>
 
 
-        <section class = "seller-area" id = "seller-area">
+        <!-- <section class = "seller-area" id = "seller-area">
             <h1>Want to Sell a Car?</h1><br><br>
-            <a href="SellForm.html">
-                <button class = "sell-button" id = "sell-button">Make a Listing</button>
-            </a>
-        </section>
+            <button class = "sell-button" id = "sell-button">Make a Listing</button>
+        </section> -->
 
 
         <div class = "featured-cars" id = "featured-cars">
@@ -127,7 +122,7 @@
                     <h4 class="car-price">$80000</h4>
                     <P class="car-description">Ferrari is the fastest car on the planet.</P>
                     <br>
-                    <a class="add item1" href="#">Add to Cart</a>
+                    <button class="remove" onclick="removeFeaturedCar(this)">Remove</button>
                 </div>
                 <div class="car-box">
                     <img src="./CSS/images/cars/lambo.jpg">
@@ -138,7 +133,7 @@
                     <h4 class="car-price">$70000</h4>
                     <P class="car-description">Lamborghini is the fastest car on the planet.</P>
                     <br>
-                    <a class="add item2" href="#">Add to Cart</a>
+                    <button class="remove" onclick="removeFeaturedCar(this)">Remove</button>
                 </div>
                 <div class="car-box">
                     <img src="./CSS/images/cars/porsche.jpg">
@@ -149,7 +144,7 @@
                     <h4 class="car-price">$60000</h4>
                     <P class="car-description">Porsche is the fastest car on the planet.</P>
                     <br>
-                    <a class="add item3" href="#">Add to Cart</a>
+                    <button class="remove" onclick="removeFeaturedCar(this)">Remove</button>
                 </div>
                 <div class="car-box">
                     <img src="./CSS/images/cars/toyota.jpg">
@@ -160,7 +155,7 @@
                     <h4 class="car-price">$30000</h4>
                     <P class="car-description">Toyota is the fastest car on the planet.</P>
                     <br>
-                    <a class="add item4" href="#">Add to Cart</a>
+                    <button class="remove" onclick="removeFeaturedCar(this)">Remove</button>
                 </div>
 
 
@@ -269,11 +264,10 @@
             </form>
         </section>
 
-        <a href="SignIn.html" class = "search-cars-div">
-            <section class = "search-cars" id = "search-cars">
-                
-            </section>
-        </a>
+
+        <section class = "search-cars-guest" id = "search-cars-guest">
+            
+        </section>
 
 
         <section class="contact-us" id="contact-us">
@@ -309,7 +303,7 @@
 
                     <br>
                     <div class="submit">
-                            <a href="SignIn.html"><button>Submit</button></a>
+                        <button>Submit</button>
                     </div>
                 </form>
 
@@ -334,6 +328,7 @@
                             <h5>Abraham Lincoin</h5>
                             <h5>New York</h5>
                         </figcaption>
+                        <button class="remove" onclick="removeReview(this)">Remove</button>
                     </article>
                 </div>
                 <div class="review-bracket">
@@ -346,6 +341,7 @@
                             <h5>BARACK OBAMA</h5>
                             <h5>Washington</h5>
                         </figcaption>
+                        <button class="remove" onclick="removeReview(this)">Remove</button>
                     </article>
                 </div>
                 <div class="review-bracket">
@@ -358,6 +354,7 @@
                             <h5>BILL CLINTON</h5>
                             <h5>Los Angeles</h5>
                         </figcaption>
+                        <button class="remove" onclick="removeReview(this)">Remove</button>
                     </article>
                 </div>
 

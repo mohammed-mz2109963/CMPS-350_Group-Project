@@ -1,0 +1,121 @@
+/* header {
+    grid-column: 1/-1;
+    background-color: darkslategrey;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+} */
+
+body
+{
+    height: 100vh;
+
+    .buyer-container, .seller-container
+    {
+        /* margin-top: 8rem; */
+        display: grid;
+        height: 100%;
+        grid-template-columns: 1fr 3fr;
+
+        .profile-info
+        {
+            grid-column: 1/2;
+            padding: 2.5rem;
+            padding-top: 15rem;
+            background-color: darkslategray;
+
+            display: flex;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+            flex-wrap: nowrap;
+
+            .account-type
+            {
+                font-weight: 700;
+                margin-top: 1rem;
+                margin-bottom: 5rem;
+            }
+        }
+
+        .right-side
+        {
+            .shipping-address, .account-details
+            {
+                padding: 2.5rem;
+                padding-top: 15rem;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+
+                row-gap: 2rem;
+                margin-bottom: 5rem;
+
+                h2 {margin-bottom: 5rem;}
+            }
+
+            .update-form
+            {
+                padding: 2.5rem;
+                display: flex;
+                flex-direction: column;
+                row-gap: 5rem;
+
+                form
+                {
+                    display: flex;
+                    flex-direction: column;
+
+                    label {cursor: pointer; margin-bottom: 0.25rem;}
+
+                    input
+                    {
+                        background-color: whitesmoke;
+                        width: 100%;
+                        height: 2rem;
+                        margin-bottom: 2rem;
+                    }
+
+                    button
+                    {
+                        width: 100%;
+                        height: 2rem;
+                        background-color: cornflowerblue;
+                        font-weight: bold;
+                        border: 0;
+                        padding: 1% 3%;
+                        transition-duration: 0.5s;
+                    }
+                    button:hover {background-color: blueviolet; cursor: pointer;}
+                }
+            }
+        }
+    }
+}
+
+/* Media query for screens smaller than 800px */
+@media (max-width: 800px) {
+    .buyer-container
+    {
+        width: 100vw;
+        grid-template-columns: 1fr; /* Change to a single column layout */
+        
+        .profile-info, .right-side
+        {
+            grid-column: 1/-1; /* Each section occupies the full width */
+            width: 100vw;
+
+            .shipping-address
+            {
+                text-align: center;
+            }
+
+            .update-form
+            {
+                h2 {align-self: center;}
+            }
+        }
+    }
+}
