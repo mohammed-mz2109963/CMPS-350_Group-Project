@@ -181,6 +181,13 @@ html ::-webkit-scrollbar-thumb{
     transition: transform 0.3s ease;
 }
 
+.service-bracket h3{
+    font-size: 2rem;
+}
+
+.service-bracket img{
+
+}
 /* Cart CSS */
 
 /* .cart-box{
@@ -340,3 +347,5 @@ html ::-webkit-scrollbar-thumb{
     margin-right: 30px;
     width: 30%;
 }
+
+
