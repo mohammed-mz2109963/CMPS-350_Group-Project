@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="CSS/HomePage.css">
-    <link rel="stylesheet" href="./CSS/style.css" />
+    <link rel="stylesheet" href="css/HomePage.css">
+    <link rel="stylesheet" href="css/style.css" />
+    
+    
 </head>
 
 <body>
 
     <header class="head">
-        <a href="#" class="logo">
-            <img src="./CSS/images/cars/Starman-cuate.png" alt="car-logo">
+
+        <a href="HomePage.html" class="logo">
+            <img src="./css/images/cars/Starman-cuate.png" alt="car-logo">
         </a>
 
 
@@ -21,22 +24,29 @@
         <nav class="navigation">
 
 
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#search">Search</a>
-            <a href="#contact-us">Contact Us</a>
-            <a href="#reviews">Reviews</a>
-            <a href="#myAccount">My Account</a>
+            <a href="HomePage.html">Home</a>
+            <a href="HomePage.html#search">Search</a>
+            <a href="HomePage.html#contact-us">Contact Us</a>
+            <a href="HomePage.html#reviews">Reviews</a>
 
 
         </nav>
 
         <section class="menu-icons">
-            <img src="./CSS/images/cars/icons8-search-64.png" width=30px>
-            <img src="./CSS/images/cars/icons8-cart-30.png" width=30px>
-            <img src="./CSS/images/cars/icons8-menu-bar-50.png" width=30px>
+            <a href="HomePage.html#search">
+                <img src="./css/images/cars/icons8-search-64.png" width=30px>
+            </a>
+            <!-- <img src="./CSS/images/cars/icons8-cart-30.png" width=30px> -->
+            <a class="cart-span" href="cart.html">
+                <img src="./css/images/cars/icons8-cart-30.png" width=30px><span style="color: red
+                ;">0</span>
+            </a>
 
+            <a href="SignIn.html">
+                <img src="./css/images/cars/icons8-account-96.png" width=30px>
+            </a>
         </section>
+
     </header>
 
 
@@ -44,8 +54,13 @@
     <main>
         <section class="home" id="home">
             <div class="name">
-                <h3>ScamBox Automobiles</h3>
-                <p>FIND YOUR DREAM CAR AT A REASONABLE PRICE </p>
+                <h3 class="animate slideFromLeft">ScamBox Automobiles</h3>
+                <p class="animate slideFromRight">FIND YOUR DREAM CAR AT A REASONABLE PRICE </p>
+                <div class="hbc">
+                    <a href="#featured-cars">
+                        <button class="hb hb1 animate bounce">Check our Products</button>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -53,7 +68,7 @@
             <div class="service-bracket">
                 <article>
                     <h3>Largest Dealership of Cars</h3>
-                    <figure><img src="CSS/images/Service-bracket_1.png" alt="service-img"></figure>
+                    <figure><img src="css/images/Service-bracket_1.png" alt="service-img"></figure>
                     <figcaption>
                         <p>Explore the widest selection of cars at ScamBox Automobiles, there is an option that suites
                             every style and budget! Finding your dream car has never been easier.</p>
@@ -64,7 +79,7 @@
             <div class="service-bracket">
                 <article>
                     <h3>Unlimited Repair Warranty</h3>
-                    <figure><img src="CSS/images/Service-bracket_2.png" alt="service-img"></figure>
+                    <figure><img src="css/images/Service-bracket_2.png" alt="service-img"></figure>
                     <figcaption>
                         <p>Our unlimited support warranty covers all unexpected repairs and maintenance beyond purchase,
                             allowing you to enjoy a peace of mind.</p>
@@ -75,7 +90,7 @@
             <div class="service-bracket">
                 <article>
                     <h3>Insurance Support</h3>
-                    <figure><img src="CSS/images/Service-bracket_3.png" alt="serivce-img"></figure>
+                    <figure><img src="css/images/Service-bracket_3.png" alt="serivce-img"></figure>
                     <figcaption>
                         <p>We offer hassle-free insurance solutions tailored specifically to your needs by our team of
                             experts, ensuring that you are always protected on the roads and highways.</p>
@@ -84,144 +99,174 @@
             </div>
         </section>
 
+
+        <section class = "seller-area" id = "seller-area">
+            <h1>Want to Sell a Car?</h1><br><br>
+            <button class = "sell-button" id = "sell-button">Make a Listing</button>
+        </section>
+
+
+        <div class = "featured-cars" id = "featured-cars">
+            <h1>Featured Cars</h1>
+            <section class="cars" id="cars">
+
+                <div class="car-box">
+                    <img src="./css/images/cars/ferrari.jpg">
+
+                    <p class="car-info">Model: Ferrari Year: 2024</p>
+                    <br>
+                    <h4 class="car-name">Ferrari </h4>
+
+                    <h4 class="car-price">$80000</h4>
+                    <P class="car-description">Ferrari is the fastest car on the planet.</P>
+                    <br>
+                    <a class="add item1" href="#">Add to Cart</a>
+                </div>
+                <div class="car-box">
+                    <img src="./css/images/cars/lambo.jpg">
+                    <p class="car-info">Model: Lamborghini Year: 2024</p>
+                    <br>
+                    <h4 class="car-name">Lamborghini </h4>
+
+                    <h4 class="car-price">$70000</h4>
+                    <P class="car-description">Lamborghini is the fastest car on the planet.</P>
+                    <br>
+                    <a class="add item2" href="#">Add to Cart</a>
+                </div>
+                <div class="car-box">
+                    <img src="./css/images/cars/porsche.jpg">
+                    <p class="car-info">Model: Porsche Year: 2024</p>
+                    <br>
+                    <h4 class="car-name">Porsche </h4>
+
+                    <h4 class="car-price">$60000</h4>
+                    <P class="car-description">Porsche is the fastest car on the planet.</P>
+                    <br>
+                    <a class="add item3" href="#">Add to Cart</a>
+                </div>
+                <div class="car-box">
+                    <img src="./css/images/cars/toyota.jpg">
+                    <p class="car-info">Model: Toyota Year: 2024</p>
+                    <br>
+                    <h4 class="car-name">Toyota </h4>
+
+                    <h4 class="car-price">$30000</h4>
+                    <P class="car-description">Toyota is the fastest car on the planet.</P>
+                    <br>
+                    <a class="add item4" href="#">Add to Cart</a>
+                </div>
+
+
+            </section>
+        </div>
+        
+
+    <!-- ********************** Find Car *****************************-->
+
+
         <section class="search" id="search">
+            <form class="search-car-form" id="search-car-form">
 
-            <br><br><a href="#search">
-                <h1>Find Your Car</h1>
-            </a><br><br>
+                <br><br><a href="#search">
+                    <h1>Find Your Car</h1>
+                </a><br><br>
 
-            <div class="year-field" id="year-field">
-                <label for="year">Year:</label><br>
-                <select name="year" id="year">
+                <div class="year-field" id="year-field">
+                    <label for="year">Year:</label><br>
+                    <select name="year" id="year">
 
-                    <option value="Select Year">Select Year</option>
-                    <option value="2024">2024</option>
-                    <option value="2023">2023</option>
-                    <option value="2022">2022</option>
-                    <option value="2021">2021</option>
-                    <option value="2020">2020</option>
+                        <option value="">Select Year</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
 
-                </select>
-            </div>
+                    </select>
+                </div>
 
-            <div class="car-type-field" id="car-type-field">
-                <label for="car-type">Car Type:</label><br>
-                <select name="car-type" id="car-type">
+                <div class="car_type_field" id="car_type_field">
+                    <label for="car_type">Car Type:</label><br>
+                    <select name="car_type" id="car_type" >
 
-                    <option value="Select Type">Select Type</option>
-                    <option value="Hatchback">Hatchback</option>
-                    <option value="Sedan">Sedan</option>
-                    <option value="SUV">SUV</option>
-                    <option value="MUV">MUV</option>
-                    <option value="Coupe">Coupe</option>
-                    <option value="Convertible">Convertible</option>
-                    <option value="Pickup">Pickup</option>
+                        <option value="">Select Type</option>
+                        <option value="Convertible">Convertible</option>
+                        <option value="Coupe">Coupe</option>
+                        <option value="Sedan">Sedan</option>
+                        <option value="Sports Cars">Sports Cars</option>
+                        <option value="SUV">SUV</option>
+                        
 
-                </select>
-            </div>
 
-            <div class="make-field" id="make-field">
-                <label for="make">Make:</label><br>
-                <select name="make" id="make">
+                    </select>
+                </div>
 
-                    <option value="Select Make">Select Make</option>
-                    <option value="Toyota">Toyota</option>
-                    <option value="Ford">Ford</option>
-                    <option value="Aston Martin">Aston Martin</option>
-                    <option value="Volkswagon">Volkswagon</option>
-                    <option value="Porsche">Porsche</option>
+                <div class="make_field" id="make_field">
+                    <label for="make">Make:</label><br>
+                    <select name="make" id="make" >
 
-                </select>
-            </div>
+                        <option value="" >Select Make</option>
+                        <option value="Aston Martin">Aston Martin</option>
+                        <option value="Audi">Audi</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Bentley">Bentley</option>
+                        <option value="Bugatti">Bugatti</option>
+                        <option value="Ferrari">Ferrari</option>
+                        <option value="Jaguar">Jaguar</option>
+                        <option value="Lamborghini">Lamborghini</option>
+                        <option value="Mercedes-Benz">Mercedes-Benz</option>
+                        <option value="Porsche">Porsche</option>
+                        <option value="Rolls-Royce">Rolls-Royce</option>
 
-            <div class="model-field" id="model-field">
-                <label for="model">Model:</label><br>
-                <select name="model" id="model">
+                    </select>
+                </div>
 
-                    <option value="Select Model">Select Model</option>
+                <div class="model_field" id="model_field">
+                    <label for="model">Model:</label><br>
+                    <select name="model" id="model" >
 
-                </select>
-            </div>
+                        <option value="" selected disabled>Select Model</option>
+                        
 
-            <div class="min-price-field" id="min-price-field">
-                <label for="min-price">Minimum Price:</label><br>
-                <input type="text" name="min-price" id="min-price">
-            </div>
+                    </select>
+                </div>
 
-            <div class="max-price-field id = " max-price-field">
-                <label for="max-price">Maximum Price:</label><br>
-                <input type="text" name="max-price" id="max-price">
-            </div>
+                <div class="min_price_field" id="min_price_field">
+                    <label for="min_price">Minimum Price:</label><br>
+                    <input type="text" name="min_price" id="min_price">
+                </div>
 
-            <div class="submit" id="submit">
-                <form action="/this-will-redirect-to-the-page-with-the-car-that-the-user-will-search-for" method="GET">
+                <div class="max_price_field" id = "max_price_field">
+                    <label for="max_price">Maximum Price:</label><br>
+                    <input type="text" name="max_price" id="max_price">
+                </div>
+
+                <div class="submit" id="submit">
+                    <!-- <form action="/this-will-redirect-to-the-page-with-the-car-that-the-user-will-search-for" method="GET"> -->
                     <!-- <input type="search" class="search-button" id="search-button"> -->
-                    <button>Submit</button>
-                </form>
-            </div>
+                    <button type="submit" class="submit-search-form" id="submit-search-form">Submit</button>
+                    <button type="reset" class="reset-search-form" id="reset-search-form">Reset</button>
+                    <!-- </form> -->
+                </div>
+
+            </form>
+
+             <!-- ***************** Display selected cars **********************-->
+
+
+                <div class = "search-cars" id = "search-cars">
+                    
+                </div>
+            
         </section>
 
-        <section class="cars" id="cars">
+        <!-- ***************** Display selected cars **********************-->
 
 
-            <div class="car-box"><img src="CSS/images/cars/636548420471113764-Ferrari-488-Pista-04.webp">
-                <p class="car-info">Model: Ferrari Year:2024</p>
-                <p class="car-name">Ferrari <br> Price: 80000$
-                </p>
-                <p>Price: 80000$</p>
-                <P class="car-description">Ferrari is the fastest car on the planet.</P>
-            </div>
-            <div class="car-box"><img src="CSS/images/cars/636548420471113764-Ferrari-488-Pista-04.webp">
-                <p class="car-info">Model: Ferrari Year:2024</p>
-                <p class="car-name">Ferrari <br> Price: 80000$
-                </p>
-                <p>Price: 80000$</p>
-                <P class="car-description">Ferrari is the fastest car on the planet.</P>
-            </div>
-            <div class="car-box"><img src="CSS/images/cars/636548420471113764-Ferrari-488-Pista-04.webp">
-                <p class="car-info">Model: Ferrari Year:2024</p>
-                <p class="car-name">Ferrari <br> Price: 80000$
-                </p>
-                <p>Price: 80000$</p>
-                <P class="car-description">Ferrari is the fastest car on the planet.</P>
-            </div>
-            <div class="car-box"><img src="CSS/images/cars/636548420471113764-Ferrari-488-Pista-04.webp">
-                <p class="car-info">Model: Ferrari Year:2024</p>
-                <p class="car-name">Ferrari <br> Price: 80000$
-                </p>
-                <p>Price: 80000$</p>
-                <P class="car-description">Ferrari is the fastest car on the planet.</P>
-            </div>
-            <div class="car-box"><img src="CSS/images/cars/636548420471113764-Ferrari-488-Pista-04.webp">
-                <p class="car-info">Model: Ferrari Year:2024</p>
-                <p class="car-name">Ferrari <br> Price: 80000$
-                </p>
-                <p>Price: 80000$</p>
-                <P class="car-description">Ferrari is the fastest car on the planet.</P>
-            </div>
-            <div class="car-box"><img src="CSS/images/cars/636548420471113764-Ferrari-488-Pista-04.webp">
-                <p class="car-info">Model: Ferrari Year:2024</p>
-                <p class="car-name">Ferrari <br> Price: 80000$
-                </p>
-                <p>Price: 80000$</p>
-                <P class="car-description">Ferrari is the fastest car on the planet.</P>
-            </div>
-            <div class="car-box"><img src="CSS/images/cars/636548420471113764-Ferrari-488-Pista-04.webp">
-                <p class="car-info">Model: Ferrari Year:2024</p>
-                <p class="car-name">Ferrari <br> Price: 80000$
-                </p>
-                <p>Price: 80000$</p>
-                <P class="car-description">Ferrari is the fastest car on the planet.</P>
-            </div>
-            <div class="car-box"><img src="CSS/images/cars/636548420471113764-Ferrari-488-Pista-04.webp">
-                <p class="car-info">Model: Ferrari Year:2024</p>
-                <p class="car-name">Ferrari <br> Price: 80000$
-                </p>
-                <p>Price: 80000$</p>
-                <P class="car-description">Ferrari is the fastest car on the planet.</P>
-            </div>
+                <!-- <div class = "search-cars" id = "search-cars">
+                    
+                </div> -->
 
-        </section>
 
         <section class="contact-us" id="contact-us">
             <br><br><a href="#contact-us">
@@ -274,10 +319,10 @@
                 <div class="review-bracket">
                     <article>
 
-                        <figure><img src="./CSS/images/Client PNG/ABRAHAM LINCOLN.png" alt="Abraham Lincoin"></figure>
+                        <figure><img src="./css/images/Client PNG/ABRAHAM LINCOLN.png" alt="Abraham Lincoin"></figure>
                         <figcaption>
                             <p>This is the best Automobile service company ever. I recommend everyone to buy their dream
-                                car from here.</p>
+                                car from here. This company is Of the people, For the people, By the people</p>
                             <h5>Abraham Lincoin</h5>
                             <h5>New York</h5>
                         </figcaption>
@@ -286,10 +331,10 @@
                 <div class="review-bracket">
                     <article>
 
-                        <figure><img src="./CSS/images/Client PNG/BARACK OBAMA.png" alt="BARACK OBAMA"></figure>
+                        <figure><img src="./css/images/Client PNG/BARACK OBAMA.png" alt="BARACK OBAMA"></figure>
                         <figcaption>
                             <p>This is the best Automobile service company ever. I recommend everyone to buy their dream
-                                car from here.</p>
+                                car from here. This company is Of the people, For the people, By the people</p>
                             <h5>BARACK OBAMA</h5>
                             <h5>Washington</h5>
                         </figcaption>
@@ -298,10 +343,10 @@
                 <div class="review-bracket">
                     <article>
 
-                        <figure><img src="./CSS/images/Client PNG/BILL CLINTON.png" alt="BILL CLINTON"></figure>
+                        <figure><img src="./css/images/Client PNG/BILL CLINTON.png" alt="BILL CLINTON"></figure>
                         <figcaption>
                             <p>This is the best Automobile service company ever. I recommend everyone to buy their dream
-                                car from here.</p>
+                                car from here. This company is Of the people, For the people, By the people</p>
                             <h5>BILL CLINTON</h5>
                             <h5>Los Angeles</h5>
                         </figcaption>
@@ -310,10 +355,19 @@
 
             </section>
     </main>
-    <script src="./Javascript/Javascript.js"></script>
+    <script type="module" src="./js/index.js"></script>
+    
 </body>
 
-<footer>
+<footer class="footer">
+    <div class="socials">
+        <img class="soc" src="./css/images/socials/icons8-facebook-50.png" alt="facebook" width=30px>
+        <img class="soc" src="./css/images/socials/icons8-instagram-50.png" alt="instagram" width=30px>
+        <img class="soc" src="./css/images/socials/icons8-gmail-50.png" alt="gmail" width=30px>
+        <img class="soc" src="./css/images/socials/icons8-linkedin-50.png" alt="linkedIn" width=30px>
+        <img class="soc" src="./css/images/socials/icons8-twitter-50.png" alt="icons8-twitter-50" width=30px>
+    </div>
+    <br>
     <section class="copyrights" id="copyrights">
         <a class="button" href="#top">&copy; 2024 ScamBox Automobiles</a>
     </section>

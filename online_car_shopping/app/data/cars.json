@@ -1,47 +1,299 @@
 [
   {
     "id": 1,
-    "model": "Civic",
-    "type": "Sedan",
-    "make": "Honda",
-    "year": 2022,
-    "price": 25000,
-    "image_url": "https://w0.peakpx.com/wallpaper/403/285/HD-wallpaper-2022-honda-civic-sedan-touring.jpg"
+    "model": "Cullinan",
+    "type": "SUV",
+    "make": "Rolls-Royce",
+    "year": 2023,
+    "price": 350000,
+    "image_url": "https://www.ccarprice.com/products/Rolls-Royce-Cullinan-2023.jpg"
   },
   {
     "id": 2,
-    "model": "Corolla",
+    "model": "Ghost",
     "type": "Sedan",
-    "make": "Toyota",
-    "year": 2023,
-    "price": 27000,
-    "image_url": "https://ymimg1.b8cdn.com/uploads/used_car/2023/5/15/1448785/pictures/10032195/Toyota_Corolla_2023_in_Dubai_1447885_7.JPG"
+    "make": "Rolls-Royce",
+    "year": 2022,
+    "price": 330000,
+    "image_url": "https://pugachev.miami/wp-content/uploads/2022/09/rolls-royce-ghost-2022-rental-miami-1.jpg"
   },
   {
     "id": 3,
-    "model": "Mustang",
-    "type": "Sports Car",
-    "make": "Ford",
-    "year": 2024,
-    "price": 45000,
-    "image_url": "https://www.motortrend.com/uploads/2022/09/2024-ford-mustang-gt-03.jpg"
+    "model": "Phantom",
+    "type": "Sedan",
+    "make": "Rolls-Royce",
+    "year": 2021,
+    "price": 450000,
+    "image_url": "https://hadag-magazine.com/wp-content/uploads/2021/08/HADAG-February%EF%80%A2March-2021-Issue-32-Final-Hi-Res-105-featured.jpg"
   },
   {
     "id": 4,
-    "model": "CR-V",
-    "type": "SUV",
-    "make": "Honda",
+    "model": "Flying Spur",
+    "type": "Sedan",
+    "make": "Bentley",
     "year": 2021,
-    "price": 32000,
-    "image_url": "https://media.ed.edmunds-media.com/honda/cr-v/2020/oem/2020_honda_cr-v_4dr-suv_touring_fq_oem_1_1600.jpg"
+    "price": 200000,
+    "image_url": "https://media.autoexpress.co.uk/image/private/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1611675481/autoexpress/2021/01/Bentley%20Flying%20Spur%20V8.jpg"
   },
   {
     "id": 5,
-    "model": "Camry",
+    "model": "Continental GT",
+    "type": "Coupe",
+    "make": "Bentley",
+    "year": 2020,
+    "price": 220000,
+    "image_url": "https://www.motortrend.com/uploads/sites/5/2019/06/2020-Bentley-Continental-GT-V8-3.jpg"
+  },
+  {
+    "id": 6,
+    "model": "Bentayga",
+    "type": "SUV",
+    "make": "Bentley",
+    "year": 2024,
+    "price": 250000,
+    "image_url": "https://i.ytimg.com/vi/R5b-T847_CE/maxresdefault.jpg"
+  },
+  {
+    "id": 7,
+    "model": "S-Class",
     "type": "Sedan",
-    "make": "Toyota",
+    "make": "Mercedes-Benz",
     "year": 2022,
-    "price": 29000,
-    "image_url": "https://gaadiwaadi.com/wp-content/uploads/2021/11/2022-Toyota-Camry.jpg"
+    "price": 130000,
+    "image_url": "https://ymimg1.b8cdn.com/uploads/car_version/25932/pictures/8555057/15181_st1280_046.jpg"
+  },
+  {
+    "id": 8,
+    "model": "G-Class",
+    "type": "SUV",
+    "make": "Mercedes-Benz",
+    "year": 2023,
+    "price": 150000,
+    "image_url": "https://www.forbes.com/wheels/wp-content/uploads/2023/08/2023_MercedesBenz_G-Class_SEO.jpg"
+  },
+  {
+    "id": 9,
+    "model": "AMG GT",
+    "type": "Sports Car",
+    "make": "Mercedes-Benz",
+    "year": 2024,
+    "price": 180000,
+    "image_url": "https://www.mbusa.com/content/dam/mb-nafta/us/future-vehicles/my24/amg-gt-coupe/large-tile-grid/2024-AMG-GT-COUPE-LTG-01-DR.jpg"
+  },
+  {
+    "id": 10,
+    "model": "SF90 Stradale",
+    "type": "Sports Car",
+    "make": "Ferrari",
+    "year": 2024,
+    "price": 625000,
+    "image_url": "https://www.motortrend.com/uploads/2023/11/014-2024-ferrari-sf90-xx-stradale.jpg"
+  },
+  {
+    "id": 11,
+    "model": "F8 Tributo",
+    "type": "Sports Car",
+    "make": "Ferrari",
+    "year": 2023,
+    "price": 400000,
+    "image_url": "https://www.slashgear.com/img/gallery/why-only-one-ferrari-f8-tributo-has-been-sold-in-the-us-in-2023/l-intro-1688737178.jpg"
+  },
+  {
+    "id": 12,
+    "model": "812 Superfast",
+    "type": "Sports Car",
+    "make": "Ferrari",
+    "year": 2022,
+    "price": 450000,
+    "image_url": "https://smartcdn.gprod.postmedia.digital/driving/wp-content/uploads/2021/11/812_Competizione_statics-details_10.jpg"
+  },
+  {
+    "id": 13,
+    "model": "A8",
+    "type": "Sedan",
+    "make": "Audi",
+    "year": 2021,
+    "price": 100000,
+    "image_url": "https://img.autoabc.lv/audi-a8/audi-a8_2021_Sedans_236993214.jpg"
+  },
+  {
+    "id": 14,
+    "model": "R8",
+    "type": "Sports Car",
+    "make": "Audi",
+    "year": 2020,
+    "price": 170000,
+    "image_url": "https://media.ed.edmunds-media.com/audi/r8/2020/oem/2020_audi_r8_coupe_performance_fq_oem_1_1600.jpg"
+  },
+  {
+    "id": 15,
+    "model": "Q7",
+    "type": "SUV",
+    "make": "Audi",
+    "year": 2024,
+    "price": 90000,
+    "image_url": "https://www.motortrend.com/uploads/2023/08/7577-2024-Audi-SQ7-front-view.jpg"
+  },
+  {
+    "id": 16,
+    "model": "911",
+    "type": "Sports Car",
+    "make": "Porsche",
+    "year": 2023,
+    "price": 180000,
+    "image_url": "https://cdn.motor1.com/images/mgl/ZnKvO2/s1/2023-porsche-911-carrera-t-in-gulf-blue.jpg"
+  },
+  {
+    "id": 17,
+    "model": "Cayenne",
+    "type": "SUV",
+    "make": "Porsche",
+    "year": 2022,
+    "price": 120000,
+    "image_url": "https://www.autotrader.com/wp-content/uploads/2021/07/2022-porsche-cayenne-turbo-gt-profile.jpg"
+  },
+  {
+    "id": 18,
+    "model": "Panamera",
+    "type": "Sedan",
+    "make": "Porsche",
+    "year": 2020,
+    "price": 125000,
+    "image_url": "https://carsguide-res.cloudinary.com/image/upload/f_auto,fl_lossy,q_auto,t_cg_hero_large/v1/editorial/review/hero_image/2020-porsche-panamera-sport-turismo-gts-wagon-black-james-cleary-100x1565-%281%29.jpg"
+  },
+  {
+    "id": 19,
+    "model": "Aventador",
+    "type": "Sports Car",
+    "make": "Lamborghini",
+    "year": 2021,
+    "price": 425000,
+    "image_url": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2021-lamborghini-aventador-lp780-4-102-1606236787.jpg"
+  },
+  {
+    "id": 20,
+    "model": "Urus",
+    "type": "SUV",
+    "make": "Lamborghini",
+    "year": 2020,
+    "price": 300000,
+    "image_url": "https://cdn.motor1.com/images/mgl/k1A63/s1/2020-lamborghini-urus.jpg"
+  },
+  {
+    "id": 21,
+    "model": "Huracan",
+    "type": "Sports Car",
+    "make": "Lamborghini",
+    "year": 2022,
+    "price": 350000,
+    "image_url": "https://cdn.motor1.com/images/mgl/VEGg9/s1/lamborghini-huracan-evo-spyder.jpg"
+  },
+  {
+    "id": 22,
+    "model": "DBS Superleggera",
+    "type": "Coupe",
+    "make": "Aston Martin",
+    "year": 2022,
+    "price": 350000,
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/2019_Aston_Martin_DBS_Superleggera.jpg/1920px-2019_Aston_Martin_DBS_Superleggera.jpg"
+  },
+  {
+    "id": 23,
+    "model": "Vantage",
+    "type": "Sports Car",
+    "make": "Aston Martin",
+    "year": 2023,
+    "price": 300000,
+    "image_url": "https://media.ed.edmunds-media.com/aston-martin/vantage/2023/oem/2023_aston-martin_vantage_convertible_v8_fq_oem_1_815.jpg"
+  },
+  {
+    "id": 24,
+    "model": "DB11",
+    "type": "Coupe",
+    "make": "Aston Martin",
+    "year": 2024,
+    "price": 275000,
+    "image_url": "https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/aston-martin-db11-superleggera-spy-images.jpg?itok=B4I9lH9Q"
+  },
+  {
+    "id": 25,
+    "model": "Chiron",
+    "type": "Sports Car",
+    "make": "Bugatti",
+    "year": 2020,
+    "price": 3250000,
+    "image_url": "https://www.thesupercarblog.com/wp-content/uploads/2020/03/Bugatti-Chiron-Noire-Speciale-1.jpg"
+  },
+  {
+    "id": 26,
+    "model": "Divo",
+    "type": "Sports Car",
+    "make": "Bugatti",
+    "year": 2021,
+    "price": 5000000,
+    "image_url": "https://images.financialexpress.com/2021/08/2-3-1.jpg"
+  },
+  {
+    "id": 27,
+    "model": "Centodieci",
+    "type": "Sports Car",
+    "make": "Bugatti",
+    "year": 2022,
+    "price": 10000000,
+    "image_url": "https://www.largus.fr/images/images/bugatti-centodieci-2020-prix.jpg"
+  },
+  {
+    "id": 28,
+    "model": "F-Type",
+    "type": "Sports Car",
+    "make": "Jaguar",
+    "year": 2024,
+    "price": 160000,
+    "image_url": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2021-jaguar-f-type-future-cars-1-1625533764.jpg"
+  },
+  {
+    "id": 29,
+    "model": "XE",
+    "type": "Sedan",
+    "make": "Jaguar",
+    "year": 2023,
+    "price": 85000,
+    "image_url": "https://cdn.motor1.com/images/mgl/jLRGn/s1/2021-jaguar-xe-r-dynamic-sedan-30.jpg"
+  },
+  {
+    "id": 30,
+    "model": "F-Pace",
+    "type": "SUV",
+    "make": "Jaguar",
+    "year": 2020,
+    "price": 75000,
+    "image_url": "https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/jaguar-f-pace_0.jpg?itok=HibQcE1O"
+  },
+  {
+    "id": 31,
+    "model": "M8",
+    "type": "Convertible",
+    "make": "BMW",
+    "year": 2023,
+    "price": 175000,
+    "image_url": "https://cdn.motor1.com/images/mgl/Ljvxk/s1/2020-bmw-m8-convertible-first-edition.jpg"
+  },
+  {
+    "id": 32,
+    "model": "X7",
+    "type": "SUV",
+    "make": "BMW",
+    "year": 2022,
+    "price": 120000,
+    "image_url": "https://cdn.motor1.com/images/mgl/m7N26/s1/2022-bmw-x7-facelift-spy-photo.jpg"
+  },
+  {
+    "id": 33,
+    "model": "M5",
+    "type": "Sedan",
+    "make": "BMW",
+    "year": 2021,
+    "price": 100000,
+    "image_url": "https://cdn.motor1.com/images/mgl/pVGrl/s1/2021-bmw-m5-competition.jpg"
   }
 ]

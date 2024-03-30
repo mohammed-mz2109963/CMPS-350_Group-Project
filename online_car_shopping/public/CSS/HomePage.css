@@ -16,67 +16,6 @@
 } */
 
 
-    
-
-.head {
-    display: flex;
-    
-    padding: 1.5rem 7%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    border-bottom: darkslategray; 
-    background-color: darkslategray;
-    /* background-image: url(images/Aurora-Background.jpg);
-    text-align: center;
-    padding: 5rem 0rem;
-    cursor: default;
-    color: white;
-
-    h1 {color: white; font-size: 3rem;}  */
-}
-.head ,.navigation  {
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    justify-content: space-evenly;
-
-}
-
-.head .menu-icons{
-    display: inline-flex
-}
-.head .logo img{
-    height: 5rem;
-}
-
-.head .navigation a{
-    margin: 2rem;
-    font-size: 1.6rem;
-    color: whitesmoke;
-
-}
-
-.head .navigation a:hover{
-    color: salmon;
-    border-bottom: .1rem solid salmon;
-}
-
-.head .menu-icons img{
-    color: whitesmoke;
-    cursor: pointer;
-    font-size: 2.5rem;
-    margin-left: 2rem;
-}
-
-
-.head .menu-icons img:hover{
-    color: salmon;
-    border-bottom: .1rem solid salmon;
-}
 
 .home {
     padding: 10rem;
@@ -94,7 +33,7 @@
 }
 
 .home .name h3{
-    font-size: 5rem;
+    font-size: 7rem;
     text-transform: capitalize;
     color: whitesmoke; 
 }
@@ -106,6 +45,54 @@
     padding: 1rem 0;
     
 }
+
+.hbc {
+    margin-top: 2rem ;
+    text-align: left;
+}
+
+.hb{
+    
+    border: 5px solid green;
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    padding: 18px;
+    
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.hb1 {
+    background-color: darkslategray;
+    color: #fff;
+}
+
+.hb1:hover{
+    color: #fff;
+}
+
+.hb::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: darkslategray;
+    
+    transition: 0.5s;
+    
+}
+
+.cars .car-box .add{
+    background-color: darkslategray;
+    color: #fff;
+    margin-top: 10px;
+    border: 2px solid black;
+}
+
+
+
+
     /* button
     {
         background-color: cornflowerblue;
@@ -124,46 +111,61 @@
 
 body
 {
-    /* display: grid; */
+    display: grid;
     grid-template-columns: 1fr 3fr 3fr 1fr;
 
-    /* header
-    {
-        grid-column: 1/-1;
-    }
+    header {grid-column: 1/-1;}
 
-    nav
+    header
     {
         grid-column: 1/-1;
         background-color: darkslategrey;
         color: white;
         text-align: center;
-        
-        ul {
-                list-style: none;
-                display: flex;
-                flex-direction: column;
-                flex-wrap: wrap;
-                justify-content: space-evenly;
-                
-                li {
-                    transition-duration: 0.5s;
-                    a {
-                        text-decoration: none;
-                        line-height: 2rem;
-                        color: white;
-                        size: smaller;
-                        width: 100%;
-                        height: 100%;
-                        display: block;
-                    }
-                }
 
-                li:hover {
-                    background-color: red;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        /* #img-id
+        {
+            height: auto;
+        } */
+
+        .navigation
+        {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        ul
+        {
+            
+            /* list-style: none;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-evenly; */
+            
+            li {
+                transition-duration: 0.5s;
+                a {
+                    text-decoration: none;
+                    line-height: 2rem;
+                    color: white;
+                    size: smaller;
+                    width: 100%;
+                    height: 100%;
+                    display: block;
                 }
             }
-    } */
+
+            li:hover {
+                background-color: red;
+            }
+        }
+    }
 
     /* Light Grey: #CCCCCC
 Light Blue: #6CA6CD
@@ -174,7 +176,11 @@ Pale Yellow: #FFFF99 */
     main
     {
         /* background-color: #C0C0C0; */
-        grid-column: 2/-2;
+        grid-column: 1/-1;
+        display: grid;
+        grid-template-columns: 1fr 3fr 3fr 1fr;
+
+        .home {grid-column: 1/-1;}
     }
 
     .home h1{
@@ -189,13 +195,15 @@ Pale Yellow: #FFFF99 */
 
 
     .services {
+        grid-column: 2/-2;
+        
         margin-top: 5rem;
-        margin-bottom: 5rem;
+        /* margin-bottom: 5rem; */
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        align-items: stretch;
-        justify-content: space-evenly;
+        align-items: center;
+        justify-content: space-between;
         height: auto;
 
         .service-bracket {
@@ -207,12 +215,13 @@ Pale Yellow: #FFFF99 */
 
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             cursor: default;
             
             transition-duration: 0.5s;
             width: 30%;
+            height: 100%;
 
             h3 {text-align: center; transition-duration: 0.5s;}
 
@@ -223,8 +232,38 @@ Pale Yellow: #FFFF99 */
         .service-bracket:hover {background-color: whitesmoke;box-shadow: 0rem 0.1rem 1rem gray;}
     }
 
+
+    .seller-area
+    {
+        grid-column: 2/-2;
+        text-align: center;
+        margin-top: 5rem;
+        padding: 5rem;
+
+        box-shadow: 0rem 0.1rem 1rem lightgray;
+        border-radius: 0.5rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .sell-button
+        {
+            background-color: cornflowerblue;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition-duration: 0.5s;
+        }
+        .sell-button:hover {background-color: blueviolet;}
+    }
+    .seller-area:hover {box-shadow: 0rem 0.1rem 1rem gray;}
+
+
     .search
     {
+        grid-column: 2/-2;
+
         border: 0;
         border-radius: 0.25rem;
         padding: 0.5rem 1rem;
@@ -247,27 +286,64 @@ Pale Yellow: #FFFF99 */
             label {font-weight: bold;}
             select {width: 100%; height: 2rem; background-color: whitesmoke; border: 0; margin-top: 1rem;}
             input {width: 100%; height: 2rem; background-color: whitesmoke; border: 0;  margin-top: 1rem;}
-            button {width: 100%; height: 2rem; background-color: cornflowerblue; border: 0; transition-duration: 0.5s;  margin-top: 1rem;}
+            button {width: 100%; height: 2rem; background-color: cornflowerblue; border: 0; transition-duration: 0.5s;  margin: 1rem 0.5rem 0rem 0rem;}
             button:hover {background-color: blueviolet; cursor: pointer;}
+
+            .reset-search-form{background-color: orangered; margin-left: 0.5rem; margin-right: 0rem;}
+            .reset-search-form:hover{background-color: red;}
         }
     }
     .search:hover {box-shadow: 0rem 0.1rem 1rem gray;}
 
-    .cars
+    .featured-cars
     {
-        margin-top: 4rem;
-        border: 1px solid black;
-        border-radius: 0.5rem;
-        box-shadow: 0rem 0.1rem 1rem lightgray;
+        grid-column: 2/-2;
+        text-align: center;
+        margin: 5rem 0rem;
 
+        .cars
+        {
+            padding: 1rem;
+
+            margin-top: 4rem;
+            /* border: 1px solid black; */
+            border-radius: 0.5rem;
+            transition-duration: 0.5s;
+            box-shadow: 0rem 0.1rem 1rem lightgray;
+
+            display: grid;
+            align-items: stretch;
+            column-gap: 0.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+            .car-box
+            {
+                width: 100%;
+                border: 0;
+                box-shadow: 0rem 0.1rem 1rem lightgray;
+                transition-duration: 0.5s;
+            }
+        }
+        .cars:hover {box-shadow: 0rem 0.1rem 1rem gray;}
+    }
+
+    .search-cars-guest
+    {
+        grid-column: 2/-2;
         display: grid;
-        align-items: stretch;
-        column-gap: 0.5rem;
+        margin-top: 5rem;
+        border-radius: 0.5rem;
+        padding: 1rem;
+
+        box-shadow: 0rem 0.1rem 1rem lightgray;
+        transition-duration: 0.5s;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
+    .search-cars-guest:hover {box-shadow: 0rem 0.1rem 1rem gray;}
 
     .contact-us
     {
+        grid-column: 2/-2;
         margin-top: 2rem;
         a { text-decoration: none; h1 {text-align: center; font-size: 2rem;} }
 
@@ -305,7 +381,8 @@ Pale Yellow: #FFFF99 */
 
     .reviews
     {
-        margin-top: 2rem;
+        grid-column: 2/-2;
+        margin-top: 5rem;
         a { text-decoration: none; h1 {text-align: center; font-size: 3rem;} }
 
         .review-box {
@@ -337,72 +414,107 @@ Pale Yellow: #FFFF99 */
         .review-bracket:hover {box-shadow: 0rem 0.1rem 1rem gray;}
     }
 
-/* Styles for the cars section */
-.cars {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    
-}
 
+    .search-cars {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 1rem;
+    grid-row-gap: 50px;
 
-/* Styles for individual car boxes */
-.cars {
-    margin-top: 2rem;
-    a { text-decoration: none; h1 {text-align: center; font-size: 3rem;} }
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-    .car-box {
-        width: calc(25% - 20px); 
-        margin-bottom: 20px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
+    .car-card {
+        background-color: rgba(255, 255, 255, 0.8);
         padding: 20px;
-        box-sizing: border-box; 
-
-        &:nth-child(n + 5) {
-            margin-top: 20px; 
-        }
-
-        &:nth-child(odd) {
-            margin-right: 20px; 
-        }
+        text-align: center;
+        margin: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        border-radius: 5px;
+        height: 99%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
 
         img {
-            max-width: 100%;
-            height: auto;
+            width: 100%;
+            flex: 1;
+        }
+
+        p {
+            width: 100%;
+            text-align: justify;
+        }
+
+        
+    }
+
+    /* .car-card:hover {
+        box-shadow: 0 28px 36px 0 rgba(88, 11, 11, 0.2);
+    }
+    } */
+    .search-cars:hover {box-shadow: 0rem 0.1rem 1rem gray;}
+
+
+    /* Styles for the cars section */
+    .cars {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        
+    }
+
+
+    /* Styles for individual car boxes */
+    .cars {
+        margin-top: 2rem;
+        a { text-decoration: none; h1 {text-align: center; font-size: 3rem;} }
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .car-box {
+            width: calc(25% - 20px); 
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
             border-radius: 8px;
-            margin-bottom: 10px;
+            padding: 20px;
+            box-sizing: border-box; 
+
+            &:nth-child(n + 5) {
+                margin-top: 20px; 
+            }
+
+            &:nth-child(odd) {
+                margin-right: 20px; 
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+                margin-bottom: 10px;
+            }
+
+            .car-info {
+                font-weight: bold;
+            }
+
+            .car-name {
+                margin-top: 10px;
+                font-size: 18px;
+            }
+
+            .car-description {
+                margin-top: 5px;
+                font-size: 14px;
+            }
+            &:hover {
+                box-shadow: 0rem 0.1rem 1rem gray; 
+                cursor: pointer;
+            }  
         }
-
-        .car-info {
-            font-weight: bold;
-        }
-
-        .car-name {
-            margin-top: 10px;
-            font-size: 18px;
-        }
-
-        .car-description {
-            margin-top: 5px;
-            font-size: 14px;
-        }
-         &:hover {
-            box-shadow: 0rem 0.1rem 1rem gray; 
-            cursor: pointer;
-        
-        
-    }  
-    
-}
-
-
-
-    
+    }
 }
 
 footer
@@ -420,54 +532,63 @@ footer
 {
     body {
             nav {
-            ul {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-evenly;
-                flex-wrap: nowrap;
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    flex-wrap: nowrap;
 
-                padding: 0;
+                    padding: 0;
 
-                li {width: 25%; height: 100%; margin: 0;}
+                    li {width: 25%; height: 100%; margin: 0;}
+                }
             }
-        }
 
         .search
         {
-            display: grid;
-            grid-template-rows: 4;
-            grid-template-columns: 3;
-
-            a {grid-area: heading-field; margin: 2rem;}
-            .year-field {grid-area: year-field;}
-            .car-type-field {grid-area: car-type-field;}
-            .make-field {grid-area: make-field;}
-            .model-field {grid-area: model-field;}
-            .min-price-field {grid-area: min-price-field;}
-            .max-price-field {grid-area: max-price-field;}
-            .submit {grid-area: submit-field;}
-
-            div
+            .search-car-form
             {
-                transition-duration: 1s;
-                padding: 1rem;
-                select {transition-duration: 1s;}
-                input {transition-duration: 1s;}
-            }
+                display: grid;
+                grid-template-rows: auto auto auto auto;
+                grid-template-columns: repeat(3, 1fr);
 
-            div:hover:not(.submit)
-            {
-                background-color: whitesmoke;
-                border-radius: 1rem;
-                select {background-color: white;}
-                input {background-color: white};
-            }
+                a {grid-area: heading-field; margin: 2rem;}
+                .year-field {grid-area: year-field;}
+                .car-type-field {grid-area: car-type-field;}
+                .make-field {grid-area: make-field;}
+                .model-field {grid-area: model-field;}
+                .min-price-field {grid-area: min-price-field;}
+                .max-price-field {grid-area: max-price-field;}
+                .submit
+                {
+                    grid-area: submit-field;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                }
 
-            grid-template-areas:
-            "heading-field heading-field heading-field"
-            "year-field make-field model-field"
-            "car-type-field min-price-field max-price-field"
-            "submit-field submit-field submit-field";
+                div
+                {
+                    transition-duration: 1s;
+                    padding: 1rem;
+                    select {transition-duration: 1s;}
+                    input {transition-duration: 1s;}
+                }
+
+                div:hover:not(.submit)
+                {
+                    background-color: whitesmoke;
+                    border-radius: 1rem;
+                    select {background-color: white;}
+                    input {background-color: white};
+                }
+
+                grid-template-areas:
+                "heading-field heading-field heading-field"
+                "year-field make-field model-field"
+                "car-type-field min-price-field max-price-field"
+                "submit-field submit-field submit-field";
+            }
         }
     }
 }
