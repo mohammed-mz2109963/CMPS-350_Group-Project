@@ -7,15 +7,69 @@
     <title>Document</title>
     <link rel="stylesheet" href="CSS/SellForm.css">
     <link rel="stylesheet" href="./CSS/style.css" />
+
+    <script src="Javascript/FillForm.js"></script>
+    <script src="Javascript/SubmitForm.js"></script>
+
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fetch car makes from the API
+            fetch('https://databases.one/api/?format=json&select=make&api_key=Your_Database_Api_Key')
+                .then(response => response.json())
+                .then(data => {
+                    const makes = data.result;
+                    const makeSelect = document.getElementById('car-make');
+
+                    // Populate the options of the make select element
+                    makes.forEach(make => {
+                        const option = document.createElement('option');
+                        option.text = make.make;
+                        option.value = make.make_id;
+                        makeSelect.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching car makes:', error);
+                });
+        });
+    </script> -->
+    
 </head>
 
 <body>
 
-    <header>
-        <a href="#sell-form">
-            <h1>ScamBox Automobiles</h1><br>
-            <p>Make Listing</p>
+    <header class="head">
+
+        <a href="SellerHomePage.html" class="logo">
+            <img src="./CSS/images/cars/Starman-cuate.png" alt="car-logo">
         </a>
+
+
+
+        <nav class="navigation">
+
+
+            <a href="SellerHomePage.html">Home</a>
+            <a href="SellerHomePage.html#search">Search</a>
+            <a href="SellerHomePage.html#contact-us">Contact Us</a>
+            <a href="SellerHomePage.html#reviews">Reviews</a>
+
+
+        </nav>
+
+        <!-- <section class="menu-icons">
+            <a href="HomePage.html#search">
+                <img src="./CSS/images/cars/icons8-search-64.png" width=30px>
+            </a>
+            
+            <a class="cart-span" href="cart.html">
+                <img src="./CSS/images/cars/icons8-cart-30.png" width=30px><span style="color: red
+                ;">0</span>
+            </a>
+            <img src="./CSS/images/cars/icons8-account-96.png" width=30px>
+
+        </section> -->
+
     </header>
 
 
@@ -57,22 +111,45 @@
 
                 <div class="input-field">
                     <label for="car-make">Make:</label><br>
-                    <input type="text" name="car-make" id="car-make" required><br>
+                    <select name="car-make" id="car-make" required></select><br>
                 </div>
 
                 <div class="input-field">
                     <label for="car-model">Model:</label><br>
-                    <input type="text" name="car-model" id="car-make" required><br>
+                    <input type="text" name="car-model" id="car-model" required></input><br>
                 </div>
 
                 <div class="input-field">
                     <label for="car-type">Type:</label><br>
-                    <input type="text" name="car-make" id="car-make" required><br>
+                    <select name="car-type" id="car-type" required>
+                        <option value="hatchback">Hatchback</option>
+                        <option value="sedan">Sedan</option>
+                        <option value="suv">SUV</option>
+                        <option value="muv">MUV</option>
+                        <option value="coupe">Coupe</option>
+                        <option value="convertible">Convertible</option>
+                        <option value="pickup">Pickup</option>
+                        <option value="sports">Sports</option>
+                        <option value="hyper">Hyper</option>
+                    </select>
                 </div>
 
                 <div class="input-field">
                     <label for="car-price">Price:</label><br>
                     <input type="text" name="car-price" id="car-price" required><br>
+                </div>
+
+                <div class="input-field">
+                    <label for="car-km">Distance Run [km]:</label><br>
+                    <input type="number" name="car-distance" id="car-distance" required><br>
+                </div>
+            </div>
+
+
+            <div class = "car-image">
+                <div class="input-field">
+                    <label for="car-image">Upload Image:</label><br>
+                    <input type="file" name="car-image" id="car-image" accept="image/*"><br>
                 </div>
             </div>
 

@@ -164,14 +164,15 @@ body
             li:hover {
                 background-color: red;
             }
+            }
         }
     }
 
     /* Light Grey: #CCCCCC
-Light Blue: #6CA6CD
-Dark Green: #2E8B57
-Silver: #C0C0C0
-Pale Yellow: #FFFF99 */
+    Light Blue: #6CA6CD
+    Dark Green: #2E8B57
+    Silver: #C0C0C0
+    Pale Yellow: #FFFF99 */
 
     main
     {
@@ -306,7 +307,7 @@ Pale Yellow: #FFFF99 */
             padding: 1rem;
 
             margin-top: 4rem;
-            /* border: 1px solid black; */
+            
             border-radius: 0.5rem;
             transition-duration: 0.5s;
             box-shadow: 0rem 0.1rem 1rem lightgray;
@@ -326,8 +327,9 @@ Pale Yellow: #FFFF99 */
         }
         .cars:hover {box-shadow: 0rem 0.1rem 1rem gray;}
     }
+    
 
-    .search-cars-guest
+    .search-cars-guest, .search-cars-div
     {
         grid-column: 2/-2;
         display: grid;
@@ -415,6 +417,52 @@ Pale Yellow: #FFFF99 */
     }
 
 
+    /* featured cars */
+
+    .cars {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 1rem;
+    grid-row-gap: 50px;
+
+    .car-box {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        text-align: center;
+        margin: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        border-radius: 5px;
+        height: 99%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        img {
+            width: 100%;
+            flex: 1;
+        }
+
+        p {
+            width: 100%;
+            text-align: justify;
+        }
+
+        
+    }
+
+    /* .car-card:hover {
+        box-shadow: 0 28px 36px 0 rgba(88, 11, 11, 0.2);
+    }
+    } */
+    .featured-cars:hover {box-shadow: 0rem 0.1rem 1rem gray;}
+    
+    }
+
+    /* find car area css */
+
+    
     .search-cars {
     display: grid;
     width: 100%;
@@ -453,7 +501,8 @@ Pale Yellow: #FFFF99 */
     }
     } */
     .search-cars:hover {box-shadow: 0rem 0.1rem 1rem gray;}
-
+    
+    /* ------------ */
 
     /* Styles for the cars section */
     .cars {
@@ -465,7 +514,7 @@ Pale Yellow: #FFFF99 */
 
 
     /* Styles for individual car boxes */
-    .cars {
+    /* .cars {
         margin-top: 2rem;
         a { text-decoration: none; h1 {text-align: center; font-size: 3rem;} }
 
@@ -514,7 +563,7 @@ Pale Yellow: #FFFF99 */
                 cursor: pointer;
             }  
         }
-    }
+    } */
 }
 
 footer
@@ -549,8 +598,8 @@ footer
             .search-car-form
             {
                 display: grid;
-                grid-template-rows: auto auto auto auto;
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: auto auto auto auto; 
+                grid-template-columns: 3;
 
                 a {grid-area: heading-field; margin: 2rem;}
                 .year-field {grid-area: year-field;}
@@ -591,5 +640,4 @@ footer
             }
         }
     }
-}
 }

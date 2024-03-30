@@ -40,13 +40,7 @@ class CarRepo{
 
     }
 
-    async getSelectedCars(carSearch){
-        let response;
-
-
-
-
-    }
+    
     
 }
 

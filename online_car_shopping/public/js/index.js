@@ -8,6 +8,7 @@ const typeSelect = document.querySelector("#car_type");
 const makeSelect = document.querySelector("#make");
 const modelSelect = document.querySelector("#model");
 const searchCar = document.querySelector("#search-cars");
+const featCars=document.querySelector("#cars")
 
 
 form.addEventListener('submit',showSelectedCars)
@@ -16,11 +17,18 @@ typeSelect.addEventListener('change',handleTypeChange)
 yearSelect.addEventListener('change',handleYearChange)
 form.addEventListener('reset',handleReset)
 
+
 document.addEventListener("DOMContentLoaded", async () => {
     window.showSelectedCars=showSelectedCars
     window.handleMakeChange=handleMakeChange
     window.handleTypeChange=handleTypeChange
     window.handleYearChange=handleYearChange
+    window.showSelectedCars=showSelectedCars
+    window.fillPage=fillPage
+    window.handleReset=handleReset
+    window.formToObj=formToObj
+
+    fillPage()
 
     
 
@@ -241,6 +249,7 @@ async function showSelectedCars(e){
     console.log(cars);
 
     let listHTML='';
+    let itemCount=1
 
     cars.forEach(car=>{
 
@@ -255,15 +264,69 @@ async function showSelectedCars(e){
 
                     <h4 class="car-price">$${car.price}</h4>
                     <br>
-                    <a class="add item1" href="SignIn.html">Login to Continue</a>
+                    <a class="add-item${itemCount}" href="SignIn.html">Login to Continue</a>
 
                 </div>
            `;
-
+            itemCount++;
         }
     )
 
     searchCar.innerHTML=listHTML;
+
+}
+
+
+
+async function fillPage(){
+    
+
+    let cars;
+    cars = await carRepo.getCars();
+
+    const totalCars = cars.length;
+
+    const randomCars = [];
+
+    while (randomCars.length < 6) {
+        const randomIndex = Math.floor(Math.random() * totalCars);
+        const randomCar = cars[randomIndex];
+
+        if (!randomCars.includes(randomCar)) {
+            randomCars.push(randomCar);
+        }
+    }
+
+    console.log(randomCars);
+
+
+
+
+    let listHTML='';
+    let itemCount=1
+
+    randomCars.forEach(car=>{
+        
+        listHTML += `
+
+                <div class="car-box">
+                    <img src="${car.image_url}">
+
+                    <p class="car-info">Model: "${car.model}" Year: "${car.year}"</p>
+                    <br>
+                    <h4 class="car-name">"${car.make}" </h4>
+
+                    <h4 class="car-price">$"${car.price}"</h4>
+                    
+                    <br>
+                    <a class="add-item${itemCount}" href="SignIn.html">Login to Continue</a>
+                </div>
+           `;
+        itemCount++;
+        }
+    )
+
+    featCars.innerHTML=listHTML;
 
 }
 
@@ -285,3 +348,5 @@ function formToObj(form) {
 
     return formObject;
 }
+
+

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/HomePage.css">
+    <link rel="stylesheet" href="./CSS/style.css" />
+
+    <script src = "Javascript/Javascript.js"></script>
+    <script src = "Javascript/HomeCars.js"></script>
+    <script src = "Javascript/FillForm.js"></script>
+</head>
+
+<body>
+
+    <header class="head">
+
+        <a href="BuyerHomePage.html" class="logo">
+            <img src="./CSS/images/cars/Starman-cuate.png" alt="car-logo">
+        </a>
+
+
+
+        <nav class="navigation">
+
+            <a href="BuyerHomePage.html">Home</a>
+            <a href="BuyerHomePage.html#search">Search</a>
+            <a href="BuyerHomePage.html#contact-us">Contact Us</a>
+            <a href="BuyerHomePage.html#reviews">Reviews</a>
+
+
+        </nav>
+
+        <section class="menu-icons">
+            <a href="BuyerHomePage.html#search">
+                <img src="./CSS/images/cars/icons8-search-64.png" width=30px>
+            </a>
+            <!-- <img src="./CSS/images/cars/icons8-cart-30.png" width=30px> -->
+            <a class="cart-span" href="cart.html">
+                <img src="./CSS/images/cars/icons8-cart-30.png" width=30px><span style="color: red
+                ;">0</span>
+            </a>
+
+            <a href="" class = "profile_img">
+                <img src="./CSS/images/cars/icons8-account-96.png" width = 30px>
+            </a>
+
+            <a href="SignIn.html">
+                <img src="./CSS/images/cars/icons8-change-90.png" width=30px>
+            </a>
+        </section>
+
+    </header>
+
+
+
+    <main>
+        <section class="home" id="home">
+            <div class="name">
+                <h3 class="animate slideFromLeft">ScamBox Automobiles</h3>
+                <p class="animate slideFromRight">FIND YOUR DREAM CAR AT A REASONABLE PRICE </p>
+                <div class="hbc">
+                    <a href="#featured-cars">
+                        <button class="hb hb1 animate bounce">Check our Products</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="service-bracket">
+                <article>
+                    <h3>Largest Dealership of Cars</h3>
+                    <figure><img src="CSS/images/Service-bracket_1.png" alt="service-img"></figure>
+                    <figcaption>
+                        <p>Explore the widest selection of cars at ScamBox Automobiles, there is an option that suites
+                            every style and budget! Finding your dream car has never been easier.</p>
+                    </figcaption>
+                </article>
+            </div>
+
+            <div class="service-bracket">
+                <article>
+                    <h3>Unlimited Repair Warranty</h3>
+                    <figure><img src="CSS/images/Service-bracket_2.png" alt="service-img"></figure>
+                    <figcaption>
+                        <p>Our unlimited support warranty covers all unexpected repairs and maintenance beyond purchase,
+                            allowing you to enjoy a peace of mind.</p>
+                    </figcaption>
+                </article>
+            </div>
+
+            <div class="service-bracket">
+                <article>
+                    <h3>Insurance Support</h3>
+                    <figure><img src="CSS/images/Service-bracket_3.png" alt="serivce-img"></figure>
+                    <figcaption>
+                        <p>We offer hassle-free insurance solutions tailored specifically to your needs by our team of
+                            experts, ensuring that you are always protected on the roads and highways.</p>
+                    </figcaption>
+                </article>
+            </div>
+        </section>
+
+
+        <section class = "seller-area" id = "seller-area">
+            <h1>Want to Sell a Car?</h1><br><br>
+            <a href="SellForm.html">
+                <button class = "sell-button" id = "sell-button">Make a Listing</button>
+            </a>
+        </section>
+
+
+        <div class = "featured-cars" id = "featured-cars">
+            <h1>Featured Cars</h1>
+            <section class="cars" id="cars">
+
+                <div class="car-box">
+                    <img src="./CSS/images/cars/ferrari.jpg">
+
+                    <p class="car-info">Model: Ferrari Year: 2024</p>
+                    <br>
+                    <h4 class="car-name">Ferrari </h4>
+
+                    <h4 class="car-price">$80000</h4>
+                    <P class="car-description">Ferrari is the fastest car on the planet.</P>
+                    <br>
+                    <a class="add item1" href="#">Add to Cart</a>
+                </div>
+                <div class="car-box">
+                    <img src="./CSS/images/cars/lambo.jpg">
+                    <p class="car-info">Model: Lamborghini Year: 2024</p>
+                    <br>
+                    <h4 class="car-name">Lamborghini </h4>
+
+                    <h4 class="car-price">$70000</h4>
+                    <P class="car-description">Lamborghini is the fastest car on the planet.</P>
+                    <br>
+                    <a class="add item2" href="#">Add to Cart</a>
+                </div>
+                <div class="car-box">
+                    <img src="./CSS/images/cars/porsche.jpg">
+                    <p class="car-info">Model: Porsche Year: 2024</p>
+                    <br>
+                    <h4 class="car-name">Porsche </h4>
+
+                    <h4 class="car-price">$60000</h4>
+                    <P class="car-description">Porsche is the fastest car on the planet.</P>
+                    <br>
+                    <a class="add item3" href="#">Add to Cart</a>
+                </div>
+                <div class="car-box">
+                    <img src="./CSS/images/cars/toyota.jpg">
+                    <p class="car-info">Model: Toyota Year: 2024</p>
+                    <br>
+                    <h4 class="car-name">Toyota </h4>
+
+                    <h4 class="car-price">$30000</h4>
+                    <P class="car-description">Toyota is the fastest car on the planet.</P>
+                    <br>
+                    <a class="add item4" href="#">Add to Cart</a>
+                </div>
+
+
+            </section>
+        </div>
+        
+
+        <section class="search" id="search">
+            <form action="" class="search-car-form" id="search-car-form">
+
+                <br><br><a href="#search">
+                    <h1>Find Your Car</h1>
+                </a><br><br>
+
+                <div class="year-field" id="year-field">
+                    <label for="year">Year:</label><br>
+                    <select name="year" id="year">
+
+                        <option value="Select Year">Select Year</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2019</option>
+                        <option value="2020">2018</option>
+                        <option value="2020">2017</option>
+                        <option value="2020">2016</option>
+                        <option value="2020">2015</option>
+                        <option value="2020">2014</option>
+                        <option value="2020">2013</option>
+                        <option value="2020">2012</option>
+                        <option value="2020">2011</option>
+                        <option value="2020">2010</option>
+                        <option value="2020">2009</option>
+                        <option value="2020">2008</option>
+                        <option value="2020">2007</option>
+                        <option value="2020">2006</option>
+                        <option value="2020">2005</option>
+                        <option value="2020">2004</option>
+                        <option value="2020">2003</option>
+                        <option value="2020">2002</option>
+                        <option value="2020">2001</option>
+                        <option value="2020">2000</option>
+
+                    </select>
+                </div>
+
+                <div class="car-type-field" id="car-type-field">
+                    <label for="car-type">Car Type:</label><br>
+                    <select name="car-type" id="car-type">
+
+                        <option value="Select Type">Select Type</option>
+                        <option value="hatchback">Hatchback</option>
+                        <option value="sedan">Sedan</option>
+                        <option value="suv">SUV</option>
+                        <option value="muv">MUV</option>
+                        <option value="coupe">Coupe</option>
+                        <option value="convertible">Convertible</option>
+                        <option value="pickup">Pickup</option>
+                        <option value="sports">Sports</option>
+                        <option value="hyper">Hyper</option>
+
+                    </select>
+                </div>
+
+                <div class="make-field" id="make-field">
+                    <label for="make">Make:</label><br>
+                    <select name="car-make" id="car-make">
+
+                        <!-- <option value="Select Make">Select Make</option>
+                        <option value="Toyota">Toyota</option>
+                        <option value="Ford">Ford</option>
+                        <option value="Aston Martin">Aston Martin</option>
+                        <option value="Volkswagon">Volkswagon</option>
+                        <option value="Porsche">Porsche</option> -->
+
+                    </select>
+                </div>
+
+                <div class="model-field" id="model-field">
+                    <label for="model">Model:</label><br>
+                    <input type = "text" name="model" id="model">
+
+                        <!-- <option value="Select Model">Select Model</option> -->
+
+                    </input>
+                </div>
+
+                <div class="min-price-field" id="min-price-field">
+                    <label for="min-price">Minimum Price:</label><br>
+                    <input type="text" name="min-price" id="min-price">
+                </div>
+
+                <div class="max-price-field id = " max-price-field">
+                    <label for="max-price">Maximum Price:</label><br>
+                    <input type="text" name="max-price" id="max-price">
+                </div>
+
+                <div class="submit" id="submit">
+                    <!-- <form action="/this-will-redirect-to-the-page-with-the-car-that-the-user-will-search-for" method="GET"> -->
+                    <!-- <input type="search" class="search-button" id="search-button"> -->
+                    <button type="submit" class="submit-search-form" id="submit-search-form">Submit</button>
+                    <button type="reset" class="reset-search-form" id="reset-search-form">Reset</button>
+                    <!-- </form> -->
+                </div>
+            </form>
+        </section>
+
+        <a href="SignIn.html" class = "search-cars-div">
+            <section class = "search-cars" id = "search-cars">
+                
+            </section>
+        </a>
+
+
+        <section class="contact-us" id="contact-us">
+            <br><br><a href="#contact-us">
+                <h1>Contact Us</h1>
+            </a><br><br>
+
+            <div class="form-content">
+                <p>Have questions or want to drop a review? Reach out to us using the form below:</p><br>
+
+                <form class="contact-form">
+
+                    <div class="input">
+                        <label for="name">
+                            <h4>Your Name: </h4>
+                        </label>
+                        <input type="text" name="name" id="name" required>
+                    </div>
+
+                    <div class="input">
+                        <label for="email">
+                            <h4>Your Email: </h4>
+                        </label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+
+                    <div class="input">
+                        <label for="message">
+                            <h4>Your Message: </h4>
+                        </label>
+                        <textarea name="message" id="message" required></textarea>
+                    </div>
+
+                    <br>
+                    <div class="submit">
+                            <a href="SignIn.html"><button>Submit</button></a>
+                    </div>
+                </form>
+
+            </div>
+        </section>
+        <br><br><br>
+
+        <section class="reviews" id="reviews">
+            <a href="#reviews">
+                <h1>What Our Clients Say:</h1>
+            </a>
+            <br><br>
+            <section class="review-box">
+
+                <div class="review-bracket">
+                    <article>
+
+                        <figure><img src="./CSS/images/Client PNG/ABRAHAM LINCOLN.png" alt="Abraham Lincoin"></figure>
+                        <figcaption>
+                            <p>This is the best Automobile service company ever. I recommend everyone to buy their dream
+                                car from here. This company is Of the people, For the people, By the people</p>
+                            <h5>Abraham Lincoin</h5>
+                            <h5>New York</h5>
+                        </figcaption>
+                    </article>
+                </div>
+                <div class="review-bracket">
+                    <article>
+
+                        <figure><img src="./CSS/images/Client PNG/BARACK OBAMA.png" alt="BARACK OBAMA"></figure>
+                        <figcaption>
+                            <p>This is the best Automobile service company ever. I recommend everyone to buy their dream
+                                car from here. This company is Of the people, For the people, By the people</p>
+                            <h5>BARACK OBAMA</h5>
+                            <h5>Washington</h5>
+                        </figcaption>
+                    </article>
+                </div>
+                <div class="review-bracket">
+                    <article>
+
+                        <figure><img src="./CSS/images/Client PNG/BILL CLINTON.png" alt="BILL CLINTON"></figure>
+                        <figcaption>
+                            <p>This is the best Automobile service company ever. I recommend everyone to buy their dream
+                                car from here. This company is Of the people, For the people, By the people</p>
+                            <h5>BILL CLINTON</h5>
+                            <h5>Los Angeles</h5>
+                        </figcaption>
+                    </article>
+                </div>
+
+            </section>
+    </main>
+    <script src="./Javascript/Javascript.js"></script>
+    <script src="./Javascript/cart.js"></script>
+</body>
+
+<footer class="footer">
+    <div class="socials">
+        <img class="soc" src="./CSS/images/socials/icons8-facebook-50.png" alt="facebook" width=30px>
+        <img class="soc" src="./CSS/images/socials/icons8-instagram-50.png" alt="instagram" width=30px>
+        <img class="soc" src="./CSS/images/socials/icons8-gmail-50.png" alt="gmail" width=30px>
+        <img class="soc" src="./CSS/images/socials/icons8-linkedin-50.png" alt="linkedIn" width=30px>
+        <img class="soc" src="./CSS/images/socials/icons8-twitter-50.png" alt="icons8-twitter-50" width=30px>
+    </div>
+    <br>
+    <section class="copyrights" id="copyrights">
+        <a class="button" href="#top">&copy; 2024 ScamBox Automobiles</a>
+    </section>
+</footer>
+
+</html>
