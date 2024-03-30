@@ -25,7 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('name').textContent = `Name: ${buyerDetails.name}`;
         document.getElementById('surname').textContent = `Surname: ${buyerDetails.surname}`;
         document.getElementById('account-type').textContent = `Account Type: Buyer`;
-
+        
+        // Display account balance
+        document.getElementById('balance').textContent = `Account Balance: $${buyerDetails.money_balance}`;
+        
         // Update shipping address section
         const address = buyerDetails.shipping_address;
         const addressHTML = `
@@ -39,8 +42,22 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector('.shipping-address').innerHTML = addressHTML;
     }
 
+    // Function to add balance
+    function addBalance(amount) {
+        let users = JSON.parse(localStorage.getItem('users'));
+        const buyerIndex = users.findIndex(user => user.type === 'buyer');
+        users[buyerIndex].money_balance += amount;
+        localStorage.setItem('users', JSON.stringify(users));
+        displayBuyerDetails(); // Update displayed balance
+    }
+
     // Display buyer details on page load
     displayBuyerDetails();
+
+    // Add event listener to the "Add Balance" button
+    document.getElementById('add-balance').addEventListener('click', function(event) {
+        addBalance(1000); // Add $1000 to the balance
+    });
 
     // Function to update buyer details
     document.getElementById('buyer-form').addEventListener('submit', function(event) {

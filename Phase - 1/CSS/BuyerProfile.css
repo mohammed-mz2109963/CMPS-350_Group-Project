@@ -38,6 +38,21 @@ body
                 margin-top: 1rem;
                 margin-bottom: 5rem;
             }
+
+            .name-surname
+            {
+                #add-balance
+                {
+                    margin-top: 2.5rem;
+                    height: 2.5rem;
+                    width: 100%;
+                    border-radius: 0.5rem;
+                    background-color: cornflowerblue;
+                    cursor: pointer;
+                    transition-duration: 0.5s;
+                }
+                #add-balance:hover {background-color: blueviolet;}
+            }
         }
 
         .right-side
