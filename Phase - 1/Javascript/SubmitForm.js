@@ -15,8 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const carType = document.getElementById('car-type').value;
         const carPrice = document.getElementById('car-price').value;
         const carDistance = document.getElementById('car-distance').value;
-        // Assuming you want to store the image file name
-        const carImage = document.getElementById('car-image').files[0].name;
+        const carImageURL = document.getElementById('car-image-url').value; // Get the URL from input field
 
         // Generate unique ID
         let carID;
@@ -38,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
             carType: carType,
             carPrice: carPrice,
             carDistance: carDistance,
-            carImage: carImage
+            carImage: carImageURL // Store the URL directly
         };
 
         // Add new car object to array

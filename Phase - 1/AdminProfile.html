@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buyer Profile</title>
+    <title>Admin Profile</title>
     <link rel="stylesheet" href="CSS/BuyerProfile.css">
     <link rel="stylesheet" href="CSS/HomePage.css">
     <link rel="stylesheet" href="./CSS/style.css"/>
 
+    <script src = "Javascript/AdminProfile.js"></script>
     <!-- <script src = "Javascript/SellerProfile.js"></script> -->
 </head>
 
@@ -29,10 +30,10 @@
             <a href="AdminHomePage.html#search">
                 <img src="./CSS/images/cars/icons8-search-64.png" width="30px">
             </a>
-            <a class="cart-span" href="cart.html">
+            <!-- <a class="cart-span" href="cart.html">
                 <img src="./CSS/images/cars/icons8-cart-30.png" width="30px"><span style="color: red;">0</span>
-            </a>
-            <a href="" class="profile_img">
+            </a> -->
+            <a class="profile_img" href="AdminProfile.html">
                 <img src="./CSS/images/cars/icons8-account-96.png" width="30px">
             </a>
             <a href="SignIn.html">
@@ -70,6 +71,10 @@
                     <input type="text" id="bank-account" name="bank-account">
                     <button type="submit">Update Details</button>
                 </form> -->
+
+                <section class = "cart-container" id = "cart-container"><h1>cart-container</h1></section>
+                <section class = "purchase-history-container" id = "purchase-history-container"><h1>purchase-history-container</h1></section>
+                <section class = "users-container" id = "users-container"><h1>users-container</h1></section>
             </section>
         </div>
     </main>

@@ -327,18 +327,53 @@ Pale Yellow: #FFFF99 */
         .cars:hover {box-shadow: 0rem 0.1rem 1rem gray;}
     }
 
-    .search-cars-guest, .search-cars-div
+    .search-cars-guest, .search-cars-div, .search-cars, .search-cars-admin
     {
         grid-column: 2/-2;
         display: grid;
         margin-top: 5rem;
         border-radius: 0.5rem;
         padding: 1rem;
+        background-color: whitesmoke;
 
         box-shadow: 0rem 0.1rem 1rem lightgray;
         transition-duration: 0.5s;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
+
+    .search-car-object
+    {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        padding: 1rem;
+        row-gap: 1rem;
+        text-align: center;
+
+        border-radius: 0.5rem;
+        box-shadow: 0rem 0.1rem 1rem lightgray;
+        background-color: white;
+        transition-duration: 0.5s;
+        margin: 0.5rem;
+
+        img
+        {
+            width: 100%;
+            border-radius: 0.5rem;
+        }
+
+        .add-to-cart
+        {
+            background-color: cornflowerblue;
+            cursor: pointer;
+            transition-duration: 0.5s;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            width: 100%;
+        }
+        .add-to-cart:hover {background-color: blueviolet;}
+    }
+    .search-car-object:hover {box-shadow: 0rem 0.1rem 1rem gray;}
     .search-cars-guest:hover {box-shadow: 0rem 0.1rem 1rem gray;}
 
     .contact-us
@@ -449,12 +484,16 @@ Pale Yellow: #FFFF99 */
         justify-content: space-between;
 
         .car-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             width: calc(25% - 20px); 
             margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 8px;
             padding: 20px;
             box-sizing: border-box; 
+            height: 45rem;
 
             &:nth-child(n + 5) {
                 margin-top: 20px; 
@@ -487,7 +526,17 @@ Pale Yellow: #FFFF99 */
             &:hover {
                 box-shadow: 0rem 0.1rem 1rem gray; 
                 cursor: pointer;
-            }  
+            }
+            .add-cart-featured
+            {
+                background-color: cornflowerblue;
+                transition-duration: 0.5s;
+                border-radius: 0.5rem;
+                padding: 0.5rem;
+                height: auto;
+                width: 100%;
+            }
+            .add-cart-featured:hover {background-color: blueviolet;}
         }
     }
 }
@@ -567,3 +616,13 @@ footer
         }
     }
 }
+
+/* @media (max-width: 800px)
+{
+    .services
+    {
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+    }
+} */

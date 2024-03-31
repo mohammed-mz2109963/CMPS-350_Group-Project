@@ -1,36 +1,58 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Function to display buyer details
-    function displayBuyerDetails() {
-        // Retrieve users from localStorage
-        let users = localStorage.getItem('users');
-
-        // If users data doesn't exist in localStorage, load it from the JSON file
-        if (!users) {
+    // Function to load data from users.json into local storage if local storage does not exist
+    function loadDataIntoLocalStorage() {
+        if (!localStorage.getItem('users')) {
             fetch('../users.json')
                 .then(response => response.json())
                 .then(data => {
-                    // Store users data in localStorage
+                    // Store data in local storage
                     localStorage.setItem('users', JSON.stringify(data.users));
-                    // Call displayBuyerDetails again to display buyer details
+                    // Display buyer details after loading data into local storage
                     displayBuyerDetails();
                 })
-                .catch(error => console.error('Error fetching users data:', error));
+                .catch(error => console.error('Error loading data into local storage:', error));
+        } else {
+            // Display buyer details if local storage already exists
+            displayBuyerDetails();
+        }
+    }
+
+    // Load data into local storage
+    loadDataIntoLocalStorage();
+
+    // Function to display buyer details
+    function displayBuyerDetails() {
+        // Retrieve users data from local storage
+        const usersString = localStorage.getItem('users');
+
+        // Parse users data
+        let users = [];
+        try {
+            users = JSON.parse(usersString);
+        } catch (error) {
+            console.error('Error parsing users data:', error);
             return;
         }
 
-        // Retrieve buyer details from users
-        const buyerDetails = JSON.parse(users).find(user => user.type === 'buyer');
+        // Find the buyer object
+        const buyer = users.find(user => user.type === 'buyer');
+
+        if (!buyer) {
+            console.error('Buyer data not found.');
+            return;
+        }
+
+        // Log buyer details to console
+        console.log('Buyer:', buyer);
 
         // Update profile info section
-        document.getElementById('name').textContent = `Name: ${buyerDetails.name}`;
-        document.getElementById('surname').textContent = `Surname: ${buyerDetails.surname}`;
+        document.getElementById('name').textContent = `Name: ${buyer.name}`;
+        document.getElementById('surname').textContent = `Surname: ${buyer.surname}`;
         document.getElementById('account-type').textContent = `Account Type: Buyer`;
-        
-        // Display account balance
-        document.getElementById('balance').textContent = `Account Balance: $${buyerDetails.money_balance}`;
-        
+        document.getElementById('balance').textContent = `Account Balance: $${buyer.money_balance}`;
+
         // Update shipping address section
-        const address = buyerDetails.shipping_address;
+        const address = buyer.shipping_address;
         const addressHTML = `
             <p>Contact Person's Name: ${address.contact_person_name}</p>
             <p>Street No./Name: ${address.street}</p>
@@ -40,27 +62,54 @@ document.addEventListener('DOMContentLoaded', function() {
             <p>Contact Person's Mobile Number: ${address.mobile_number}</p>
         `;
         document.querySelector('.shipping-address').innerHTML = addressHTML;
+
+        // Display purchase history
+        displayPurchaseHistory();
     }
 
-    // Function to add balance
-    function addBalance(amount) {
-        let users = JSON.parse(localStorage.getItem('users'));
-        const buyerIndex = users.findIndex(user => user.type === 'buyer');
-        users[buyerIndex].money_balance += amount;
-        localStorage.setItem('users', JSON.stringify(users));
-        displayBuyerDetails(); // Update displayed balance
-    }
+    // Function to display purchase history
+    function displayPurchaseHistory() {
+        // Retrieve purchase history from local storage
+        const purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
 
-    // Display buyer details on page load
-    displayBuyerDetails();
+        // Map each purchased car to HTML and join them into a string
+        const purchaseHistoryHTML = purchaseHistory.map((car, index) => `
+            <div class="history-obj">
+                <h3>Purchased Car ${index + 1}</h3>
+                <p>Make: ${car.carMake}</p>
+                <p>Model: ${car.carModel}</p>
+                <p>Year: ${car.carYear}</p>
+                <p>Price: $${car.carPrice}</p>
+            </div>
+        `).join('');
+
+        // Append the purchase history HTML to the history container
+        document.getElementById('history-container').innerHTML = purchaseHistoryHTML;
+    }
 
     // Add event listener to the "Add Balance" button
     document.getElementById('add-balance').addEventListener('click', function(event) {
         addBalance(1000); // Add $1000 to the balance
     });
 
-    // Function to update buyer details
+    // Add event listener to the form for updating buyer details
     document.getElementById('buyer-form').addEventListener('submit', function(event) {
-        // Form submission handling
+        event.preventDefault(); // Prevent default form submission
+
+        // Get form data
+        const formData = {
+            shipping_address: {
+                contact_person_name: document.getElementById('contact-person-name').value,
+                street: document.getElementById('street').value,
+                apartment_suite_number: document.getElementById('apartment-suite-number').value,
+                city: document.getElementById('city-state').value,
+                state: '', // You can add state field here if needed
+                zip_code: document.getElementById('zip-code').value,
+                mobile_number: document.getElementById('mobile-number').value
+            }
+        };
+
+        // Update buyer details in local storage
+        updateBuyerDetails(formData);
     });
 });

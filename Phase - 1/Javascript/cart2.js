@@ -2,12 +2,36 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to display buyer's shipping address
     function displayShippingAddress() {
         let users = localStorage.getItem('users');
+        console.log('Users data:', users); // Log the retrieved users data
+
         if (!users) {
             console.error('User data not found');
             return;
         }
-        const buyerDetails = JSON.parse(users).find(user => user.type === 'buyer');
-        const address = buyerDetails.shipping_address;
+
+        let usersArray;
+        try {
+            usersArray = JSON.parse(users);
+        } catch (error) {
+            console.error('Error parsing users data:', error);
+            return;
+        }
+
+        console.log('Parsed users:', usersArray); // Log the parsed users data
+
+        if (!Array.isArray(usersArray)) {
+            console.error('Invalid users data format:', usersArray);
+            return;
+        }
+
+        // Find the buyer object
+        const buyer = usersArray.find(user => user.type === 'buyer');
+        if (!buyer || !buyer.shipping_address) {
+            console.error('Invalid buyer data:', buyer);
+            return;
+        }
+
+        const address = buyer.shipping_address;
         const addressHTML = `
             <div class="shipping-obj">
                 <h1>Shipping Address</h1><br>
@@ -22,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('shipping-details').innerHTML = addressHTML;
     }
 
+
     // Function to display car objects in cart
     function displayCarObjects() {
         let cart = localStorage.getItem('cart');
@@ -30,7 +55,13 @@ document.addEventListener('DOMContentLoaded', function() {
             alert("No cars in the cart");
             return;
         }
+
         const carObjects = JSON.parse(cart);
+        if (!Array.isArray(carObjects)) {
+            console.error('Invalid car objects data');
+            return;
+        }
+
         let carObjectHTML = '';
         carObjects.forEach((car, index) => {
             carObjectHTML += `
@@ -49,25 +80,46 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to confirm payment
     function confirmPayment(carIndex) {
-        let users = localStorage.getItem('users');
-        if (!users) {
+        let usersData = localStorage.getItem('users');
+        if (!usersData) {
             console.error('User data not found');
             return;
         }
-        let cart = localStorage.getItem('cart');
-        if (!cart) {
-            console.error('No cars in the cart');
+    
+        let usersArray;
+        try {
+            usersArray = JSON.parse(usersData);
+        } catch (error) {
+            console.error('Error parsing users data:', error);
             return;
         }
-        const buyerDetails = JSON.parse(users).find(user => user.type === 'buyer');
-        const carObjects = JSON.parse(cart);
+    
+        console.log('Parsed users:', usersArray);
+    
+        // Find the buyer object
+        const buyer = usersArray.find(user => user.type === 'buyer');
+        if (!buyer) {
+            console.error('Buyer data not found');
+            return;
+        }
+    
+        const carObjects = JSON.parse(localStorage.getItem('cart'));
+        if (!Array.isArray(carObjects)) {
+            console.error('Invalid car objects data');
+            return;
+        }
+    
         const car = carObjects[carIndex];
-        if (buyerDetails.money_balance >= car.carPrice) {
+        if (buyer.money_balance >= car.carPrice) {
             // Deduct amount from balance
-            buyerDetails.money_balance -= car.carPrice;
+            buyer.money_balance -= car.carPrice;
             // Update user data in local storage
-            localStorage.setItem('users', JSON.stringify(users));
-
+            localStorage.setItem('users', JSON.stringify(usersArray));
+    
+            // Remove sold car from cart
+            carObjects.splice(carIndex, 1);
+            localStorage.setItem('cart', JSON.stringify(carObjects));
+    
             // Add sold car to purchase history
             let purchaseHistory = localStorage.getItem('purchaseHistory');
             if (!purchaseHistory) {
@@ -77,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             purchaseHistory.push(car);
             localStorage.setItem('purchaseHistory', JSON.stringify(purchaseHistory));
-
+    
             // Update display
             displayCarObjects();
             displayPurchaseHistory();
@@ -87,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Insufficient funds');
         }
     }
-
+    
     // Function to display purchase history
     function displayPurchaseHistory() {
         let purchaseHistory = localStorage.getItem('purchaseHistory');
