@@ -168,7 +168,7 @@
     "make": "Lamborghini",
     "year": 2021,
     "price": 425000,
-    "image_url": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2021-lamborghini-aventador-lp780-4-102-1606236787.jpg"
+    "image_url": "https://images.kb-qatar.com/10048/1094/knightsbridge-automotive-lg.jpg"
   },
   {
     "id": 20,
@@ -177,7 +177,7 @@
     "make": "Lamborghini",
     "year": 2020,
     "price": 300000,
-    "image_url": "https://cdn.motor1.com/images/mgl/k1A63/s1/2020-lamborghini-urus.jpg"
+    "image_url": "https://i.ytimg.com/vi/YbNS8yVOvmY/maxresdefault.jpg"
   },
   {
     "id": 21,
@@ -186,7 +186,7 @@
     "make": "Lamborghini",
     "year": 2022,
     "price": 350000,
-    "image_url": "https://cdn.motor1.com/images/mgl/VEGg9/s1/lamborghini-huracan-evo-spyder.jpg"
+    "image_url": "https://www.motortrend.com/uploads/2022/04/001-2022-Lamborghini-Huracan-Technica-1-2.jpg"
   },
   {
     "id": 22,
@@ -195,7 +195,7 @@
     "make": "Aston Martin",
     "year": 2022,
     "price": 350000,
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/2019_Aston_Martin_DBS_Superleggera.jpg/1920px-2019_Aston_Martin_DBS_Superleggera.jpg"
+    "image_url": "https://www.astonmartinwashingtondc.com/imagetag/2926/main/l/New-2022-Aston-Martin-DBS-1639490824.jpg"
   },
   {
     "id": 23,
@@ -204,7 +204,7 @@
     "make": "Aston Martin",
     "year": 2023,
     "price": 300000,
-    "image_url": "https://media.ed.edmunds-media.com/aston-martin/vantage/2023/oem/2023_aston-martin_vantage_convertible_v8_fq_oem_1_815.jpg"
+    "image_url": "https://www.motortrend.com/uploads/2022/05/2023-Aston-Martin-V12-Vantage-front-three-quarter-3.jpg"
   },
   {
     "id": 24,
@@ -213,7 +213,7 @@
     "make": "Aston Martin",
     "year": 2024,
     "price": 275000,
-    "image_url": "https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/aston-martin-db11-superleggera-spy-images.jpg?itok=B4I9lH9Q"
+    "image_url": "https://s1.cdn.autoevolution.com/images/news/2024-aston-martin-db11-facelift-spied-testing-touchscreen-infotainment-confirmed-194717_1.jpg"
   },
   {
     "id": 25,
@@ -222,7 +222,7 @@
     "make": "Bugatti",
     "year": 2020,
     "price": 3250000,
-    "image_url": "https://www.thesupercarblog.com/wp-content/uploads/2020/03/Bugatti-Chiron-Noire-Speciale-1.jpg"
+    "image_url": "https://www.millermotorcars.com/imagetag/639/main/l/New-2020-Bugatti-Chiron.jpg"
   },
   {
     "id": 26,
@@ -231,7 +231,7 @@
     "make": "Bugatti",
     "year": 2021,
     "price": 5000000,
-    "image_url": "https://images.financialexpress.com/2021/08/2-3-1.jpg"
+    "image_url": "https://i.ytimg.com/vi/qMbye2TdiNs/maxresdefault.jpg"
   },
   {
     "id": 27,
@@ -240,7 +240,7 @@
     "make": "Bugatti",
     "year": 2022,
     "price": 10000000,
-    "image_url": "https://www.largus.fr/images/images/bugatti-centodieci-2020-prix.jpg"
+    "image_url": "https://www.ccarprice.com/products/Bugatti_Centodieci_2022_1.jpg"
   },
   {
     "id": 28,
@@ -249,7 +249,7 @@
     "make": "Jaguar",
     "year": 2024,
     "price": 160000,
-    "image_url": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2021-jaguar-f-type-future-cars-1-1625533764.jpg"
+    "image_url": "https://images.dealer.com/ddc/vehicles/2024/Jaguar/F-TYPE/Coupe/still/front-left/front-left-640-en_US.jpg"
   },
   {
     "id": 29,
@@ -258,7 +258,7 @@
     "make": "Jaguar",
     "year": 2023,
     "price": 85000,
-    "image_url": "https://cdn.motor1.com/images/mgl/jLRGn/s1/2021-jaguar-xe-r-dynamic-sedan-30.jpg"
+    "image_url": "https://i.ytimg.com/vi/fPJKT57cMGg/maxresdefault.jpg"
   },
   {
     "id": 30,
@@ -267,7 +267,7 @@
     "make": "Jaguar",
     "year": 2020,
     "price": 75000,
-    "image_url": "https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/jaguar-f-pace_0.jpg?itok=HibQcE1O"
+    "image_url": "https://img.sm360.ca/ir/w770/images/article/wyant-group/77989//402059-2020-jaguar-f-pace1596814252825.jpg"
   },
   {
     "id": 31,
@@ -276,7 +276,7 @@
     "make": "BMW",
     "year": 2023,
     "price": 175000,
-    "image_url": "https://cdn.motor1.com/images/mgl/Ljvxk/s1/2020-bmw-m8-convertible-first-edition.jpg"
+    "image_url": "https://www.motortrend.com/uploads/2022/04/2023-BMW-M8-Competition-42.jpg"
   },
   {
     "id": 32,
@@ -285,7 +285,7 @@
     "make": "BMW",
     "year": 2022,
     "price": 120000,
-    "image_url": "https://cdn.motor1.com/images/mgl/m7N26/s1/2022-bmw-x7-facelift-spy-photo.jpg"
+    "image_url": "https://www.edmunds.com/assets/m/bmw/x7/2021/oem/2021_bmw_x7_4dr-suv_m50i_fq_oem_1_600.jpg"
   },
   {
     "id": 33,
@@ -294,6 +294,6 @@
     "make": "BMW",
     "year": 2021,
     "price": 100000,
-    "image_url": "https://cdn.motor1.com/images/mgl/pVGrl/s1/2021-bmw-m5-competition.jpg"
+    "image_url": "https://hips.hearstapps.com/hmg-prod/images/p90390718-highres-1592255347.jpg"
   }
 ]

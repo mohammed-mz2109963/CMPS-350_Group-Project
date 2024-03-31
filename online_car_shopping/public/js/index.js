@@ -310,7 +310,7 @@ async function fillPage(){
 
     const randomCars = [];
 
-    while (randomCars.length < 6) {
+    while (randomCars.length < 8) {
         const randomIndex = Math.floor(Math.random() * totalCars);
         const randomCar = cars[randomIndex];
 
@@ -333,12 +333,13 @@ async function fillPage(){
 
                 <div class="car-box">
                     <img src="${car.image_url}">
-
-                    <p class="car-info">Model: "${car.model}" Year: "${car.year}"</p>
                     <br>
-                    <h4 class="car-name">"${car.make}" </h4>
 
-                    <h4 class="car-price">$"${car.price}"</h4>
+                    <p class="car-info">Model: ${car.model} Year: ${car.year}</p>
+                    <br>
+                    <h4 class="car-name">${car.make} </h4>
+
+                    <h4 class="car-price">$ ${car.price}</h4>
                     
                     <br>
                     <a class="add-item${itemCount}" href="SignIn.html">Login to Continue</a>
@@ -356,8 +357,31 @@ async function fillPage(){
 }
 
 
-function handleReset(){
+async function handleReset(){
     form.reset;
+     let cars;
+    cars = await carRepo.getCars();
+
+    
+        const uniqueYears = [...new Set(cars.map(car => car.year))].sort((a, b) => b - a);
+    yearSelect.innerHTML = [
+        `<option value="">Select Year</option>`,
+        ...uniqueYears.map(year => `<option value="${year}">${year}</option>`)
+    ].join('');
+    
+    const uniqueTypes = [...new Set(cars.map(car => car.type))];
+    typeSelect.innerHTML = [
+        `<option value="">Select Type</option>`,
+        ...uniqueTypes.map(type => `<option value="${type}">${type}</option>`)
+    ].join('');
+
+    
+    const uniqueMakes = [...new Set(cars.map(car => car.make))];
+    makeSelect.innerHTML = [
+        `<option value="">Select Make</option>`,
+        ...uniqueMakes.map(make => `<option value="${make}">${make}</option>`)
+    ].join('');
+
 }
 
 

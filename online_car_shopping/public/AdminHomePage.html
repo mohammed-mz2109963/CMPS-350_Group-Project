@@ -8,10 +8,6 @@
     <link rel="stylesheet" href="css/HomePage.css">
     <link rel="stylesheet" href="css/style.css" />
 
-    <script src = "js/index.js"></script>
-    <script src = "js/HomeCars.js"></script>
-    <script src = "js/FillForm.js"></script>
-    <script src = "js/AdminRemove.js"></script>
 </head>
 
 <body>
@@ -19,7 +15,7 @@
     <header class="head">
 
         <a href="AdminHomePage.html" class="logo">
-            <img src="./CSS/images/cars/Starman-cuate.png" alt="car-logo">
+            <img src="./css/images/cars/Starman-cuate.png" alt="car-logo">
         </a>
 
 
@@ -37,15 +33,15 @@
 
         <section class="menu-icons">
             <a href="AdminHomePage.html#search">
-                <img src="./CSS/images/cars/icons8-search-64.png" width=30px>
+                <img src="./css/images/cars/icons8-search-64.png" width=30px>
             </a>
             <!-- <img src="./CSS/images/cars/icons8-cart-30.png" width=30px> -->
             <a class="cart-span" href="SignIn.html">
-                <img src="./CSS/images/cars/icons8-cart-30.png" width=30px>
+                <img src="./css/images/cars/icons8-cart-30.png" width=30px>
             </a>
 
             <a href="SignIn.html">
-                <img src="./CSS/images/cars/icons8-account-96.png" width=30px>
+                <img src="./css/images/cars/icons8-account-96.png" width=30px>
             </a>
         </section>
 
@@ -70,7 +66,7 @@
             <div class="service-bracket">
                 <article>
                     <h3>Largest Dealership of Cars</h3>
-                    <figure><img src="CSS/images/Service-bracket_1.png" alt="service-img"></figure>
+                    <figure><img src="css/images/Service-bracket_1.png" alt="service-img"></figure>
                     <figcaption>
                         <p>Explore the widest selection of cars at ScamBox Automobiles, there is an option that suites
                             every style and budget! Finding your dream car has never been easier.</p>
@@ -81,7 +77,7 @@
             <div class="service-bracket">
                 <article>
                     <h3>Unlimited Repair Warranty</h3>
-                    <figure><img src="CSS/images/Service-bracket_2.png" alt="service-img"></figure>
+                    <figure><img src="css/images/Service-bracket_2.png" alt="service-img"></figure>
                     <figcaption>
                         <p>Our unlimited support warranty covers all unexpected repairs and maintenance beyond purchase,
                             allowing you to enjoy a peace of mind.</p>
@@ -92,7 +88,7 @@
             <div class="service-bracket">
                 <article>
                     <h3>Insurance Support</h3>
-                    <figure><img src="CSS/images/Service-bracket_3.png" alt="serivce-img"></figure>
+                    <figure><img src="css/images/Service-bracket_3.png" alt="serivce-img"></figure>
                     <figcaption>
                         <p>We offer hassle-free insurance solutions tailored specifically to your needs by our team of
                             experts, ensuring that you are always protected on the roads and highways.</p>
@@ -112,59 +108,18 @@
             <h1>Featured Cars</h1>
             <section class="cars" id="cars">
 
-                <div class="car-box">
-                    <img src="./CSS/images/cars/ferrari.jpg">
-
-                    <p class="car-info">Model: Ferrari Year: 2024</p>
-                    <br>
-                    <h4 class="car-name">Ferrari </h4>
-
-                    <h4 class="car-price">$80000</h4>
-                    <P class="car-description">Ferrari is the fastest car on the planet.</P>
-                    <br>
-                    <button class="remove" onclick="removeFeaturedCar(this)">Remove</button>
-                </div>
-                <div class="car-box">
-                    <img src="./CSS/images/cars/lambo.jpg">
-                    <p class="car-info">Model: Lamborghini Year: 2024</p>
-                    <br>
-                    <h4 class="car-name">Lamborghini </h4>
-
-                    <h4 class="car-price">$70000</h4>
-                    <P class="car-description">Lamborghini is the fastest car on the planet.</P>
-                    <br>
-                    <button class="remove" onclick="removeFeaturedCar(this)">Remove</button>
-                </div>
-                <div class="car-box">
-                    <img src="./CSS/images/cars/porsche.jpg">
-                    <p class="car-info">Model: Porsche Year: 2024</p>
-                    <br>
-                    <h4 class="car-name">Porsche </h4>
-
-                    <h4 class="car-price">$60000</h4>
-                    <P class="car-description">Porsche is the fastest car on the planet.</P>
-                    <br>
-                    <button class="remove" onclick="removeFeaturedCar(this)">Remove</button>
-                </div>
-                <div class="car-box">
-                    <img src="./CSS/images/cars/toyota.jpg">
-                    <p class="car-info">Model: Toyota Year: 2024</p>
-                    <br>
-                    <h4 class="car-name">Toyota </h4>
-
-                    <h4 class="car-price">$30000</h4>
-                    <P class="car-description">Toyota is the fastest car on the planet.</P>
-                    <br>
-                    <button class="remove" onclick="removeFeaturedCar(this)">Remove</button>
-                </div>
+            
 
 
             </section>
         </div>
         
 
+        <!-- ********************** Find Car *****************************-->
+
+
         <section class="search" id="search">
-            <form action="" class="search-car-form" id="search-car-form">
+            <form class="search-car-form" id="search-car-form">
 
                 <br><br><a href="#search">
                     <h1>Find Your Car</h1>
@@ -174,86 +129,72 @@
                     <label for="year">Year:</label><br>
                     <select name="year" id="year">
 
-                        <option value="Select Year">Select Year</option>
+                        <option value="">Select Year</option>
                         <option value="2024">2024</option>
                         <option value="2023">2023</option>
                         <option value="2022">2022</option>
                         <option value="2021">2021</option>
-                        <option value="2020">2019</option>
-                        <option value="2020">2018</option>
-                        <option value="2020">2017</option>
-                        <option value="2020">2016</option>
-                        <option value="2020">2015</option>
-                        <option value="2020">2014</option>
-                        <option value="2020">2013</option>
-                        <option value="2020">2012</option>
-                        <option value="2020">2011</option>
-                        <option value="2020">2010</option>
-                        <option value="2020">2009</option>
-                        <option value="2020">2008</option>
-                        <option value="2020">2007</option>
-                        <option value="2020">2006</option>
-                        <option value="2020">2005</option>
-                        <option value="2020">2004</option>
-                        <option value="2020">2003</option>
-                        <option value="2020">2002</option>
-                        <option value="2020">2001</option>
-                        <option value="2020">2000</option>
+                        <option value="2020">2020</option>
 
                     </select>
                 </div>
 
-                <div class="car-type-field" id="car-type-field">
-                    <label for="car-type">Car Type:</label><br>
-                    <select name="car-type" id="car-type">
+                <div class="car_type_field" id="car_type_field">
+                    <label for="car_type">Car Type:</label><br>
+                    <select name="car_type" id="car_type" >
 
-                        <option value="Select Type">Select Type</option>
-                        <option value="hatchback">Hatchback</option>
-                        <option value="sedan">Sedan</option>
-                        <option value="suv">SUV</option>
-                        <option value="muv">MUV</option>
-                        <option value="coupe">Coupe</option>
-                        <option value="convertible">Convertible</option>
-                        <option value="pickup">Pickup</option>
-                        <option value="sports">Sports</option>
-                        <option value="hyper">Hyper</option>
+                        <option value="">Select Type</option>
+                        <option value="Convertible">Convertible</option>
+                        <option value="Coupe">Coupe</option>
+                        <option value="Sedan">Sedan</option>
+                        <option value="Sports Cars">Sports Cars</option>
+                        <option value="SUV">SUV</option>
+                        
+
 
                     </select>
                 </div>
 
-                <div class="make-field" id="make-field">
+                <div class="make_field" id="make_field">
                     <label for="make">Make:</label><br>
-                    <select name="car-make" id="car-make">
+                    <select name="make" id="make" >
 
-                        <!-- <option value="Select Make">Select Make</option>
-                        <option value="Toyota">Toyota</option>
-                        <option value="Ford">Ford</option>
+                        <option value="" >Select Make</option>
                         <option value="Aston Martin">Aston Martin</option>
-                        <option value="Volkswagon">Volkswagon</option>
-                        <option value="Porsche">Porsche</option> -->
+                        <option value="Audi">Audi</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Bentley">Bentley</option>
+                        <option value="Bugatti">Bugatti</option>
+                        <option value="Ferrari">Ferrari</option>
+                        <option value="Jaguar">Jaguar</option>
+                        <option value="Lamborghini">Lamborghini</option>
+                        <option value="Mercedes-Benz">Mercedes-Benz</option>
+                        <option value="Porsche">Porsche</option>
+                        <option value="Rolls-Royce">Rolls-Royce</option>
 
                     </select>
                 </div>
 
-                <div class="model-field" id="model-field">
+                <div class="model_field" id="model_field">
                     <label for="model">Model:</label><br>
-                    <input type = "text" name="model" id="model">
+                    <select name="model" id="model" >
 
-                        <!-- <option value="Select Model">Select Model</option> -->
+                        <option value="" selected disabled>Select Model</option>
+                        
 
-                    </input>
+                    </select>
                 </div>
 
-                <div class="min-price-field" id="min-price-field">
-                    <label for="min-price">Minimum Price:</label><br>
-                    <input type="text" name="min-price" id="min-price">
+                <div class="min_price_field" id="min_price_field">
+                    <label for="min_price">Minimum Price:</label><br>
+                    <input type="text" name="min_price" id="min_price">
                 </div>
 
-                <div class="max-price-field id = " max-price-field">
-                    <label for="max-price">Maximum Price:</label><br>
-                    <input type="text" name="max-price" id="max-price">
+                <div class="max_price_field" id = "max_price_field">
+                    <label for="max_price">Maximum Price:</label><br>
+                    <input type="text" name="max_price" id="max_price">
                 </div>
-
+                
                 <div class="submit" id="submit">
                     <!-- <form action="/this-will-redirect-to-the-page-with-the-car-that-the-user-will-search-for" method="GET"> -->
                     <!-- <input type="search" class="search-button" id="search-button"> -->
@@ -261,13 +202,24 @@
                     <button type="reset" class="reset-search-form" id="reset-search-form">Reset</button>
                     <!-- </form> -->
                 </div>
+
             </form>
-        </section>
+
+             <!-- ***************** Display selected cars **********************-->
 
 
-        <section class = "search-cars-guest" id = "search-cars-guest">
+                <div class = "search-cars" id = "search-cars">
+                    
+                </div>
             
         </section>
+
+        
+
+
+            <!-- <section class = "search-cars-guest" id = "search-cars-guest">
+                
+            </section> -->
 
 
         <section class="contact-us" id="contact-us">
@@ -360,8 +312,9 @@
 
             </section>
     </main>
-    <script src="./Javascript/Javascript.js"></script>
-    <script src="./Javascript/cart.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/cart.js"></script>
+    <script src = "js/AdminRemove.js"></script>
 </body>
 
 <footer class="footer">
