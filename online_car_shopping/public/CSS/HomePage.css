@@ -598,7 +598,7 @@ footer
             .search-car-form
             {
                 display: grid;
-                grid-template-rows: auto auto auto auto; 
+                grid-template-rows: 4;
                 grid-template-columns: 3;
 
                 a {grid-area: heading-field; margin: 2rem;}
@@ -608,13 +608,14 @@ footer
                 .model-field {grid-area: model-field;}
                 .min-price-field {grid-area: min-price-field;}
                 .max-price-field {grid-area: max-price-field;}
-                .submit
-                {
-                    grid-area: submit-field;
+                .submit-search-form { grid-area: submit-field; }
+                .reset-search-form { grid-area: reset-field; }
+                
+                    
                     display: flex;
-                    flex-direction: row;
+                    flex-direction: column;
                     flex-wrap: nowrap;
-                }
+            }
 
                 div
                 {
@@ -636,8 +637,7 @@ footer
                 "heading-field heading-field heading-field"
                 "year-field make-field model-field"
                 "car-type-field min-price-field max-price-field"
-                "submit-field submit-field submit-field";
-            }
+                "submit-field  reset-field";
         }
     }
 }
