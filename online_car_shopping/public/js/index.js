@@ -281,8 +281,30 @@ async function showSelectedCars(e){
 async function fillPage(){
     
 
-    let cars;
+        let cars;
     cars = await carRepo.getCars();
+
+    
+        const uniqueYears = [...new Set(cars.map(car => car.year))].sort((a, b) => b - a);
+    yearSelect.innerHTML = [
+        `<option value="">Select Year</option>`,
+        ...uniqueYears.map(year => `<option value="${year}">${year}</option>`)
+    ].join('');
+    
+    const uniqueTypes = [...new Set(cars.map(car => car.type))];
+    typeSelect.innerHTML = [
+        `<option value="">Select Type</option>`,
+        ...uniqueTypes.map(type => `<option value="${type}">${type}</option>`)
+    ].join('');
+
+    
+    const uniqueMakes = [...new Set(cars.map(car => car.make))];
+    makeSelect.innerHTML = [
+        `<option value="">Select Make</option>`,
+        ...uniqueMakes.map(make => `<option value="${make}">${make}</option>`)
+    ].join('');
+
+
 
     const totalCars = cars.length;
 
@@ -327,6 +349,9 @@ async function fillPage(){
     )
 
     featCars.innerHTML=listHTML;
+
+    
+
 
 }
 
