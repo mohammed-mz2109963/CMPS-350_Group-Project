@@ -349,3 +349,60 @@ html ::-webkit-scrollbar-thumb{
 }
 
 
+/* slide show */
+
+.slider{
+    width: 50rem;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 100rem;
+    overflow: hidden;
+    border: 10px solid darkslategray;
+    border-radius: 20px;
+    /* box-shadow: 10px 25px 30px rgba(30,30,200,0.3); */
+}
+.slide-animation{
+    width: 100%;
+    display: flex;
+    animation: slide 12s infinite;
+}
+@keyframes slide{
+    0%{
+        transform: translateX(0);
+    }
+    10%{
+        transform: translateX(0);
+    }
+    20%{
+        transform: translateX(-100%);
+    }
+    30%{
+        transform: translateX(-100%);
+    }
+    40%{
+        transform: translateX(-200%);
+    }
+    50%{
+        transform: translateX(-200%);
+    }
+    60%{
+        transform: translateX(-300%);
+    }
+    70%{
+        transform: translateX(-300%);
+    }
+    80%{
+        transform: translateX(-400%);
+    }
+    90%{
+        transform: translateX(-400%);
+    }
+    100%{
+        transform: translateX(-500%);
+    }
+}
+.slider img{
+    width: 50%;
+    height: 70%;
+}
