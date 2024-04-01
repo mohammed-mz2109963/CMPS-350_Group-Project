@@ -67,6 +67,15 @@ document.addEventListener('DOMContentLoaded', function() {
         displayPurchaseHistory();
     }
 
+    // Function to add balance
+    function addBalance(amount) {
+        let users = JSON.parse(localStorage.getItem('users'));
+        const buyerIndex = users.findIndex(user => user.type === 'buyer');
+        users[buyerIndex].money_balance += amount;
+        localStorage.setItem('users', JSON.stringify(users));
+        displayBuyerDetails(); // Update displayed balance
+    }
+
     // Function to display purchase history
     function displayPurchaseHistory() {
         // Retrieve purchase history from local storage
