@@ -52,6 +52,14 @@ export default class CarsRepo{
         return cars;
     }
 
+    async addCar(carObject){
+
+        const cars = await this.getCars()
+        cars.push(carObject)
+        await fs.writeJSON(this.path, cars)
+        return carObject
+
+    }
     
 
 

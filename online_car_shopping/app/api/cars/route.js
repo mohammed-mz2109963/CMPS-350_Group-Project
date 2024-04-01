@@ -28,6 +28,7 @@ export async function GET(request) {
         return Response.json(cars, { status: 200 })
     }
     else{
+        
 
     const cars = await carsRepo.getCars()
     return Response.json(cars, { status: 200 })
@@ -38,7 +39,7 @@ export async function GET(request) {
 }
 
 export async function POST(request) {
-    const car = await request.json()
-    const newCar = await carsRepo.addAccount(car)
+    const carObject = await request.json()
+    const newCar = await carsRepo.addCar(carObject)
     return Response.json(newCar, { status: 201 })
 }

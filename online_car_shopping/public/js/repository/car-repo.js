@@ -29,7 +29,6 @@ class CarRepo{
         return response.json();
     }
 
-
     async getCars(){
         
         let response;
@@ -37,6 +36,20 @@ class CarRepo{
         response = await fetch(`${baseUrl}`);
         return response.json();
     
+
+    }
+
+    async addCar(carObject){
+        
+
+        console.log('addcar function')
+
+         return await fetch(baseUrl,
+            {
+                method: 'POST',
+                headers: { 'Content-Type': "application/json", },
+                body: JSON.stringify(carObject)
+            });
 
     }
 

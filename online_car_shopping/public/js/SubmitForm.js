@@ -1,62 +1,133 @@
+import carRepo from './repository/car-repo.js'
+//import userRepo from './repository/user-repo.js'
+
+const sellForm = document.querySelector("#sell-form");
+
+const sellerName = document.querySelector('#seller-name')
+const sellerEmail = document.querySelector('#seller-email')
+const sellerPhone = document.querySelector('#seller-phone')
+const sellerContact = document.querySelector('#input[name="seller-contact"]:checked')
+const carYear = document.querySelector('#car-year')
+const carMake = document.querySelector('#car-make')
+const carModel = document.querySelector('#car-model')
+const carType = document.querySelector('#car-type')
+const carPrice = document.querySelector('#car-price')
+// const carDistance = document.querySelector('#car-distance')
+const carImage = document.querySelector('#car-image')
+
+sellForm.addEventListener('submit', handleSellForm)
+
+
 document.addEventListener('DOMContentLoaded', function() {
-    const sellForm = document.getElementById('sell-form');
 
-    sellForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form submission
+    window.handleSellForm=handleSellForm
+    
 
-        // Get form data
-        const sellerName = document.getElementById('seller-name').value;
-        const sellerEmail = document.getElementById('seller-email').value;
-        const sellerPhone = document.getElementById('seller-phone').value;
-        const sellerContact = document.querySelector('input[name="seller-contact"]:checked').value;
-        const carYear = document.getElementById('car-year').value;
-        const carMake = document.getElementById('car-make').value;
-        const carModel = document.getElementById('car-model').value;
-        const carType = document.getElementById('car-type').value;
-        const carPrice = document.getElementById('car-price').value;
-        const carDistance = document.getElementById('car-distance').value;
-        // Assuming you want to store the image file name
-        const carImage = document.getElementById('car-image').files[0].name;
+});
 
-        // Generate unique ID
-        let carID;
-        let carsForSale = JSON.parse(localStorage.getItem('cars_for_sale')) || [];
-        do {
-            carID = Math.floor(Math.random() * 10000);
-        } while (carsForSale.some(car => car.id === carID));
+async function handleSellForm(e){
 
-        // Create car object
-        const carObject = {
-            id: carID,
-            sellerName: sellerName,
-            sellerEmail: sellerEmail,
-            sellerPhone: sellerPhone,
-            sellerContact: sellerContact,
-            carYear: carYear,
-            carMake: carMake,
-            carModel: carModel,
-            carType: carType,
-            carPrice: carPrice,
-            carDistance: carDistance,
-            carImage: carImage
-        };
+    e.preventDefault();
 
-        // Add new car object to array
-        carsForSale.push(carObject);
+    
+    
+//     const sName = sellerName.value;
+//     const sEmail = sellerEmail.value;
+//     const sPhone = sellerPhone.value;
+//     const sContact = sellerContact.value;
+    
+//     const cYear = carYear.value;
+//     const cMake = carMake.value;
+//     const cModel = carModel.value;
+//     const cType = carType.value;
+//     const cPrice = carPrice.value;
+//    //const cDistance = carDistance.value;
+//     const cImage = carImage.files[0].name;
 
-        // Save updated data back to local storage
-        localStorage.setItem('cars_for_sale', JSON.stringify(carsForSale));
+    let userData={}
 
-        // Optionally, you can clear the form fields after submission
-        sellForm.reset();
+    if (sellerContact && sellerContact.value) {
+         userData={
+            name : sellerName.value,
+            email : sellerEmail.value,
+            phone : sellerPhone.value,
+            contact : sellerContact.value,
+        }
+    }
+    else{
 
-        // Display alert indicating form submission status
-        if (localStorage.getItem('cars_for_sale')) {
+        userData={
+            name : sellerName.value,
+            email : sellerEmail.value,
+            phone : sellerPhone.value,
+            contact : "none",
+        }
+
+    }
+
+    let carData={}
+
+   
+
+    if (carImage.files && carImage.files.length > 0) {
+         carData={
+            year : parseInt(carYear.value),
+            make : carMake.value,
+            model : carModel.value,
+            type : carType.value,
+            price : parseInt(carPrice.value),
+            // cDistance = carDistance.value,
+            image_url : carImage.files[0].name
+        }
+    }
+    else{
+        carData={
+            year : parseInt(carYear.value),
+            make : carMake.value,
+            model : carModel.value,
+            type : carType.value,
+            price : parseInt(carPrice.value),
+            // cDistance = carDistance.value,
+            image_url : "No image available"
+        }
+
+    }
+
+    let cars = await carRepo.getCars();
+    cars = cars || [];
+
+    let carID;
+
+    do {
+            carID = Math.floor(Math.random() * 10000 +1);
+        } while (cars.some(car => car.id === carID));
+
+    const carObject = {
+    id: carID,
+    ...carData
+    };
+
+    console.log(carObject)
+    await carRepo.addCar(carObject)
+
+    console.log(carObject)
+
+   
+
+    let updatedCars = await carRepo.getCars();
+   
+    console.log(updatedCars[updatedCars.length - 1].id )
+
+    if (updatedCars[updatedCars.length - 1].id ===carObject.id) {
             alert('Form submitted successfully!');
             // Redirect to Homepage.html
-            //window.location.href = 'Homepage.html';
-        } else {
+            window.location.href = 'SellerHomePage.html';
+        } 
+        else {
             alert('Failed to submit form. Please try again.');
         }
-    });
-});
+    sellForm.reset();
+
+}
+
+

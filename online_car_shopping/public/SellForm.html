@@ -5,11 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="CSS/SellForm.css">
-    <link rel="stylesheet" href="./CSS/style.css" />
+    <link rel="stylesheet" href="css/SellForm.css">
+    <link rel="stylesheet" href="css/style.css" />
 
-    <script src="Javascript/FillForm.js"></script>
-    <script src="Javascript/SubmitForm.js"></script>
 
     <!-- <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -41,7 +39,7 @@
     <header class="head">
 
         <a href="SellerHomePage.html" class="logo">
-            <img src="./CSS/images/cars/Starman-cuate.png" alt="car-logo">
+            <img src="css/images/cars/Starman-cuate.png" alt="car-logo">
         </a>
 
 
@@ -85,7 +83,7 @@
                 </div>
 
                 <div class="input-field">
-                    <label for="seller-email">EMail:</label><br>
+                    <label for="seller-email">Email:</label><br>
                     <input type="email" name="seller-email" id="seller-email" required><br>
                 </div>
 
@@ -111,7 +109,22 @@
 
                 <div class="input-field">
                     <label for="car-make">Make:</label><br>
-                    <select name="car-make" id="car-make" required></select><br>
+                    <select name="car-make" id="car-make" required>
+                    
+                        <option value="" selected disabled>Select Model</option>>Select Make</option>
+                        <option value="Aston Martin">Aston Martin</option>
+                        <option value="Audi">Audi</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Bentley">Bentley</option>
+                        <option value="Bugatti">Bugatti</option>
+                        <option value="Ferrari">Ferrari</option>
+                        <option value="Jaguar">Jaguar</option>
+                        <option value="Lamborghini">Lamborghini</option>
+                        <option value="Mercedes-Benz">Mercedes-Benz</option>
+                        <option value="Porsche">Porsche</option>
+                        <option value="Rolls-Royce">Rolls-Royce</option>
+                    
+                    </select><br>
                 </div>
 
                 <div class="input-field">
@@ -122,6 +135,7 @@
                 <div class="input-field">
                     <label for="car-type">Type:</label><br>
                     <select name="car-type" id="car-type" required>
+                        <option value="" selected disabled>Select Type</option>
                         <option value="hatchback">Hatchback</option>
                         <option value="sedan">Sedan</option>
                         <option value="suv">SUV</option>
@@ -129,7 +143,7 @@
                         <option value="coupe">Coupe</option>
                         <option value="convertible">Convertible</option>
                         <option value="pickup">Pickup</option>
-                        <option value="sports">Sports</option>
+                        <option value="sports">Sports Car</option>
                         <option value="hyper">Hyper</option>
                     </select>
                 </div>
@@ -139,25 +153,27 @@
                     <input type="text" name="car-price" id="car-price" required><br>
                 </div>
 
-                <div class="input-field">
+                <!-- <div class="input-field">
                     <label for="car-km">Distance Run [km]:</label><br>
                     <input type="number" name="car-distance" id="car-distance" required><br>
-                </div>
+                </div> -->
             </div>
 
 
             <div class = "car-image">
                 <div class="input-field">
                     <label for="car-image">Upload Image:</label><br>
-                    <input type="file" name="car-image" id="car-image" accept="image/*"><br>
+                    <input type="file" name="car-image" id="car-image" accept="image/*" required><br>
                 </div>
             </div>
 
-            <div class="submit-button">
-                <button type="submit">Submit Form</button>
+            <div class="submit-button" id="submit-button" >
+                <button type="submit" class="submit-car-form" id="submit-car-form">Submit Form</button>
             </div>
 
         </form>
+
+        <script type="module" src="js/SubmitForm.js"></script>
 
     </main>
 

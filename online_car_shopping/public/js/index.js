@@ -382,6 +382,8 @@ async function handleReset(){
         ...uniqueMakes.map(make => `<option value="${make}">${make}</option>`)
     ].join('');
 
+    searchCar.innerHTML="";
+
 }
 
 

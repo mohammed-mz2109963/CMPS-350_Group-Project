@@ -1,52 +1,57 @@
 // let isBuyer = false;
 // let isSeller = false;
 // let isAdmin = false;
+import userRepo from './repository/user-repo.js'
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Check if the current page is the sign-in page
-    if (window.location.pathname.includes("SignIn.html")) {
-        // Fetch user data from users.json
-        fetch('users.json')
-            .then(response => response.json())
-            .then(data => {
-                const usersData = data; // Store the fetched user data
-                console.log("User data loaded successfully:", usersData);
+const signInForm=document.querySelector("#loginForm")
+const userName=document.querySelector('#name')
+const pass=document.querySelector('#password')
 
-                // Add event listener to the login form
-                document.getElementById('loginForm').addEventListener('submit', function(event) {
-                    event.preventDefault(); // Prevent form submission
 
-                    const username = document.querySelector('#name').value;
-                    const password = document.querySelector('#password').value;
+document.addEventListener('DOMContentLoaded',function(){
 
-                    console.log("Submitted username:", username);
-                    console.log("Submitted password:", password);
+    window.handleSignIn=handleSignIn
+    handleSignIn()
 
-                    // Check if username and password match any user in the usersData
-                    const user = usersData.users.find(user => user.username === username && user.password === password);
-                    
-                    if (user) {
-                        console.log("User found:", user);
 
-                        // Redirect to appropriate page based on the user type
-                        if (user.type === 'buyer') {
-                            window.location.href = "BuyerHomePage.html";
-                        } else if (user.type === 'seller') {
-                            window.location.href = "SellerHomePage.html";
-                        } else if (user.type === 'admin') {
-                            window.location.href = "AdminHomePage.html";
-                        }
-
-                    } else {
-                        alert('Invalid username or password');
-                    }
-                });
-            })
-            .catch(error => {
-                console.error("Error loading user data:", error);
-            });
-    }
 });
+
+signInForm.addEventListener('submit', handleSignIn) 
+                    
+
+async function handleSignIn(e){
+    e.preventDefault();
+
+    const usersData=  await userRepo.getUsers()
+    console.log("User data loaded successfully:", usersData);
+
+    const username=userName.value
+    const password=pass.value
+
+    console.log("Submitted username:", username);
+    console.log("Submitted password:", password);
+
+    const user = usersData.users.find(user => user.username === username && user.password === password);
+    
+    if (user) {
+        console.log("User found:", user);
+
+                            
+        if (user.type === 'buyer') {
+            window.location.href = "BuyerHomePage.html";
+        } else if (user.type === 'seller') {
+            window.location.href = "SellerHomePage.html";
+        } else if (user.type === 'admin') {
+            window.location.href = "AdminHomePage.html";
+        }
+    }else {
+        alert('Invalid username or password');
+    }
+
+
+
+}
+
 
 
 
