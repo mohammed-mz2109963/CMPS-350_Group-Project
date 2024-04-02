@@ -24,3 +24,14 @@ export async function GET(request) {
 
     
 }
+
+export async function PUT(request) {
+    const data = await request.json();
+
+    try {
+        const updatedBuyer = await usersRepo.updateUser(data);
+        return Response.json(updatedBuyer, { status: 200 });
+    } catch (error) {
+        return new Response(error.message, { status: 500 });
+    }
+}

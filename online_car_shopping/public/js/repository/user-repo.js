@@ -22,6 +22,28 @@ class UserRepo{
 
     }
 
+    async addBalance(buyer) {
+
+        const type="buyer"
+        
+        buyer.money_balance += 1000;
+
+        
+        const response = await fetch(`${baseUrl}?type=${type}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(buyer)
+        });
+
+        
+        if (!response.ok) {
+            throw new Error('Failed to update balance.');
+        }
+
+        return buyer;
+    }
     
     
 }

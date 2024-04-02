@@ -1,49 +1,67 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Function to display buyer details
-    function displayBuyerDetails() {
-        // Retrieve users from localStorage
-        let users = localStorage.getItem('users');
+import userRepo from './repository/user-repo.js'
 
-        // If users data doesn't exist in localStorage, load it from the JSON file
-        if (!users) {
-            fetch('../users.json')
-                .then(response => response.json())
-                .then(data => {
-                    // Store users data in localStorage
-                    localStorage.setItem('users', JSON.stringify(data.users));
-                    // Call displayBuyerDetails again to display buyer details
-                    displayBuyerDetails();
-                })
-                .catch(error => console.error('Error fetching users data:', error));
-            return;
-        }
+    const buyerForm=document.querySelector("#seller-form")
+    const accType=document.querySelector("#account-type")
+    const shipping=document.querySelector("#shipping-address")
+    const addB=document.querySelector("#add-balance")
 
-        // Retrieve buyer details from users
-        const buyerDetails = JSON.parse(users).find(user => user.type === 'buyer');
+    const bname=document.querySelector('#name')
+    const bsname=document.querySelector('#surname')
+    const balance=document.querySelector('#balance')
 
-        // Update profile info section
-        document.getElementById('name').textContent = `Name: ${buyerDetails.name}`;
-        document.getElementById('surname').textContent = `Surname: ${buyerDetails.surname}`;
-        document.getElementById('account-type').textContent = `Account Type: Buyer`;
+    
 
-        // Update shipping address section
-        const address = buyerDetails.shipping_address;
+    document.addEventListener('DOMContentLoaded',function(){
+    window.handleBuyerProfile=handleBuyerProfile;
+    window.addAmount=addAmount;
+
+    handleBuyerProfile()
+    });
+
+    async function handleBuyerProfile(){
+
+    const users =  await userRepo.getUsersByType("buyer")
+    const buyer= users.find(user => user.type === 'buyer')
+
+    console.log("buyer data loaded successfully:", buyer);
+
+    if (buyer) {
+            console.log("buyer data loaded successfully:", buyer);
+
+        bname.textContent = `Name: ${buyer.name}`;
+        bsname.textContent = `Surname: ${buyer.surname}`;
+        accType.textContent = `Account Type: Buyer`
+        balance.textContent=`Balance: $${buyer.money_balance}`
+
+
+       // const address = buyer?.shipping_address ?? {};
+
+        //console.log(address)
         const addressHTML = `
-            <p>Contact Person's Name: ${address.contact_person_name}</p>
-            <p>Street No./Name: ${address.street}</p>
-            <p>Apartment Number or Suite Number: ${address.apartment_suite_number}</p>
-            <p>City & State: ${address.city}, ${address.state}</p>
-            <p>Zip Code: ${address.zip_code}</p>
-            <p>Contact Person's Mobile Number: ${address.mobile_number}</p>
+            <p>Contact Person's Name: ${buyer.shipping_address.contact_person_name}</p>
+            <p>Street No./Name: ${buyer.shipping_address.street}</p>
+            <p>Apartment Number or Suite Number: ${buyer.shipping_address.apartment_suite_number}</p>
+            <p>City & State: ${buyer.shipping_address.city}, ${buyer.shipping_address.state}</p>
+            <p>Zip Code: ${buyer.shipping_address.zip_code}</p>
+            <p>Contact Person's Mobile Number: ${buyer.shipping_address.mobile_number}</p>
         `;
-        document.querySelector('.shipping-address').innerHTML = addressHTML;
+
+        shipping.innerHTML = addressHTML;
+
+        }
     }
 
-    // Display buyer details on page load
-    displayBuyerDetails();
+     addB.addEventListener('click',addAmount)
 
-    // Function to update buyer details
-    document.getElementById('buyer-form').addEventListener('submit', function(event) {
-        // Form submission handling
-    });
-});
+    async function addAmount() {
+        const users =  await userRepo.getUsersByType("buyer")
+        const buyer= users.find(user => user.type === 'buyer')
+
+        if(buyer){
+        userRepo.addBalance(buyer)
+        }
+        handleBuyerProfile()
+    }
+
+
+    

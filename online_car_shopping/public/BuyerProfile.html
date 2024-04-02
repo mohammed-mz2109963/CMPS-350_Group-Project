@@ -52,11 +52,19 @@
             <div class="name-surname">
                 <p id = "name">Name: Buyer Name</p>
                 <p id = "surname">Surname: Buyer Surname</p>
+                <p id = "balance">Account Balance: </p>
+                <button id = "add-balance">Add Balance</button>
             </div>
+
+            <section class = "purchase-history" id = "purchase-history">
+                <h1>purchase-history</h1>
+                <div class = "history-container" id = "history-container"></div>
+            </section>
         </section>
 
+
         <div class = "right-side">
-            <section class="shipping-address">
+            <section class="shipping-address" id="shipping-address">
                 <h2>Shipping Address</h2>
                 <p>Contact Person’s Name: John Doe</p>
                 <p>Street No./Name: 123 Main St</p>
@@ -87,6 +95,6 @@
         </div>
     </main>
 
-    <script src = "js/BuyerProfile.js"></script>
+    <script type="module" src = "js/BuyerProfile.js"></script>
 </body>
 </html>

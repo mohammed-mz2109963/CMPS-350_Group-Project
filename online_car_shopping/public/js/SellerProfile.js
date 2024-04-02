@@ -2,7 +2,7 @@
 import userRepo from './repository/user-repo.js'
 
 const sellerForm=document.querySelector("#seller-form")
-const accType=document.querySelector("#account-details")
+const accType=document.querySelector("#account-type")
 const accDetails=document.querySelector('#account-details')
 //const history=document.querySelector('#history-container')
 const company = document.querySelector('company-name');
@@ -11,6 +11,7 @@ const bankAcc = document.querySelector('bank-account');
 
 document.addEventListener('DOMContentLoaded',function(){
 window.handleSellerProfile=handleSellerProfile
+
 handleSellerProfile()
 
 });
@@ -20,8 +21,8 @@ sellerForm.addEventListener('submit',handleInfo)
 
 
 
-async function handleSellerProfile(e){
-    e.preventDefault
+async function handleSellerProfile(){
+    // e.preventDefault
     const sellerData =  await userRepo.getUsersByType("seller")
     console.log("seller data loaded successfully:", sellerData);
 

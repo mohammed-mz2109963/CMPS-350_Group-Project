@@ -11,7 +11,7 @@ const pass=document.querySelector('#password')
 document.addEventListener('DOMContentLoaded',function(){
 
     window.handleSignIn=handleSignIn
-    handleSignIn()
+    
 
 
 });
@@ -31,7 +31,7 @@ async function handleSignIn(e){
     console.log("Submitted username:", username);
     console.log("Submitted password:", password);
 
-    const user = usersData.users.find(user => user.username === username && user.password === password);
+    const user = usersData.find(user => user.username === username && user.password === password);
     
     if (user) {
         console.log("User found:", user);
