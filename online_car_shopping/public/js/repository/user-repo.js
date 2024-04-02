@@ -22,10 +22,46 @@ class UserRepo{
 
     }
 
+
+    async updateUser(user){
+        console.log(user)
+
+
+        let type=""
+
+        if(user.type==="buyer"){
+            type="buyer"
+        }
+        else if(user.type==="seller"){
+            type="seller"
+        }
+        else
+            type="admin"
+
+
+
+        const response = await fetch(`${baseUrl}?type=${type}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        });
+
+        
+        if (!response.ok) {
+            throw new Error('Failed to update user.');
+        }
+
+        return user;
+
+
+    }
+
     async addBalance(buyer) {
 
         const type="buyer"
-        
+
         buyer.money_balance += 1000;
 
         
