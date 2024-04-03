@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     window.fillPage=fillPage
     window.handleReset=handleReset
     window.formToObj=formToObj
+    window.addCart-addCart
 
     fillPage()
 
@@ -71,7 +72,7 @@ async function addCart(carId){
     console.log("cart clicked")
         console.log(carId)
 
-    let cartItems = JSON.parse(localStorage.getItem("carItems")) || [];
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
     const existingItemIndex = cartItems.findIndex(item => item.carId === carId);
 
@@ -81,7 +82,7 @@ async function addCart(carId){
         cartItems.push({ carId: carId, count: 1 });
     }
 
-    localStorage.setItem("carItems", JSON.stringify(cartItems));
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
     const notifySpan = document.getElementById('notify');
     if (notifySpan) {
