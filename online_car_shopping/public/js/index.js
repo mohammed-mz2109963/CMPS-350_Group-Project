@@ -9,6 +9,8 @@ const makeSelect = document.querySelector("#make");
 const modelSelect = document.querySelector("#model");
 const searchCar = document.querySelector("#search-cars");
 const featCars=document.querySelector("#cars")
+//const fcart=document.querySelector("#fcart-btn")
+//const cart=document.querySelector("#cart-btn")
 
 
 form.addEventListener('submit',showSelectedCars)
@@ -16,6 +18,21 @@ makeSelect.addEventListener('change',handleMakeChange)
 typeSelect.addEventListener('change',handleTypeChange)
 yearSelect.addEventListener('change',handleYearChange)
 form.addEventListener('reset',handleReset)
+//fcart.addEventListener('click',addCart)
+//cart.addEventListener('click',addCart)
+
+// document.addEventListener('click', function(event) {
+//     if (event.target && event.target.id === 'cart-btn') {
+//         addCart();
+//     }
+// });
+
+// featCars.addEventListener('click', function(event) {
+//     if (event.target && event.target.id === 'fcart-btn') {
+//         addCart();
+//     }
+// });
+
 
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -30,10 +47,51 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     fillPage()
 
-    
+   featCars.addEventListener('click', function(event) {
+        if (event.target && event.target.classList.contains("fcart-btn")) {
+            const carId = event.target.dataset.carId;
+            addCart(carId); 
+        }
+    });
+
+       searchCar.addEventListener('click', function(event) {
+        if (event.target && event.target.classList.contains("cart-btn")) {
+            const carId = event.target.dataset.carId;
+            addCart(carId); 
+        }
+    });
+
+
+  
 
 });
 
+
+async function addCart(carId){
+    console.log("cart clicked")
+        console.log(carId)
+
+    let cartItems = JSON.parse(localStorage.getItem("carItems")) || [];
+
+    const existingItemIndex = cartItems.findIndex(item => item.carId === carId);
+
+    if (existingItemIndex !== -1) {
+        cartItems[existingItemIndex].count++;
+    } else {
+        cartItems.push({ carId: carId, count: 1 });
+    }
+
+    localStorage.setItem("carItems", JSON.stringify(cartItems));
+
+    const notifySpan = document.getElementById('notify');
+    if (notifySpan) {
+        notifySpan.textContent = cartItems.reduce((total, item) => total + item.count, 0);
+    } else {
+        console.error("Element with ID 'notify' not found in the DOM.");
+    }
+
+        
+    }
 
 
 async function handleYearChange(){
@@ -248,10 +306,33 @@ async function showSelectedCars(e){
 
     console.log(cars);
 
+    let hrefText=""
+    let descText=""
+    // let cart=""
+    let isBuyer=false
+
+    const currentPagePath = window.location.pathname;
+
+    if (currentPagePath.toLowerCase() === '/buyerhomepage.html') {
+        console.log("User is on the buyer page");
+        descText="Add to cart"
+        // cart="cart-button"
+        isBuyer=true
+    } else if (currentPagePath.toLowerCase() === '/sellerhomepage.html') {
+        console.log("User is on the seller page");
+        
+        
+    } else if (currentPagePath.toLowerCase() === '/guesthomepage.html'){
+        console.log("User is on a guest page");
+        descText="Login to continue"
+        hrefText="/signin.html"
+    }
+
+
     let listHTML='';
     let itemCount=1
 
-    cars.forEach(car=>{
+    cars.map(car=>{
 
         listHTML += `
 
@@ -264,17 +345,34 @@ async function showSelectedCars(e){
 
                     <h4 class="car-price">$${car.price}</h4>
                     <br>
-                    <a class="add-item${itemCount}" href="SignIn.html">Login to Continue</a>
+                    
+                    ${isBuyer ? 
+                    `<input  type="button" class="cart-btn" data-car-id="${car.id}" id="cart-btn" value="Add to cart">`
+                    :   `<a class="add-item${itemCount}" id="cart-button" href=${hrefText}>${descText}</a>`
+                    }
+                    <br>
 
                 </div>
+                
            `;
             itemCount++;
+            // console.log(cart)
         }
     )
 
     searchCar.innerHTML=listHTML;
 
+    //     const fcart = document.querySelector("#fcart-btn");
+    // if (fcart) {
+    //     fcart.addEventListener('click', addCart);
+    // } else {
+    //     console.error("Element with ID 'fcart-btn' not found in the DOM.");
+    // }
+
 }
+
+
+
 
 
 
@@ -321,31 +419,56 @@ async function fillPage(){
 
     console.log(randomCars);
 
+    let hrefText=""
+    let descText=""
+    let isBuyer=true
 
+    const currentPagePath = window.location.pathname;
+
+    if (currentPagePath.toLowerCase() === '/buyerhomepage.html') {
+        console.log("User is on the buyer page");
+        
+
+
+    } else if (currentPagePath.toLowerCase() === '/sellerhomepage.html') {
+        console.log("User is on the seller page");
+        isBuyer=false
+        
+    } else if (currentPagePath.toLowerCase() === '/guesthomepage.html'){
+        console.log("User is on a guest page");
+        descText="Login to continue"
+        hrefText="/signin.html"
+        isBuyer=false
+    }
 
 
     let listHTML='';
     let itemCount=1
 
-    randomCars.forEach(car=>{
+    randomCars.map(car=>{
         
         listHTML += `
-
+            
                 <div class="car-box">
                     <img src="${car.image_url}">
                     <br>
 
-                    <p class="car-info">Model: ${car.model} Year: ${car.year}</p>
+                    <p class="car-info">Model: ${car.model} <br> Year: ${car.year}</p>
                     <br>
                     <h4 class="car-name">${car.make} </h4>
 
                     <h4 class="car-price">$ ${car.price}</h4>
                     
                     <br>
-                    <a class="add-item${itemCount}" href="SignIn.html">Login to Continue</a>
+                    ${isBuyer ? 
+                    `<input  type="button" class="fcart-btn" data-car-id="${car.id}" id="fcart-btn" value="Add to cart">`
+                    :   `<a class="add-item${itemCount}" id="fcart-button" href=${hrefText}>${descText}</a>`
+                    }
                 </div>
            `;
-        itemCount++;
+                itemCount++;
+        
+            
         }
     )
 

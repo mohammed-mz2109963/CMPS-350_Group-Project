@@ -406,3 +406,33 @@ html ::-webkit-scrollbar-thumb{
     width: 50%;
     height: 70%;
 }
+
+/* .cart-btn {
+    color: rgb(115, 0, 255);
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition-duration: 0.4s;
+    background-color: #854dff;
+    float: right;
+    
+} */
+
+.fcart-btn {
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition-duration: 0.4s;
+    background-color: #854dff;
+    float: right;
+    
+}
