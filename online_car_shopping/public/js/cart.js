@@ -1,23 +1,35 @@
-import userRepo from './repository/user-repo.js'
-import carRepo from './repository/car-repo.js'
+    import userRepo from './repository/user-repo.js'
+    import carRepo from './repository/car-repo.js'
+    import transactionRepo from './repository/transaction-repo.js'
 
-const shipping=document.querySelector("#shipping-details")
-const display=document.querySelector("#car-object")
-
-
-document.addEventListener('DOMContentLoaded',function(){
-window.shippingDetails=shippingDetails
-window.displayCarObjects=displayCarObjects
-
-shippingDetails()
-displayCarObjects()
-
-
-})
+    const shipping=document.querySelector("#shipping-details")
+    const display=document.querySelector("#car-object")
+    const paymentBtn=document.querySelector("#confirm-payment-btn")
 
 
 
-async function shippingDetails(){
+    document.addEventListener('DOMContentLoaded',function(){
+    window.shippingDetails=shippingDetails
+    window.displayCarObjects=displayCarObjects
+    window.confirmPayment=confirmPayment
+
+    shippingDetails()
+    displayCarObjects()
+
+    paymentBtn.addEventListener('click',function(event) {
+            if (event.target && event.target.classList.contains("confirm-payment-btn")) {
+                const index = parseInt(event.target.dataset.indexId);
+
+                confirmPayment(index); 
+            }
+    });
+
+    })
+
+
+
+
+    async function shippingDetails(){
     
         const users =  await userRepo.getUsersByType("buyer")
         const buyer= users.find(user => user.type === 'buyer')
@@ -36,12 +48,11 @@ async function shippingDetails(){
         `;
         shipping.innerHTML = addressHTML;
     
-}
+    }
 
 
-async function displayCarObjects() {
+    async function displayCarObjects() {
 
-        const cars=await carRepo.getCars()
 
         const cart = localStorage.getItem('cartItems');
         console.log(cart)
@@ -65,27 +76,92 @@ async function displayCarObjects() {
         carObjects.forEach((cartItem, index) => {
             const car = cars.find(car => car.id === parseInt(cartItem.carId));
             if (car) {
+                const totalPrice = car.price * cartItem.count;
                 carObjectHTML += `
                     <div class="car-obj car-item">
                         <h3>Car ${index + 1}</h3>
+                        <img src=${car.image_url} id="" >
                         <p>Make: ${car.make}</p>
                         <p>Model: ${car.model}</p>
                         <p>Year: ${car.year}</p>
-                        <p>Price: $${car.price}</p>
+                        <p>Price: $${totalPrice}</p>
                         <p>Count: ${cartItem.count}</p>
-                        <button class="confirm-payment-btn" data-index="${index}">Confirm Payment</button>
+                        <button class="confirm-payment-btn" id="confirm-payment-btn" data-index-id="${index}">Confirm Payment</button>
                     </div>
                 `;
+
+
             } else {
                 console.error(`Car with ID ${cartItem.carId} not found`);
             }
         });
 
+
+
         display.innerHTML = carObjectHTML;
-    } catch (error) {
+        } catch (error) {
         console.error('Error fetching cars:', error);
+        }
     }
+
+
+
+    async function confirmPayment(index){
+
+    console.log(index)
+    
+
+    const cars=await carRepo.getCars()
+
+        const cart = localStorage.getItem('cartItems');
+        console.log(cart)
+        if (!cart) {
+            console.error('No cars in the cart');
+            alert("No cars in the cart");
+            return;
+        }
+
+        const carObjects = JSON.parse(cart);
+        if (!Array.isArray(carObjects)) {
+            console.error('Invalid car objects data');
+            return;
+
+        }
+    
+    
+
+    const totalPrice = carObjects.reduce((total, cartItem) => {
+        const car = cars.find(car => car.id === parseInt(cartItem.carId));
+        if (car) {
+            return total + (car.price * cartItem.count);
+        }
+        return total;
+    }, 0);
+
+    const users =  await userRepo.getUsersByType("buyer")
+    const buyer= users.find(user => user.type === 'buyer')
+
+    // const car = carObjects[index];
+
+        if (buyer.money_balance >= totalPrice) {
+
+            buyer.money_balance -= totalPrice;
+
+            await userRepo.updateUser(buyer)
+
+            carObjects.splice(carIndex, 1);
+            localStorage.setItem('cartItems', JSON.stringify(carObjects));
+
+            
+
+    
+            
+    
+            displayCarObjects();
+            displayPurchaseHistory();
+            displayShippingAddress();
+        } else {
+            console.error('Insufficient funds');
+            alert('Insufficient funds');
+        }
     }
-
-
-

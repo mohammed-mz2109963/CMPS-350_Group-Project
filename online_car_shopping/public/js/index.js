@@ -62,6 +62,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    const notifySpan = document.getElementById('notify');
+    if (notifySpan) {
+        notifySpan.textContent = cartItems.reduce((total, item) => total + item.count, 0);
+    } else {
+        console.error("Element with ID 'notify' not found in the DOM.");
+    }
 
   
 

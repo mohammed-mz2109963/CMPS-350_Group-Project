@@ -1,0 +1,61 @@
+import fs from 'fs-extra'
+
+import path from 'path'
+
+export default class TransactionRepo {
+
+    constructor() {
+        this.path = path.join(process.cwd(), 'app/data/transaction.json')
+        console.log(this.path);
+    }
+
+    async getTransactionHistoryById(userId) {
+        try {
+            const transactions = await fs.readJSON(this.path);
+
+            const userTransactions = transactions.filter(transaction => transaction.buyerId === userId || transaction.sellerId === userId);
+
+            return userTransactions;
+        } catch (error) {
+            console.error('Error getting transaction history:', error);
+            return [];
+        }
+    }
+
+    async addTransaction(transaction) {
+        try {
+            const transactions = await fs.readJSON(this.path);
+
+            const transactionId = transactions.length > 0 ? transactions[transactions.length - 1].transactionId + 1 : 1;
+
+            transaction.transactionId = transactionId;
+
+            transactions.push(transaction);
+
+            await fs.writeJSON(path.join(__dirname, 'transaction.json'), transactions);
+
+            return true;
+        } catch (error) {
+            console.error('Error adding transaction:', error);
+            return false;
+        }
+    }
+
+    async updateTransaction(updatedTransaction) {
+        try {
+            const transactions = await fs.readJSON(this.path);
+            const index = transactions.findIndex((transaction) => transaction.transactionId === updatedTransaction.transactionId);
+            if (index !== -1) {
+                transactions[index] = updatedTransaction;
+                await fs.writeJSON(this.path, transactions);
+                return updatedTransaction;
+            } else {
+                throw new Error('Transaction not found');
+            }
+        } catch (error) {
+            throw new Error('Error updating transaction: ' + error.message);
+        }
+    }
+}
+
+
