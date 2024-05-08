@@ -6,7 +6,8 @@ class DataRepository
     // Function to get all users
     async getAllUsers()
     {
-        return prisma.user.findMany();
+        const users = await prisma.user.findMany();
+        return users;
     }
 
     // Function to get user by ID
@@ -85,6 +86,14 @@ class DataRepository
     async getAllPurchases()
     {
         return prisma.purchase.findMany();
+    }
+
+    // Function to get purchase by ID
+    async getPurchaseById(purchaseId)
+    {
+        return prisma.purchase.findUnique({
+            where: { id: purchaseId }
+        });
     }
 
     // Function to create a new purchase
