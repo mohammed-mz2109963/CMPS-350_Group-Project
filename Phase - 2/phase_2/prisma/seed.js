@@ -17,8 +17,8 @@ async function main() {
         contact_person_name: "Buyer 1",
         street: "123 Buyer Street",
         apartment_suite_number: "Apt 404",
-        city: "Buyer Town",
-        state: "QA",
+        city: "Doha",
+        state: "Qatar",
         zip_code: "22744",
         mobile_number: "123-456-7890"
     },
@@ -33,9 +33,9 @@ async function main() {
         contact_person_name: "Buyer 2",
         street: "456 Buyer Street",
         apartment_suite_number: "Apt 101",
-        city: "Buyer City",
-        state: "NY",
-        zip_code: "10001",
+        city: "Mesaieed",
+        state: "Qatar",
+        zip_code: "22744",
         mobile_number: "987-654-3210"
     },
     {
@@ -49,8 +49,8 @@ async function main() {
         contact_person_name: "Buyer 3",
         street: "789 Buyer Street",
         apartment_suite_number: "Apt 303",
-        city: "Buyer Village",
-        state: "CA",
+        city: "Lucknow",
+        state: "India",
         zip_code: "90210",
         mobile_number: "111-222-3333"
         }
