@@ -5,57 +5,57 @@ const prisma = new PrismaClient();
 async function main() {
     // Create buyers
     const buyers = await prisma.user.createMany({
-    data: [
-    {
-        id: 1,
-        type: "buyer",
-        username: "BUYER1",
-        password: "BUYER1@Scambox",
-        name: "buyer1_name",
-        surname: "buyer1_surname",
-        money_balance: 1000,
-        contact_person_name: "Buyer 1",
-        street: "123 Buyer Street",
-        apartment_suite_number: "Apt 404",
-        city: "Doha",
-        state: "Qatar",
-        zip_code: "22744",
-        mobile_number: "123-456-7890"
-    },
-    {
-        id: 2,
-        type: "buyer",
-        username: "BUYER2",
-        password: "BUYER2@Scambox",
-        name: "buyer2_name",
-        surname: "buyer2_surname",
-        money_balance: 1500,
-        contact_person_name: "Buyer 2",
-        street: "456 Buyer Street",
-        apartment_suite_number: "Apt 101",
-        city: "Mesaieed",
-        state: "Qatar",
-        zip_code: "22744",
-        mobile_number: "987-654-3210"
-    },
-    {
-        id: 3,
-        type: "buyer",
-        username: "BUYER3",
-        password: "BUYER3@Scambox",
-        name: "buyer3_name",
-        surname: "buyer3_surname",
-        money_balance: 2000,
-        contact_person_name: "Buyer 3",
-        street: "789 Buyer Street",
-        apartment_suite_number: "Apt 303",
-        city: "Lucknow",
-        state: "India",
-        zip_code: "90210",
-        mobile_number: "111-222-3333"
-        }
-        ]
-    });
+        data: [
+        {
+            id: 1,
+            type: "buyer",
+            username: "BUYER1",
+            password: "BUYER1@Scambox",
+            name: "buyer1_name",
+            surname: "buyer1_surname",
+            money_balance: 1000,
+            contact_person_name: "Buyer 1",
+            street: "123 Buyer Street",
+            apartment_suite_number: "Apt 404",
+            city: "Doha",
+            state: "Qatar",
+            zip_code: "22744",
+            mobile_number: "123-456-7890"
+        },
+        {
+            id: 2,
+            type: "buyer",
+            username: "BUYER2",
+            password: "BUYER2@Scambox",
+            name: "buyer2_name",
+            surname: "buyer2_surname",
+            money_balance: 1500,
+            contact_person_name: "Buyer 2",
+            street: "456 Buyer Street",
+            apartment_suite_number: "Apt 101",
+            city: "Mesaieed",
+            state: "Qatar",
+            zip_code: "22744",
+            mobile_number: "987-654-3210"
+        },
+        {
+            id: 3,
+            type: "buyer",
+            username: "BUYER3",
+            password: "BUYER3@Scambox",
+            name: "buyer3_name",
+            surname: "buyer3_surname",
+            money_balance: 2000,
+            contact_person_name: "Buyer 3",
+            street: "789 Buyer Street",
+            apartment_suite_number: "Apt 303",
+            city: "Lucknow",
+            state: "India",
+            zip_code: "90210",
+            mobile_number: "111-222-3333"
+            }
+            ]
+        });
 
     // Create sellers
     const sellers = await prisma.user.createMany({
@@ -79,7 +79,7 @@ async function main() {
         ]
     });
 
-    console.log("Sellers:", sellers[1]);
+    //console.log("Sellers:", sellers[1]);
 
     // Create products
     const products = await prisma.product.createMany({

@@ -8,7 +8,14 @@ CREATE TABLE "User" (
     "surname" TEXT,
     "money_balance" INTEGER DEFAULT 0,
     "company_name" TEXT,
-    "bank_account" TEXT
+    "bank_account" TEXT,
+    "contact_person_name" TEXT,
+    "street" TEXT,
+    "apartment_suite_number" TEXT,
+    "city" TEXT,
+    "state" TEXT,
+    "zip_code" TEXT,
+    "mobile_number" TEXT
 );
 
 -- CreateTable
@@ -19,6 +26,7 @@ CREATE TABLE "Product" (
     "price" REAL NOT NULL,
     "type" TEXT NOT NULL,
     "image_url" TEXT,
+    "isSold" BOOLEAN NOT NULL DEFAULT false,
     "seller_id" INTEGER NOT NULL,
     CONSTRAINT "Product_seller_id_fkey" FOREIGN KEY ("seller_id") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
@@ -31,13 +39,6 @@ CREATE TABLE "Purchase" (
     "purchase_date" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT "Purchase_buyer_id_fkey" FOREIGN KEY ("buyer_id") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
     CONSTRAINT "Purchase_product_id_fkey" FOREIGN KEY ("product_id") REFERENCES "Product" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
-);
-
--- CreateTable
-CREATE TABLE "Location" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "city" TEXT NOT NULL,
-    "country" TEXT NOT NULL
 );
 
 -- CreateIndex
