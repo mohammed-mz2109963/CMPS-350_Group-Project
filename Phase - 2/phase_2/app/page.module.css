@@ -225,6 +225,7 @@
   height: auto;
   width: auto;
 
+  place-content: center;
   transition-duration: 0.5s;
 }
 .outerBox:hover {box-shadow: 0 0.1rem 1rem gray;}
@@ -236,8 +237,8 @@
   margin: 1rem;
 
   border-radius: 0.5rem;
-  height: auto;
-  width: auto;
+  height: 80%;
+  width: 80%;
 
   text-align: center;
   transition-duration: 0.5s;
