@@ -1,45 +1,52 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Retrieve cart items from local storage
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartContainer = document.getElementById('cart-container');
+document.addEventListener('DOMContentLoaded', async function() {
+    try {
+        // Fetch data from the /api/products route
+        const productsResponse = await fetch('/api/products');
+        const productsData = await productsResponse.json();
 
-    // Append cart items to the cart container
-    cartItems.forEach(item => {
-        const cartObj = createAdminPageObj(item);
-        cartContainer.appendChild(cartObj);
-    });
+        // Display products data
+        const cartContainer = document.getElementById('cart-container');
+        productsData.forEach(product => {
+            const insideObject = createInsideObject(product);
+            cartContainer.appendChild(insideObject);
+        });
 
-    // Retrieve purchase history items from local storage
-    const purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
-    const purchaseHistoryContainer = document.getElementById('purchase-history-container');
+        // Fetch data from the /api/purchases route
+        const purchasesResponse = await fetch('/api/purchases');
+        const purchasesData = await purchasesResponse.json();
 
-    // Append purchase history items to the purchase history container
-    purchaseHistory.forEach(item => {
-        const historyObj = createAdminPageObj(item);
-        purchaseHistoryContainer.appendChild(historyObj);
-    });
+        // Display purchases data
+        const purchaseHistoryContainer = document.getElementById('purchase-history-container');
+        purchasesData.forEach(purchase => {
+            const insideObject = createInsideObject(purchase);
+            purchaseHistoryContainer.appendChild(insideObject);
+        });
 
-    // Retrieve users from local storage
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const usersContainer = document.getElementById('users-container');
+        // Fetch data from the /api/users route
+        const usersResponse = await fetch('/api/users');
+        const usersData = await usersResponse.json();
 
-    // Append users to the users container
-    users.forEach(user => {
-        const userObj = createAdminPageObj(user);
-        usersContainer.appendChild(userObj);
-    });
-
-    // Function to create admin page objects
-    function createAdminPageObj(data) {
-        const obj = document.createElement('div');
-        obj.classList.add('admin-page-obj');
-        for (const key in data) {
-            if (data.hasOwnProperty(key)) {
-                const p = document.createElement('p');
-                p.textContent = `${key}: ${data[key]}`;
-                obj.appendChild(p);
-            }
-        }
-        return obj;
+        // Display users data
+        const usersContainer = document.getElementById('users-container');
+        usersData.forEach(user => {
+            const insideObject = createInsideObject(user);
+            usersContainer.appendChild(insideObject);
+        });
+    } catch (error) {
+        console.error('Error fetching and displaying data:', error);
     }
 });
+
+// Function to create an insideObject div and append data to it
+function createInsideObject(data) {
+    const insideObject = document.createElement('div');
+    insideObject.classList.add('insideObject');
+    for (const key in data) {
+        if (data.hasOwnProperty(key)) {
+            const p = document.createElement('p');
+            p.textContent = `${key}: ${data[key]}`;
+            insideObject.appendChild(p);
+        }
+    }
+    return insideObject;
+}

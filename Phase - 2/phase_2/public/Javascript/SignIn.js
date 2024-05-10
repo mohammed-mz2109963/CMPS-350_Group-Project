@@ -1,12 +1,8 @@
-// let isBuyer = false;
-// let isSeller = false;
-// let isAdmin = false;
-
 document.addEventListener('DOMContentLoaded', function() {
     // Check if the current page is the sign-in page
     if (window.location.pathname.includes("SignIn.html")) {
-        // Fetch user data from users.json
-        fetch('users.json')
+        // Fetch user data from the /api/users endpoint
+        fetch('/api/users')
             .then(response => response.json())
             .then(data => {
                 const usersData = data; // Store the fetched user data
@@ -23,10 +19,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.log("Submitted password:", password);
 
                     // Check if username and password match any user in the usersData
-                    const user = usersData.users.find(user => user.username === username && user.password === password);
+                    const user = usersData.find(user => user.username === username && user.password === password);
                     
                     if (user) {
                         console.log("User found:", user);
+
+                        // Store the currently logged-in user details in localStorage
+                        localStorage.setItem('currentlyLoggedIn', JSON.stringify(user));
 
                         // Redirect to appropriate page based on the user type
                         if (user.type === 'buyer') {
@@ -47,17 +46,3 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 });
-
-
-
-// Function to show or hide the seller area based on the user type
-// function toggleSellerArea(isSeller) {
-//     const sellerArea = document.getElementById('seller-area');
-//     console.log("toggleSellerArea called");
-//     console.log("isSeller:", isSeller);
-//     if (isSeller) {
-//         sellerArea.style.display = 'flex'; // Show seller area
-//     } else {
-//         sellerArea.style.display = 'none'; // Hide seller area
-//     }
-// }

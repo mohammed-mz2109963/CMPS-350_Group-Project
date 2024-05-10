@@ -143,19 +143,22 @@ body
                 flex-direction: column;
                 flex-wrap: nowrap;
                 row-gap: 2rem;
+                width: auto;
                 /* margin-bottom: 5rem; */
 
                 h2 {margin-bottom: 5rem;}
 
-                .admin-page-obj
+                .insideObject
                 {
                     background-color: whitesmoke;
                     border-radius: 0.5rem;
                     padding: 1rem;
                     box-shadow: 0rem 0.1rem 1rem lightgray;
                     transition-duration: 0.5s;
+
+                    width: 70vw;
                 }
-                .admin-page-obj:hover {box-shadow: 0rem 0.1rem 1rem gray;}
+                .insideObject:hover {box-shadow: 0rem 0.1rem 1rem gray;}
             }
         }
     }

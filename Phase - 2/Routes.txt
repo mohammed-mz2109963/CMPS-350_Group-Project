@@ -1,0 +1,27 @@
+1. GET 		/api/products				Returns all Products
+2. POST 	/api/products				Creates a Product
+3. GET 		/api/products/[type]			Returns Specific Products
+5. PUT		/api/products/[id]			Updates a Specific Product
+6. DEL		/api/products/[id]			Deletes a Specific Product
+
+7. GET 		/api/purchases				Return all Purchases
+8. POST		/api/purchases				Creates a Purchase
+9. GET		/api/purchases/[purchase_id]		Returns a Specific Purchase
+10. PUT		/api/purchases/[purchase_id]		Updates a Specific Purchase
+11. DEL 	/api/purchases/[purchase_id]		Deletes a Specific Purchase
+
+12. GET 	/api/users				Returns all Users
+13. POST	/api/users				Creates a User
+14. GET		/api/users/[user_id]			Returns a Specific User
+15. PUT		/api/users/[user_id]			Updates a Specific User
+16. DEL		/api/users/[user_id]			Deletes a Specific User
+
+
+
+
+17. GET		/api/stats/1-total-purchases		Total Purchase Statistics
+18. GET		/api/stats/2-buyers-per-state		Buyers Per State Statistics
+19. GET		/api/stats/3-top-products-on-sale	Top Products Statistics
+20. GET		/api/stats/4-average-pricing		Average Pricing Statistics
+21. GET		/api/stats/5-sold-to-unsold		Sold/Unsold Statistics
+22. GET 	/api/stats/6-top-sellers		Top Seller Statistics

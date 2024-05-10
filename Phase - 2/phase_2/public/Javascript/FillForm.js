@@ -6,11 +6,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const makes = data.result;
             const carMakeSelect = document.getElementById('car-make');
 
+            const defaultOption = document.createElement('option');
+            defaultOption.text = 'Select Make';
+            defaultOption.value = 'Select Make';
+            carMakeSelect.appendChild(defaultOption);
+
             // Populate the options of the make select element
             makes.forEach(make => {
                 const option = document.createElement('option');
                 option.text = make.make;
-                option.value = make.make_id;
+                option.value = make.make;
                 carMakeSelect.appendChild(option);
             });
 

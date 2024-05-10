@@ -5,7 +5,7 @@ import DataRepository from "../../../repo/dataRepository.js";
 export async function GET(request)
 {
         // Call the function to get total purchases by product and year
-        const totalPurchases = await DataRepository.getAllPurchases();
+        const totalPurchases = await DataRepository.getAllPurchaseStats();
 
         // Return the total purchases data
         return Response.json(totalPurchases, { status: 200 });

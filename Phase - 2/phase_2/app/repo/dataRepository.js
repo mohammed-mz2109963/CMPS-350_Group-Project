@@ -128,7 +128,7 @@ class DataRepository
 
     // In the DataRepository class
 
-    async getAllPurchases()
+    async getAllPurchaseStats()
     {
         const purchases = await prisma.purchase.findMany({
             include: {product: true}

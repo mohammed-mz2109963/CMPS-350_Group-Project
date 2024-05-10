@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const sellForm = document.getElementById('sell-form');
 
-    sellForm.addEventListener('submit', function(event) {
+    sellForm.addEventListener('submit', async function(event) {
         event.preventDefault(); // Prevent form submission
 
         // Get form data
@@ -17,45 +17,37 @@ document.addEventListener('DOMContentLoaded', function() {
         const carDistance = document.getElementById('car-distance').value;
         const carImageURL = document.getElementById('car-image-url').value; // Get the URL from input field
 
-        // Generate unique ID
-        let carID;
-        let carsForSale = JSON.parse(localStorage.getItem('cars_for_sale')) || [];
-        do {
-            carID = Math.floor(Math.random() * 10000);
-        } while (carsForSale.some(car => car.id === carID));
+        // Retrieve currently logged-in user details from localStorage
+        const currentlyLoggedIn = JSON.parse(localStorage.getItem('currentlyLoggedIn'));
 
-        // Create car object
-        const carObject = {
-            id: carID,
-            sellerName: sellerName,
-            sellerEmail: sellerEmail,
-            sellerPhone: sellerPhone,
-            sellerContact: sellerContact,
-            carYear: carYear,
-            carMake: carMake,
-            carModel: carModel,
-            carType: carType,
-            carPrice: carPrice,
-            carDistance: carDistance,
-            carImage: carImageURL // Store the URL directly
+        // Create product object
+        const productObject = {
+            name: carMake + ' ' + carModel,
+            price: parseFloat(carPrice),
+            type: carType,
+            image_url: carImageURL,
+            seller_id: currentlyLoggedIn.id // Fill in seller_id using currently logged-in user details
         };
 
-        // Add new car object to array
-        carsForSale.push(carObject);
+        // POST request to create a new product
+        const response = await fetch('/api/products', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(productObject)
+        });
 
-        // Save updated data back to local storage
-        localStorage.setItem('cars_for_sale', JSON.stringify(carsForSale));
+        if (response.ok) {
+            // Optionally, you can clear the form fields after successful submission
+            sellForm.reset();
 
-        // Optionally, you can clear the form fields after submission
-        sellForm.reset();
-
-        // Display alert indicating form submission status
-        if (localStorage.getItem('cars_for_sale')) {
-            alert('Form submitted successfully!');
-            // Redirect to Homepage.html
-            //window.location.href = 'Homepage.html';
+            // Display alert indicating form submission status
+            alert('Product created successfully!');
+            // Redirect to Homepage.html or any other page as needed
+            // window.location.href = 'Homepage.html';
         } else {
-            alert('Failed to submit form. Please try again.');
+            alert('Failed to create product. Please try again.');
         }
     });
 });

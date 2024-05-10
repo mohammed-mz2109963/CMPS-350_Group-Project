@@ -336,6 +336,8 @@ Pale Yellow: #FFFF99 */
         padding: 1rem;
         background-color: whitesmoke;
 
+        /* height: 100%; */
+        place-items: center;
         box-shadow: 0rem 0.1rem 1rem lightgray;
         transition-duration: 0.5s;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -355,6 +357,9 @@ Pale Yellow: #FFFF99 */
         background-color: white;
         transition-duration: 0.5s;
         margin: 0.5rem;
+
+        place-content: center;
+        height: 95%;
 
         img
         {

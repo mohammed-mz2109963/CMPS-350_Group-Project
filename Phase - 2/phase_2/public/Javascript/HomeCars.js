@@ -2,11 +2,12 @@ document.addEventListener('DOMContentLoaded', function() {
     let carsForSale; // Declare carsForSale as a global variable
 
     // Function to append cars from local storage
-    function appendCarsFromLocalStorage() {
-        carsForSale = JSON.parse(localStorage.getItem('cars_for_sale')) || [];
+    async function appendCarsFromApi() {
+        const response = await fetch('/api/products');
+        const data = await response.json();
+        carsForSale = data || [];
         let carsContainer;
-        
-        // Check if the div with ID "search-cars-admin" exists
+
         if (document.getElementById('search-cars-admin')) {
             carsContainer = document.getElementById('search-cars-admin');
         } else if (document.getElementById('search-cars-guest')) {
@@ -15,10 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
             carsContainer = document.getElementById('search-cars');
         }
 
-        // Clear existing content
         carsContainer.innerHTML = '';
 
-        // Append each car to the container
         carsForSale.forEach(car => {
             const carBox = createCarBox(car, carsContainer.id);
             carsContainer.appendChild(carBox);
@@ -34,50 +33,55 @@ document.addEventListener('DOMContentLoaded', function() {
     
         // Create car details elements
         const carImg = document.createElement('img');
-        carImg.src = car.carImage;
+        carImg.src = car.image_url;
     
         const carInfo = document.createElement('p');
-        carInfo.textContent = `Year: ${car.carYear} | Make: ${car.carMake} | Model: ${car.carModel} | Type: ${car.carType}`;
+        carInfo.textContent = `Year: ${car.year} | Make: ${car.make} | Model: ${car.model} | Type: ${car.type}`;
     
         const carPrice = document.createElement('h4');
         carPrice.classList.add('car-price');
-        carPrice.textContent = '$' + car.carPrice;
+        carPrice.textContent = '$' + car.price;
     
         const carDescription = document.createElement('p');
         carDescription.classList.add('car-description');
-        carDescription.textContent = `Distance Travelled [km]: ${car.carDistance}`;
+        carDescription.textContent = `Distance Travelled [km]: ${car.distance}`;
     
         const sellerInfo = document.createElement('p');
-        sellerInfo.textContent = `Seller: ${car.sellerName} | Contact: ${car.sellerContact ? 'Yes' : 'No'}`;
+        sellerInfo.textContent = `Seller: ${car.seller_id}`;
     
         // Create button based on containerId
         let buttonLabel = 'Add to Cart';
-        let onClickFunction = function() {
+        let onClickFunction = function () {
             addToCart(car.id);
         };
-        
+    
         if (containerId === 'search-cars-guest') {
             buttonLabel = 'Login to Continue';
-            onClickFunction = function() {
+            onClickFunction = function () {
                 window.location.href = 'SignIn.html';
             };
         } else if (containerId === 'search-cars-admin') {
             buttonLabel = 'Remove';
-            onClickFunction = function() {
+            onClickFunction = function () {
                 removeCar(car.id);
             };
         } else {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
-            const isInCart = cart.some(item => item.id === car.id);
-            const isInPurchaseHistory = purchaseHistory.some(item => item.id === car.id);
-        
-            if (isInCart || isInPurchaseHistory) {
-                buttonLabel = isInCart ? 'Pending' : 'Sold Out';
+            if (car.isSold) {
+                buttonLabel = 'Sold Out';
                 onClickFunction = null;
+            } else {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
+                const isInCart = cart.some(item => item.id === car.id);
+                const isInPurchaseHistory = purchaseHistory.some(item => item.id === car.id);
+    
+                if (isInCart || isInPurchaseHistory) {
+                    buttonLabel = isInCart ? 'Pending' : 'Sold Out';
+                    onClickFunction = null;
+                }
             }
         }
-
+    
         const addToCartButton = document.createElement('button');
         addToCartButton.classList.add('add-to-cart');
         addToCartButton.dataset.carId = car.id;
@@ -87,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             addToCartButton.disabled = true;
         }
-
+    
         // Append elements to the car box
         carBox.appendChild(carImg);
         carBox.appendChild(carInfo);
@@ -97,31 +101,25 @@ document.addEventListener('DOMContentLoaded', function() {
         carBox.appendChild(addToCartButton);
     
         return carBox;
-    }
+    }    
     
-    function addToCart(carId) {
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
-    
-        // Check if the car object already exists in either cart or purchaseHistory
+    async function addToCart(carId) {
+        const currentUser = JSON.parse(localStorage.getItem('currentlyLoggedIn'));
+        const cartName = `${currentUser.id}_cart`;
+        let cart = JSON.parse(localStorage.getItem(cartName)) || [];
+
         const isInCart = cart.some(item => item.id === carId);
-        const isInPurchaseHistory = purchaseHistory.some(item => item.id === carId);
-    
-        // If the car object exists in either cart or purchaseHistory, handle accordingly
-        if (isInCart || isInPurchaseHistory) {
-            alert('This car is already in cart or has been sold out!');
+        if (isInCart) {
+            alert('This car is already in your cart!');
             return;
         }
-    
-        // Find the car object in the carsForSale array
+
         const carIndex = carsForSale.findIndex(item => item.id === carId);
-    
+
         if (carIndex !== -1) {
-            // Add the whole car object to the cart
             cart.push(carsForSale[carIndex]);
-            localStorage.setItem('cart', JSON.stringify(cart));
-    
-            // Update the button text and disable it
+            localStorage.setItem(cartName, JSON.stringify(cart));
+
             const addToCartButton = document.querySelector(`.add-to-cart[data-car-id="${carId}"]`);
             if (addToCartButton) {
                 addToCartButton.textContent = 'Pending';
@@ -131,80 +129,102 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    function removeCar(carId) {
-        let carsForSale = JSON.parse(localStorage.getItem('cars_for_sale')) || [];
-        const carIndex = carsForSale.findIndex(item => item.id === carId);
-    
-        if (carIndex !== -1) {
-            // Remove the car object from the array
-            carsForSale.splice(carIndex, 1);
-            localStorage.setItem('cars_for_sale', JSON.stringify(carsForSale));
-    
+    async function removeCar(carId) {
+        const response = await fetch(`/api/products/${carId}`, {
+            method: 'DELETE'
+        });
+        if (response.ok) {
             // Refresh the display
-            appendCarsFromLocalStorage();
+            appendCarsFromApi();
             alert('Car removed successfully!');
+        } else {
+            alert('Failed to remove car. Please try again.');
         }
     }
     
-    function filterCars() {
+    
+    async function filterCars() {
         // Get search criteria
         const year = document.getElementById('year').value;
         const carType = document.getElementById('car-type').value;
         const carMake = document.getElementById('car-make').value;
         const carModel = document.getElementById('model').value;
+
+        console.log(year, carType, carMake, carModel);
     
-        const carsForSale = JSON.parse(localStorage.getItem('cars_for_sale')) || [];
+        try {
+            // Fetch cars data from the API
+            const response = await fetch('/api/products');
+            const products = await response.json();
     
-        // Check if all search criteria are default or empty
-        const isDefaultCriteria = year === 'Select Year' &&
-                                carType === 'Select Type' &&
-                                carMake === 'Select Make' &&
-                                carModel.trim() === '';
+            console.log('Products from API:', products); // Log fetched data
     
-        // If all criteria are default or empty, display all cars
-        if (isDefaultCriteria) {
-            appendCarsFromLocalStorage();
-            return;
+            // Filter cars based on selected criteria
+            const filteredCars = products.filter(car => {
+                console.log('Car:', car); // Log each car for debugging
+    
+                return (year === 'Select Year' || car.year === year) &&
+                (carType === 'Select Type' || car.type.toLowerCase() === carType.toLowerCase()) &&
+                (carMake === 'Select Make' || car.make.toLowerCase() === carMake.toLowerCase()) &&
+                (carModel === '' || car.model.toLowerCase().includes(carModel.toLowerCase()));
+                
+            });
+    
+            console.log('Filtered Cars:', filteredCars); // Log filtered cars
+    
+            // Clear existing content
+            let carsContainer;
+            if (document.getElementById('search-cars-guest')) {
+                carsContainer = document.getElementById('search-cars-guest');
+            } else if (document.getElementById('search-cars-admin')) {
+                carsContainer = document.getElementById('search-cars-admin');
+            } else {
+                carsContainer = document.getElementById('search-cars');
+            }
+            carsContainer.innerHTML = '';
+    
+            // Append filtered cars to the container
+            filteredCars.forEach(car => {
+                const carBox = createCarBox(car, carsContainer.id);
+                carsContainer.appendChild(carBox);
+            });
+        } catch (error) {
+            console.error('Error fetching data:', error);
         }
+    }
     
-        // Filter cars based on selected criteria
-        const filteredCars = carsForSale.filter(car => {
-            return (year === 'Select Year' || car.carYear === year) &&
-                    (carType === 'Select Type' || car.carType === carType) &&
-                    (carMake === 'Select Make' || car.carMake === document.getElementById('car-make').value) &&
-                    (carModel === '' || car.carModel.toLowerCase().includes(carModel.toLowerCase()));
-        });
-    
-        // Clear existing content
-        let carsContainer;
-        if (document.getElementById('search-cars-guest')) {
-            carsContainer = document.getElementById('search-cars-guest');
-        } else if (document.getElementById('search-cars-admin')) {
-            carsContainer = document.getElementById('search-cars-admin');
-        } else {
-            carsContainer = document.getElementById('search-cars');
-        }
-        carsContainer.innerHTML = '';
-    
-        // Append filtered cars to the container
-        filteredCars.forEach(car => {
-            const carBox = createCarBox(car, carsContainer.id);
-            carsContainer.appendChild(carBox);
-        });
-    }    
+    // Attach event listeners to search form fields
+    // async function checkSoldItems() {
+    //     const response = await fetch('/api/purchases');
+    //     const purchaseData = await response.json();
+
+    //     const currentUser = JSON.parse(localStorage.getItem('currentlyLoggedIn'));
+    //     const cartName = `${currentUser.id}_cart`;
+    //     let cart = JSON.parse(localStorage.getItem(cartName)) || [];
+
+    //     cart.forEach(item => {
+    //         const isSold = purchaseData.some(purchase => purchase.product_id === item.id);
+    //         if (isSold) {
+    //             item.isSold = true;
+    //         }
+    //     });
+
+    //     localStorage.setItem(cartName, JSON.stringify(cart));
+    //     appendCarsFromApi();
+    // }
 
     // Attach event listeners to search form fields
-    document.getElementById('search-car-form').addEventListener('submit', function(event) {
+    document.getElementById('search-car-form').addEventListener('submit', async function(event) {
         event.preventDefault();
-        filterCars();
+        await filterCars();
     });
 
     // Attach event listener to form reset
-    document.getElementById('search-car-form').addEventListener('reset', function(event) {
+    document.getElementById('search-car-form').addEventListener('reset', async function(event) {
         event.preventDefault();
-        appendCarsFromLocalStorage(); // Display all cars again
+        await appendCarsFromApi();
     });
 
-    // Append cars from local storage on page load
-    appendCarsFromLocalStorage();
+    // Append cars from API on page load
+    appendCarsFromApi();
 });
