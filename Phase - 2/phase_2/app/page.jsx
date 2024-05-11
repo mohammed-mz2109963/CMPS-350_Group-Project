@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from "@/app/page.module.css";
 import Link from 'next/link';
+import StatisticsChart from './StatisticsChart'; // Import the chart component
 
 function Page() {
     const [totalPurchases, setTotalPurchases] = useState(null);
@@ -140,6 +141,39 @@ function Page() {
             </div>
           </div>
         </div>
+          {/* Chart for Total Sum of Products and Average Product Size */}
+          <div className={styles.outerBox}>
+                    <StatisticsChart
+                        datasets={[
+                            {
+                                label: 'Total Sum of Product Prices',
+                                values: [totalPurchases ? totalPurchases.totalPriceSum : 0]
+                            },
+                            {
+                                label: 'Average Product Price',
+                                values: [averagePrice ? averagePrice._avg.price : 0]
+                            }
+                        ]}
+                        chartLabels={['Total Purchases']}
+                    />
+                </div>
+
+                {/* Chart for the remaining statistics */}
+                <div className={styles.outerBox}>
+                    <StatisticsChart
+                        datasets={[
+                            {
+                                label: 'Number of Sold',
+                                values: [saleInfo ? saleInfo.sold : 0]
+                            },
+                            {
+                                label: 'Number of Unsold',
+                                values: [saleInfo ? saleInfo.unsold : 0]
+                            }
+                        ]}
+                        chartLabels={['Number of Products Sold vs. Unsold']}
+                    />
+                </div>
           <div className={styles.buttonBox}>
             <Link href="/GuestHomePage.html">
               <button className = {styles.button}>Go to Guest Home Page</button>
