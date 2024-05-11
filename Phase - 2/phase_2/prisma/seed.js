@@ -79,6 +79,18 @@ async function main() {
         ]
     });
 
+    // Create admins
+    const admins = await prisma.user.createMany({
+        data: [
+        {
+            id: 6,
+            type: "admin",
+            username: "ADMIN1",
+            password: "ADMIN1@Scambox"
+        }
+        ]
+    });
+
     //console.log("Sellers:", sellers[1]);
 
     // Create products
@@ -100,7 +112,7 @@ async function main() {
             year: 2015,
             make: "Toyota",
             model: "Rav4",
-            type: "SUV",
+            type: "suv",
             price: 60000,
             distance: 30000,
             image_url: "https://ymimg1.b8cdn.com/resized/car_model/1509/pictures/1158171/mobile_listing_main_2014_Toyota_Rav4_Front_2.jpg",
@@ -111,7 +123,7 @@ async function main() {
             year: 2020,
             make: "Honda",
             model: "Accord",
-            type: "Coupe",
+            type: "coupe",
             price: 70000,
             distance: 12000,
             image_url: "https://static1.hotcarsimages.com/wordpress/wp-content/uploads/2020/10/Accord-EX-L-V6-Coupe-Front.jpg",
@@ -122,7 +134,7 @@ async function main() {
             year: 2012,
             make: "Nissan",
             model: "Tiida",
-            type: "Hatchback",
+            type: "hatchback",
             price: 80000,
             distance: 2500,
             image_url: "https://media.drive.com.au/obj/tx_rs:fit:1920:1080,q:50,w:1920/driveau/upload/cms/uploads/NIH2m6nQSa2pxpGJk7Gn",
@@ -133,7 +145,7 @@ async function main() {
             year: 2017,
             make: "Polestar",
             model: "1",
-            type: "Hyper",
+            type: "hyper",
             price: 90000,
             distance: 0,
             image_url: "https://static1.srcdn.com/wordpress/wp-content/uploads/2020/09/car-in-need-for-speed-heat-.jpg",
@@ -144,7 +156,7 @@ async function main() {
             year: 2017,
             make: "Dodge",
             model: "Viper",
-            type: "Sports",
+            type: "sports",
             price: 100000,
             distance: 0,
             image_url: "https://di-uploads-pod16.dealerinspire.com/kendalldodgechryslerjeepram1/uploads/2021/10/Viper-10-Kendall-Dodge.jpg",
@@ -155,7 +167,7 @@ async function main() {
             year: 2020,
             make: "Chevrolet",
             model: "Camaro SS",
-            type: "Convertible",
+            type: "convertible",
             price: 110000,
             distance: 0,
             image_url: "https://file.kelleybluebookimages.com/kbb/base/house/2020/2020-Chevrolet-Camaro-FrontSide_CHCAMRSS2001_640x480.jpg",
@@ -166,7 +178,7 @@ async function main() {
             year: 2024,
             make: "Porsche",
             model: "911 GT3 R",
-            type: "Sports",
+            type: "sports",
             price: 120000,
             distance: 0,
             image_url: "https://mediaassets.pca.org/pages/pca/images/content/img_9(3).jpg",
@@ -177,7 +189,7 @@ async function main() {
             year: 2021,
             make: "Mercedes",
             model: "CLE",
-            type: "Coupe",
+            type: "coupe",
             price: 130000,
             distance: 150,
             image_url: "https://www.mercedes-benz.co.uk/content/dam/hq/passengercars/cars/cle/cle-coupe-c236-pi/modeloverview/06-2023/images/mercedes-benz-cle-coupe-c236-model-overview-696x392-06-2023.png",
@@ -188,7 +200,7 @@ async function main() {
             year: 2024,
             make: "Koenigsegg",
             model: "Gemera",
-            type: "Hyper",
+            type: "hyper",
             price: 140000,
             distance: 0,
             image_url: "https://media.drive.com.au/obj/tx_rs:fit:1920:1080,q:50,w:1920/caradvice/private/iippmjm5pwsz350e6hxb",
@@ -199,7 +211,7 @@ async function main() {
             year: 2024,
             make: "Toyota",
             model: "Camry",
-            type: "Sedan",
+            type: "sedan",
             price: 150000,
             distance: 0,
             image_url: "https://i.gaw.to/vehicles/photos/40/36/403605-2024-toyota-camry.jpg?640x400",
@@ -210,7 +222,7 @@ async function main() {
             year: 2009,
             make: "Ford",
             model: "Fusion",
-            type: "Sedan",
+            type: "sedan",
             price: 160000,
             distance: 125000,
             image_url: "https://i.gaw.to/vehicles/photos/00/98/009825_2009_Ford_Fusion.jpg?1024x640",
@@ -258,6 +270,8 @@ async function main() {
     console.log(buyers);
     console.log("Sellers:");
     console.log(sellers);
+    console.log("Admins:");
+    console.log(admins);
     console.log("Products:");
     console.log(products);
     console.log("Purchases:");
