@@ -22,10 +22,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Create product object
         const productObject = {
-            name: carMake + ' ' + carModel,
-            price: parseFloat(carPrice),
+            year: parseInt(carYear),
+            make: carMake,
+            model: carModel,
             type: carType,
+            price: parseFloat(carPrice),
+            distance: parseFloat(carDistance),
             image_url: carImageURL,
+            isSold: false,
             seller_id: currentlyLoggedIn.id // Fill in seller_id using currently logged-in user details
         };
 
